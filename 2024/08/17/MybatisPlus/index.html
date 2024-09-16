@@ -24,7 +24,7 @@
 
   
 
-  <title>Docker部署和常用指令 | MyBlog</title>
+  <title>MybatisPlus相关 | MyBlog</title>
 
   
 
@@ -101,15 +101,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">Docker部署和常用指令</h1>
+          <h1 class="title-wrap">MybatisPlus相关</h1>
           <h2 class="title-sub-wrap">
             <strong>Shamrock</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-09-16T16:00:00.000Z" itemprop="datePublished">2024-09-17</time>
+            <time  class="article-date" datetime="2024-08-16T16:00:00.000Z" itemprop="datePublished">2024-08-17</time>
           </h2>
           
+            <h2 class="last-time">
+              <span>最后更新于</span>
+              <time  class="article-updated" datetime="2024-09-16T19:14:13.467Z" itemprop="dateUpdated">2024-09-17</time>
+            </h2>
           
-            <h2 id="/2024/09/17/Docker/" class="title-sub-wrap leancloud_visitors" data-flag-title="Docker部署和常用指令">
+          
+            <h2 id="/2024/08/17/MybatisPlus/" class="title-sub-wrap leancloud_visitors" data-flag-title="MybatisPlus相关">
               <em>文章访问量</em>
               <i class="leancloud-visitors-count"></i>
             </h2>
@@ -143,150 +148,45 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="1-卸载旧版"><a href="#1-卸载旧版" class="headerlink" title="1.卸载旧版"></a>1.卸载旧版</h3><p>首先如果系统中已经存在旧的Docker，则先卸载：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">    docker-client \</span><br><span class="line">    docker-client-latest \</span><br><span class="line">    docker-common \</span><br><span class="line">    docker-latest \</span><br><span class="line">    docker-latest-logrotate \</span><br><span class="line">    docker-logrotate \</span><br><span class="line">    docker-engine \</span><br><span class="line">    docker-selinux </span><br></pre></td></tr></table></figure>
+        <h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
+<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
+<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
 
-<h3 id="2-配置Docker的yum库"><a href="#2-配置Docker的yum库" class="headerlink" title="2.配置Docker的yum库"></a>2.配置Docker的yum库</h3><p>首先要安装一个yum工具</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install -y yum-utils</span><br></pre></td></tr></table></figure>
 
-<p><strong>注意</strong>：</p>
-<p>如果在此处出现了以下情况：</p>
-<img src="https://s2.loli.net/2024/09/17/dWpZ5rL2aeYFqAD.png" alt="image-20240908180439022" style="zoom:50%;" />
 
-<p>原因是仓库问题，可以进行以下配置：</p>
-<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39428589/article/details/134483549">https://blog.csdn.net/qq_39428589/article/details/134483549</a></p>
-<p>安装成功后，执行命令，配置Docker的yum源（已更新为阿里云源）：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&#x27;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#x27;</span> /etc/yum.repos.d/docker-ce.repo</span><br></pre></td></tr></table></figure>
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
+<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
 
-<p>更新yum，建立缓存</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
+<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
 
-<h3 id="3-安装Docker"><a href="#3-安装Docker" class="headerlink" title="3.安装Docker"></a>3.安装Docker</h3><p>最后，执行命令，安装Docker</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
+<p>2、设置生成代码的配置</p>
+<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
 
-<h3 id="4-启动和校验"><a href="#4-启动和校验" class="headerlink" title="4.启动和校验"></a>4.启动和校验</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动Docker</span></span><br><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止Docker</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行docker ps命令，如果不报错，说明安装启动成功</span></span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
 
-<h2 id="命令解读"><a href="#命令解读" class="headerlink" title="命令解读"></a>命令解读</h2><p>利用Docker快速的安装了MySQL，非常的方便，不过我们执行的命令到底是什么意思呢？</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run <span class="literal">-d</span> \</span><br><span class="line">  <span class="literal">--name</span> mysql \</span><br><span class="line">  <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> \</span><br><span class="line">  <span class="literal">-e</span> TZ=Asia/Shanghai \</span><br><span class="line">  <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123</span> \</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>解读：</p>
-<ul>
-<li><code>docker run -d</code> ：创建并运行一个容器，<code>-d</code>则是让容器以后台进程运行</li>
-<li><code>--name`` mysql </code> : 给容器起个名字叫<code>mysql</code>，你可以叫别的</li>
-<li><code>-p 3306:3306</code> : 设置端口映射。<ul>
-<li><strong>容器是隔离环境</strong>，外界不可访问。但是可以<strong>将<strong><strong>宿主机</strong></strong>端口****映射容器内到端口</strong>，当访问宿主机指定端口时，就是在访问容器内的端口了。</li>
-<li>容器内端口往往是由容器内的进程决定，例如MySQL进程默认端口是3306，因此容器内端口一定是3306；而宿主机端口则可以任意指定，一般与容器内保持一致。</li>
-<li>格式： <code>-p 宿主机端口:容器内端口</code>，示例中就是将宿主机的3306映射到容器内的3306端口</li>
-</ul>
-</li>
-<li><code>-``e`` TZ=Asia/Shanghai</code> : 配置容器内进程运行时的一些参数<ul>
-<li>格式：<code>-e KEY=VALUE</code>，KEY和VALUE都由容器内进程决定</li>
-<li>案例中，<code>TZ``=Asia/Shanghai</code>是设置时区；<code>MYSQL_ROOT_PASSWORD=123</code>是设置MySQL默认密码</li>
-</ul>
-</li>
-<li><code>mysql</code> : 设置<strong>镜像</strong>名称，Docker会根据这个名字搜索并下载镜像<ul>
-<li>格式：<code>REPOSITORY:TAG</code>，例如<code>mysql:8.0</code>，其中<code>REPOSITORY</code>可以理解为镜像名，<code>TAG</code>是版本号</li>
-<li>在未指定<code>TAG</code>的情况下，默认是最新版本，也就是<code>mysql:latest</code></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>镜像的名称不是随意的，而是要到DockerRegistry中寻找，镜像运行时的配置也不是随意的，要参考镜像的帮助文档，这些在DockerHub网站或者软件的官方网站中都能找到。</p>
-<p>如果我们要安装其它软件，也可以到DockerRegistry中寻找对应的镜像名称和版本，阅读相关配置即可。</p>
-<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>首先我们来学习Docker中的常见命令，可以参考官方文档：</p>
-<p><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/cli/">https://docs.docker.com/engine/reference/commandline/cli/</a></p>
-<h3 id="1-命令介绍"><a href="#1-命令介绍" class="headerlink" title="1.命令介绍"></a>1.命令介绍</h3><p>其中，比较常见的命令有：</p>
-<table>
-<thead>
-<tr>
-<th align="left"><strong>命令</strong></th>
-<th align="left"><strong>说明</strong></th>
-<th align="left"><strong>文档地址</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">docker pull</td>
-<td align="left">拉取镜像</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/pull/">docker pull</a></td>
-</tr>
-<tr>
-<td align="left">docker push</td>
-<td align="left">推送镜像到DockerRegistry</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/push/">docker push</a></td>
-</tr>
-<tr>
-<td align="left">docker images</td>
-<td align="left">查看本地镜像</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/images/">docker images</a></td>
-</tr>
-<tr>
-<td align="left">docker rmi</td>
-<td align="left">删除本地镜像</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/rmi/">docker rmi</a></td>
-</tr>
-<tr>
-<td align="left">docker run</td>
-<td align="left">创建并运行容器（不能重复创建）</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/run/">docker run</a></td>
-</tr>
-<tr>
-<td align="left">docker stop</td>
-<td align="left">停止指定容器</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/stop/">docker stop</a></td>
-</tr>
-<tr>
-<td align="left">docker start</td>
-<td align="left">启动指定容器</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/start/">docker start</a></td>
-</tr>
-<tr>
-<td align="left">docker restart</td>
-<td align="left">重新启动容器</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/restart/">docker restart</a></td>
-</tr>
-<tr>
-<td align="left">docker rm</td>
-<td align="left">删除指定容器</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/rm/">docs.docker.com</a></td>
-</tr>
-<tr>
-<td align="left">docker ps</td>
-<td align="left">查看容器</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/ps/">docker ps</a></td>
-</tr>
-<tr>
-<td align="left">docker logs</td>
-<td align="left">查看容器运行日志</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/logs/">docker logs</a></td>
-</tr>
-<tr>
-<td align="left">docker exec</td>
-<td align="left">进入容器</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/exec/">docker exec</a></td>
-</tr>
-<tr>
-<td align="left">docker save</td>
-<td align="left">保存镜像到本地压缩文件</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/save/">docker save</a></td>
-</tr>
-<tr>
-<td align="left">docker load</td>
-<td align="left">加载本地压缩文件到镜像</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/load/">docker load</a></td>
-</tr>
-<tr>
-<td align="left">docker inspect</td>
-<td align="left">查看容器详细信息</td>
-<td align="left"><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/inspect/">docker inspect</a></td>
-</tr>
-</tbody></table>
-
+<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
+<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
+<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
+<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />
       </section>
 
       
       
         <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/08/28/%E8%81%8A%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">聊多级缓存的一致性</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
           
           
             <div class="article-nav-item layout-padding">
@@ -294,7 +194,7 @@
     
     <div class="card-text">
       
-        <a href="/2024/09/17/Git/" itemprop="url">
+        <a href="/2023/11/26/Git/" itemprop="url">
           <h2 class="card-text--title text-ellipsis">git管理</h2>
         </a>
       

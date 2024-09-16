@@ -24,7 +24,7 @@
 
   
 
-  <title>聊多级缓存的一致性 | MyBlog</title>
+  <title>Linux环境搭建 | MyBlog</title>
 
   
 
@@ -101,20 +101,20 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">聊多级缓存的一致性</h1>
+          <h1 class="title-wrap">Linux环境搭建</h1>
           <h2 class="title-sub-wrap">
             <strong>Shamrock</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-09-15T16:00:00.000Z" itemprop="datePublished">2024-09-16</time>
+            <time  class="article-date" datetime="2024-09-02T16:00:00.000Z" itemprop="datePublished">2024-09-03</time>
           </h2>
           
             <h2 class="last-time">
               <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-09-16T16:09:21.172Z" itemprop="dateUpdated">2024-09-17</time>
+              <time  class="article-updated" datetime="2024-09-16T19:14:11.986Z" itemprop="dateUpdated">2024-09-17</time>
             </h2>
           
           
-            <h2 id="/2024/09/16/%E8%81%8A%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/" class="title-sub-wrap leancloud_visitors" data-flag-title="聊多级缓存的一致性">
+            <h2 id="/2024/09/03/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="title-sub-wrap leancloud_visitors" data-flag-title="Linux环境搭建">
               <em>文章访问量</em>
               <i class="leancloud-visitors-count"></i>
             </h2>
@@ -148,112 +148,157 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>缓存（Cache）是一种临时存储系统，主要用于存储最近或频繁访问的数据。其主要目的是为了提高数据访问速度，减少对原始数据源（如磁盘、网络服务器等）的访问次数，从而提升系统的性能和响应速度。</p>
-<p>为了降低高并发下数据库的压力，我们多以 redis 作为缓存去存储频繁访问的数据，避免更多的请求直接打到数据库给其造成巨大压力。</p>
-<p>但是与此同时，我们单一级的 redis 缓存也可能会遇到以下一些问题：</p>
-<p>这里先补充一点关于<strong>数据的一致性</strong>问题：</p>
-<p>数据一致性问题是指当数据在多个地方（如缓存和数据库）存储时，这些地方的数据可能会出现不一致的情况。这种不一致可能是由于缓存更新滞后、系统故障或其他原因引起的。</p>
+        <h1 id="1-准备Linux环境"><a href="#1-准备Linux环境" class="headerlink" title="1.准备Linux环境"></a>1.准备Linux环境</h1><p>首先，我们要准备一个Linux的系统，成本最低的方式就是在本地安装一台虚拟机。为了统一学习环境，不管是使用MacOS还是Windows系统的同学，都建议安装一台虚拟机。</p>
+<p>windows采用VMware，Mac则采用Fusion</p>
+<h2 id="1-1-安装VMware"><a href="#1-1-安装VMware" class="headerlink" title="1.1.安装VMware"></a>1.1.安装VMware</h2><p>VMware是业界最好用的虚拟机软件之一。</p>
+<p>windows版本的网站如下：</p>
+<p><a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html</a></p>
+<p>特别注意，Windows10以上版本操作系统需要下载安装VMware Workstation Pro16及以上版本</p>
+<p>如果自己电脑上已经有了低版本的VMware，则需要先卸载，再重新安装。卸载过程比较麻烦。</p>
+<h3 id="1-1-1-卸载旧版VMware"><a href="#1-1-1-卸载旧版VMware" class="headerlink" title="1.1.1.卸载旧版VMware"></a>1.1.1.卸载旧版VMware</h3><p>首先，在控制面板找到程序和功能选项，找到VMware，进行卸载操作。</p>
+<p>卸载完成后，还需要看看VMware的安装目录是否有旧数据，一并清理掉。</p>
+<p>需要直接删除整个VMware目录：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NTEzNzA1MGJiYzIwYzE2NTY1NGY1NGE0YzFmMmE3YTJfQ2VNdTNnbGQ1NGpSVUlmVzdWMHpoUDdQQk1HN1oxWXpfVG9rZW46TVFnY2JHdEJUb2IzVHB4QklDSmNNOG0zbmtlXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>接下来要清理注册表：</p>
+<p>首先，按住Windows + R , 在弹出框中输入 “regedit” 调出注册表：</p>
+<p>进入注册表编辑器，如图：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OTRlOThmZTBkODM0ZWYyMmY2YWMwODcyNDhjMGRjNDVfZVVmWEx3VjhCMGJZUDlFR0pwZ2tMZFBURFJvZkVKTThfVG9rZW46WUliZGIxWGNlbzFJdUd4Ums3TGNlc2xubnpyXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>打开**<code>HKEY_CURRENT_USER</code><strong>文件夹，找到</strong><code>Software</code>**文件夹并打开</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OGU0MGYzYmQ0NmQ2YjI3YTc4ZjgyYWYyMDQ5MTI5N2VfWnN6ZW1Hc0tsQXVBRTlYMVh2bHBrSlp4Sm5ISFhvbVhfVG9rZW46S1FqbmJSTW5ob3Zpc2d4cXE0VWNVcE1ubmVlXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>找到“VMware.Inc”，右键删除：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ODY0ZjlkZGU1ODhjOTg5NWYxNTU3ZDNmMzcwZmRiMzVfUzBOYW41bWEzMHJRUmNEOVo4MWNlYUdJdWtGTXRFRHpfVG9rZW46TFIzSGJ2Y0tzb1NJcHV4emtHNWM0U3pEbmZmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h3 id="1-1-2-安装VMware"><a href="#1-1-2-安装VMware" class="headerlink" title="1.1.2.安装VMware"></a>1.1.2.安装VMware</h3><p>话不多说网上破解教程大把，安装后打开如下：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NTdmOGU1NjQ5OTMwMDlhNmQyM2VkNDBlY2QxODk3NWNfYkdXN2h1QkdiNEh5M0REY1hrRk1FdGJmQmNHUEtKUEpfVG9rZW46RTJBMWJKWmVsbzFBMmp4dXhTbmNpbHh0blFnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h3 id="1-1-3-常见错误"><a href="#1-1-3-常见错误" class="headerlink" title="1.1.3.常见错误"></a>1.1.3.常见错误</h3><p>如果VMware虚拟机运行报错，例如：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OTU2NjM0MDUzNDdkZmNhNDMyM2ZmZjA2NTA1OTMxMDVfYU5TbnlxR0lBYndJV1Badk1oZHFBamE1SnVLVzZOTm9fVG9rZW46WlJKcmJZUXlIb3BYSFB4alNiS2N4YVZObndkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>这个是由于英特尔的虚拟化技术, 没有开启, 需要进入系统的BIOS界面 , 开启英特尔的虚拟化技术 ; 不同的电脑型号 , 进入BIOS界面的方式不同, 需要百度查询一下自己电脑的型号 , 如何进BIOS ;</p>
+<p>windows10系统可以参考: <a target="_blank" rel="noopener" href="https://blog.csdn.net/biu_code/article/details/107504627">https://blog.csdn.net/biu_code/article/details/107504627</a></p>
+<p>以ThinkPad为例，如图：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=Njk1NjU0NzZkYmE3YWRkYzMzYzZmNjE3NmI0NWVlNmNfbUJJZmFaRDRWeUNKZ09GdGtuRzgyZzNsTjFsZGxpNUJfVG9rZW46VXpsWGJVZ1B4b09uQjJ4M3hjZ2NqZzZmbmpnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h2 id="1-2-创建虚拟机"><a href="#1-2-创建虚拟机" class="headerlink" title="1.2.创建虚拟机"></a>1.2.创建虚拟机</h2><p>Centos7是比较常用的一个Linux发行版本（使用Ubuntu也行），这俩在国内的使用比例还是比较高的。</p>
+<p>首先要下载一个Centos7的iso映射文件</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDBmMWZiMDUxOTViZGYwNjRlNzc2ZDBmOWNmODYwNjhfVmRXdXBJQUVTZUdheHlmRWdlVVhQYlMzeUNLUHdlQ1FfVG9rZW46UDRKdGJmRHExb2hFNGt4Z3Q2dWNXWHJzbndiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>VMware《主页》界面中点击《创建新的虚拟机》按钮：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MjcwYjVkOTVjMGZjNDExYmFjYmNjMjg1MzVmNTgwZjdfdjFhaFhhNkRvNExhcVBGT0pTWVUwWG04ZWV6MjBDYTRfVG9rZW46UVVkSmJmU1Zrb0ZsaEh4ckFVeWM1aTVnblJoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>然后会弹出一个窗口，直接点击下一步：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTk1YTcyZTM0NWMzMzU1OTdkOTgwZWU4NGU4OGY4OTlfYVk5UExwVlJtT3c3YTFvaVRNRFp4cVN5YWNpOEI3ak1fVG9rZW46VGZzNWJOUVJJb3hnbzF4dmxNdWNRaGpqbkhjXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>然后页面中选择你准备好的ISO文件，继续点击下一步：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGI5NzEwNjlkMTRkYTE3OTE5ODc0MTc5YWY1ZGQ2MTVfc1k1TjdBbFpPSDJyS0J4YUZJZlFSQ2pUa3ZKTm5pem1fVG9rZW46VHRBMGJVUU12b2lnNUt4QlNtM2NpRERBbnZkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>然后填写<code>虚拟机的名称</code>以及虚拟机将来<code>保存的位置</code>：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGE5NTQ3YjgwYjdhNjBjZTBhOTM1ZDczNWMwOGI2YWRfcDVaR1luNGJqTXlaRll3Qk5scGJIWXZoWkFGOUM1cjZfVG9rZW46RGlnZWJSMXNPb2dtSnZ4Y0lvbGNtaU0wbkFoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>再次下一步，填写虚拟机磁盘大小。这里建议给大一点，否则将来不够用调整起来麻烦。而且这里设置大小并不是立刻占用这么多，而是设置一个上限：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjEyMjRiYmNjMWNlMDIwYjFiOGI4M2E2YTM3NzI5YjFfdDlmWGJDWUU0YWlmemxIcVB6bkpBOEE3Yzc5NVMwcGVfVG9rZW46RmF5U2JlUndVb1V1am94VFppR2M4RnlpbkRkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>继续下一步，然后选择虚拟机硬件设置：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjljNGVlMDM4NzhjYzczYWQzMGM0ZWRhNDVmMWI3MzVfN0Q2WGNSYlZvR2VTaHpUWVVRUEo2N1dSUkpRa1lOd3ZfVG9rZW46RFhMNWIzSFNmb1Z0dEx4S2M1V2NLb0plbjJjXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>在弹出的窗口中设置虚拟机硬件，建议CPU给到4核，内存给到8G：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YmRjMDFmMmQ2NTYwZDg5ZDQ1ZDBlMTE0ZDI0YWQwMmFfamhxTm1CeFA4MnBhYVZnOExsb2dTNlYwUm4wWklGdUxfVG9rZW46TUcyUGI1cU1ab3EzYkF4OW04VGNxZXNYblQwXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>配置完成后，点击<code>关闭</code>，回到上一页面，继续点击<code>完成</code>：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NWFkMmRiM2ZkYTVjOTIwZmQyNzFiNGZlMTM0ZjNmYTNfc0R5UHVPZzhYRklIaEdsMk02d0RuYnd5QnRwQURhWWJfVG9rZW46QXI2TWJHV3hFb3ZnNGd4d3VWcmNvMGRTbldJXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>虚拟机就创建完毕了：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDFmOTM5OWIxNmU0ODg5ZjIzMmUzOWU2YTUyZGRlOWRfbmpoa2RuUWNjcnhkUjB4Q1BaQ20zQ0V3NHA3bGM4ZXpfVG9rZW46QW1DTWJhRzhLb3Bmb3d4cmNPcGNqb3FzbmNiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h2 id="1-3-安装Centos7"><a href="#1-3-安装Centos7" class="headerlink" title="1.3.安装Centos7"></a>1.3.安装Centos7</h2><p>启动刚刚创建的虚拟机，开始安装Centos7系统：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NjQ1MmYwMzIxMjhjYzQxNDA5MzYwNGYwODQ2NjVhNTVfb1RxNkNyUHpkV2gwdG1Ubkt4RUN4YWhGQ2kyZ0lsMXBfVG9rZW46RTJ5aWJ2Ym9Vb0xDdWV4SURJcGMzdGJtbkdoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>启动后需要选择安装菜单，将鼠标移入黑窗口中后，将无法再使用鼠标，需要按上下键选择菜单。选中Install Centos 7 后按下回车：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGZkNTljZmI0OGNlMzFlZDA1M2E0Mzk2MGUyMjg2YzdfWXZ3VkFNWU4xeGhyZEM2NWhtelFTT3U0S3VUMlZJTVJfVG9rZW46SDAyZmJYRElVb2RadWJ4bXFTUmNOWnVGbjhiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>然后会提示我们按下enter键继续：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NmVmZjlhMWU5MjYxNjNlOGJiM2QyODczMDA2ZWVkNzdfazNBN0tTbjA1QkcxVzByMVZHVEVKN2dHSGlycXByZnBfVG9rZW46R3lva2JaMW02b1FTWDd4Z3lTZ2NuMXdPbmNWXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>过一会儿后，会进入语言选择菜单，这里可以使用鼠标选择。选择中文-简体中文，然后继续：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjEyZDQzZmJlNzMzMzM0YTIzOTAwZjIxNGI2NGU0ZWZfekhzcXpLSHpZWFNaN1JjQWtrZmlrVzF6bWlnUFAyZGFfVG9rZW46TlpqOWJMaHhwbzBrZnF4R0k2V2NJbEJtbjVmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>接下来，会进入安装配置页面：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OGExZWVjMmQ0OGQwYmUyZWM3ZTk5MzJmNDRkZjNjZTRfbEV2aEdVM3lsN3NEYzJxb0J6YVBTdWdud1NuOEszTmZfVG9rZW46RFZBUWJBODFkb01ldzF4UlJjWmNvZFo5bnljXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>鼠标向下滚动后，找到系统-安装位置配置，点击：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjM0OGFkODJjNGM0M2Q3NTFkN2IyNTNiZjgzZTRiNGVfTmVzWHk1MnVUbnJhaVVsUnR1M09UMWV4aXRlWGgxOXRfVG9rZW46U0xMamJPb0tJb05XZ1R4MGN4YWNpcEFLbjVkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>选择刚刚添加的磁盘，并点击完成：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NDcyNzg3NGU1ZjAxMzJiZDM1MmQxYzAzNmIzOWI4ZmJfZzFyZ01RTEgwT2NsYklkN09wNm9nR3VyTDVjeHNzeklfVG9rZW46VGtpa2JNeVdBb1ZraEV4aGNWbGNmSm0xbmtoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>然后回到配置页面，这次点击《网络和主机名》：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGNhNjBhYzA2YWI2YjAwY2ZkZjQ4NzBjODQ0YmNiYzBfanRnNHFSYWY0Z203bUthVzBnamR1alhGc1FjdFFCaXBfVG9rZW46TUNmR2JpZlMwbzBJZHd4UjkyYWNxWHdzbmJnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>在网络页面做下面的几件事情：</p>
 <ol>
-<li><strong>并发访问问题</strong>：<ul>
-<li>Redis是一个共享内存数据库，当 n 多个客户端同时访问缓存时，可能会出现并发访问问题，尤其是在高并发场景下。Redis虽然提供了多种锁机制（如SETNX命令等）来解决并发问题，但在高并发场景下，仍然可能导致数据不一致或性能瓶颈。</li>
-</ul>
-</li>
-<li><strong>缓存穿透</strong>：<ul>
-<li>当请求的数据在缓存和数据库中都不存在时，如果缓存直接返回空或错误信息，可能会导致大量无效请求直接冲击数据库，影响性能和数据库负载。<br> <em>解决方案</em><br> -可以采用布隆过滤器（Bloom Filter）来预判数据是否不存在于缓存中，从而避免直接查询数据库；还有一个最简单的就是缓存空值，并设置合理的过期时间。</li>
-</ul>
-</li>
-<li><strong>缓存雪崩</strong>：<ul>
-<li>当缓存中大量数据同时过期，高并发场景下请求直接访问数据库，导致数据库压力剧增，可能导致数据库崩溃，进而导致数据不一致。<br> <em>解决方案</em></li>
-<li>可以通过将缓存数据的过期时间设置为随机，这样就可以防止太多缓存同时过期导致出现雪崩；把筛出来的热点数据设置为静态，可以减少数据库的访问，减轻压力。</li>
-</ul>
-</li>
-<li><strong>缓存击穿</strong>：<ul>
-<li>当缓存中某个热点数据在高并发情况下失效（例如缓存过期或故障被删除），并且此时数据库查询结果也未及时更新到缓存中，可能会导致大量请求直接冲击数据库，造成性能瓶颈。<br> <em>解决方案</em></li>
-<li>可以通过设置缓存的互斥锁（如 Redis 的 SETNX 命令）来确保在缓存失效时只有一条请求能进入数据库查询，其余请求等待缓存更新，性能会稍有影响，毕竟这么多的请求都在阻塞等待，好处是能防止同一时间大量请求涌入数据库造成巨大压力；另外还有一种办法，可以将热点数据的缓存设置为永不过期，但是这样的话有要求系统准确判断热 key 的能力较好。</li>
-</ul>
-</li>
-<li><strong>内存使用问题</strong>：<ul>
-<li>Redis缓存会占用服务器的内存资源。如果缓存数据量过大，可能会导致服务器内存不足，影响其他应用或服务的运行，性能下降。</li>
-</ul>
-</li>
+<li>修改主机名为自己喜欢的主机名，不要出现中文和特殊字符，建议用localhost</li>
+<li>点击应用</li>
+<li>将网络连接打开</li>
+<li>点击配置，设置详细网络信息</li>
 </ol>
-<h2 id="传统缓存的不足之处"><a href="#传统缓存的不足之处" class="headerlink" title="传统缓存的不足之处"></a>传统缓存的不足之处</h2><p>传统的缓存策略一般是请求到达 Tomcat 后，先查询 Redis，如果未命中则查询数据库，这种如此直接的缓存策略会存在下面的问题: </p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDkxZjYwOGRjNGZhMjFkNDVjMGYwMzhkZTc1YWQ4NmVfVjY2N1hVNDVqR3ZyQmREWDNoMDdQRjl6MmY3UnBmS3dfVG9rZW46WnNsNWJCZDI4bzJNU1N4MTVNVGNlZVYzbnZoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><strong>重要</strong>：截图记住上图中的网络详细信息，接下来的配置要参考：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGMyNzc2N2I3MTQ2YTA4MjM1YmJkNjdhY2ZlYWUxNzdfYkZZV1l0bElUUU1PMEsyeWdCR25IOFBBeFF3WXkwcFRfVG9rZW46UmpxemJqMGl2b01BUVR4ZFFtNmNTOUVvbmRmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>点击配置按钮后，需要把网卡地址改为静态IP，这样可以避免每次启动虚拟机IP都变化。所有配置照搬你自己截图的网络信息填写，不要照抄我的：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MGU4YjU0YThiNmQ4ZTQ0ODJkMThmMTgwOGZmZGEyMjVfbVU2M2xQVTVWNXNONzJkUkEzWHVQWm9RWVNhbjdwMTlfVG9rZW46UXR5amJlSEs3b0J4QTF4MUc5UGNTZEx3bmViXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>上图中的四个信息参考之前的<strong>以太网</strong> <strong>(ens33)</strong> <strong>网卡</strong>的截图，不要照搬我的来写。</p>
+<p>最后，点击完成按钮：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MWYzYTc5MzIwOTA2NWNkOTFkYmRkMTAzNzA0YWRlMDFfMG43cVF5SVJSd1B6RjYwME05cEowQlF0RHJOczlEMElfVG9rZW46SkhLb2J2aXlUb2poVXB4VmVudGNCOVBEblFnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>回到配置界面后，点击<code>开始安装</code>：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDUyN2NmYThiYzJkNDgxOTUxZjc4OTJhYjg0ZmVhNjdfVnVmTUl4SzNjRE5kYnJrRnVzWHRMYzIxOHBSZmZMcUdfVG9rZW46RlpUemJWYzRqb2pUUTJ4MW1FM2N6YTJDbktiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>接下来需要设置root密码：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTYzOTUxZmUxMGUxMDg3ZTQxYTdkOWY1MWY0NTRiNThfNzh3MURNa2duSklFbldqWG1Ta3hNOFltdkdiOUZCNFJfVG9rZW46WDZhTGJTNldBb2ozTXd4UjJVOGNyMkdGbk9nXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>填写你要使用的root密码，然后点击完成：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=Yzg4ZTk4MjEwNmUzYWQyOGI0MTBhNDBmMzExNzU5MzZfSE9RUUlkREE0elNYMDZ6YWJXWkJnUDNDa2VuaUZiak9fVG9rZW46T244emJ0ZzE2b0J5bEd4QjJXOGN0MTZobmpiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>接下来，耐心等待安装即可。</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDAwOTlhMmY4ODE4ZjlmZjQ4ZWNmZTM3YmU3OWZiYzlfRVlOZ3p2NDRlM1FYYnUwOHkwVG1ycURJcWNaa2s0NWVfVG9rZW46TlFlYWJrVm8wb0dNY094ekRYRmMwRjRBbmhjXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>等待安装完成后，点击<strong>重启</strong>：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWE4ZmRkY2YxNjNmMTU1YjQ3NjRlZjQzMTA4MDY2YzNfbXNKbDhCTlAwc3M2bmtoZ0UzZXVYRDl4MWVad2pqc2tfVG9rZW46THBEZmJwTFZzb2NUS1l4Y2d3dWNRc2s4bmc5XzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>耐心等待一段时间，不要做任何操作，虚拟机即可启动完毕：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MWQ5NDBhY2QwYmEyY2JkOWM1OGNhMGMzODczM2I5NTdfellyeGh5TU9tNHZPYzdCSVJUQ2UzN0FRQ1N5MWVMclhfVG9rZW46V2J0UmJkMmx0b1JETlZ4UFUyTGNzZ01zbjVmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>输入用户名root，然后点击回车，会要求你输入密码：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTJlMjNjNTQxMzg2YmViYjJhYjI2OWE1NGJmYmQyODNfTWN1SjMzYTdkdW5wN3dzcDVqVnhCS2trSGtDZDF3YVFfVG9rZW46Q2dEcmJmQkYxb2RRUk54UjFjdWN5dkVpbldkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>此时你要输入密码，不过需要注意的是密码是<strong>隐藏</strong>的，输入了也看不见。所以放心输入，完成后回车即可：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YWMyNTM0ZDg2MjU2YjA5YmNhYjc5MmVmNzgwMWQ1MmFfaEJsNHZKa2lzaUJRUDdzSjEwNXgxUTFocUZHclNpNndfVG9rZW46R09JN2JHRG5lb3pXcTB4UU1mc2NNRGNlbnNiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>只要密码输入正确，就可以正常登录。此时可以用命令测试虚拟机网络是否畅通：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>如果看到这样的结果代表网络畅通：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OTcxODI0YjkxOWI2NmI5OWMwYjFiYzIyYTA3MzczMTJfckdmS0M2T1pFbG9uQk1kdFliQnpOTEE3cUZxeW16Tk9fVG9rZW46TE9nbmJvbjVwbzJ0NWx4ZTlBaGMyODNZbktiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>默认ping命令会持续执行，按下<code>CTRL </code>+ <code>C</code>后命令即可停止。</p>
+<h2 id="1-4-设置虚拟机快照"><a href="#1-4-设置虚拟机快照" class="headerlink" title="1.4.设置虚拟机快照"></a>1.4.设置虚拟机快照</h2><p>在虚拟机安装完成后，最好立刻设置一个快照，这样一旦将来虚拟机出现问题，可以快速恢复。</p>
+<p>我们先停止虚拟机，点击VMware顶部菜单中的<code>暂停</code>**<code>下拉选框</code>**，选择<code>关闭客户机</code>：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YzZiNGIwNWE2NDA2OGI2MTEzYzhlYWEwNDIwYmYwMjZfTTZpSVdWcERKc1hjVkRLNThqM0NuSHAwMVMxaEg2bjhfVG9rZW46R2lPZGJiYXlnb0xtTm54eHVlemNpN1pVbmNoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>接着，点击VMware菜单中的🔧按钮:</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTM4YTcwOTY4OTRhYjA0NzkzMWI3ZWQ2ZjlhMzUxOGZfendReUZlZHA0dmJHTVBZaDlOMWM3UUNPT0Iybk03S1ZfVG9rZW46VUNMZGJJOTNqbzJGdGV4eU1DdGM0VEQ0bkhmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>然后在弹出的快照管理窗口中，点击<strong>拍摄快照</strong>，填写新的快照信息：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=M2Q2Nzk2NDZhNzFjZjc3NDk1MDM5NDdkOGJhZWU3ZjVfUUtWOVB4eFlXdUFNckdBYm10cWluakljVUQ4MlYyMnZfVG9rZW46TWZXQmJZajl5bzhhVWJ4SWkzRWM3SXhEbjRCXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>快照拍摄完成了，可以在不同阶段拍摄多个不同快照作为备份，方便后期恢复数据。</p>
+<p>假如以后虚拟机文件受损，需要恢复到初始状态的话，可以选中要恢复的快照，点击转到即可：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2I0MmNkZDFkZGU5YzI5MjM5ZGVmMTllNzMyNjFlZDRfQ3RkMXFCMnZwVnRKOXpDTVhmODhzVlUzMGhCc3d0ZjFfVG9rZW46SE9VMmJsTnkxbzl0Y2J4QUNnOGNMZGJLbktmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h1 id="2-SSH客户端"><a href="#2-SSH客户端" class="headerlink" title="2.SSH客户端"></a>2.SSH客户端</h1><p>在VMware界面中操作虚拟机非常不友好，所以一般推荐使用专门的SSH客户端。市面上常见的有：</p>
 <ul>
-<li>请求需要经过 Tomcat 处理，那么 Tomcat 的性能成为整个系统的瓶颈</li>
-<li>当Redis 缓存失效时，会对数据库产生冲击，导致性能下降</li>
+<li>Xshell：个人免费，商业收费，之前爆出过有隐藏后门。不推荐</li>
+<li>Finshell：基础功能免费，高级功能收费，基于Java，内存占用较高（在1个G左右）。不推荐</li>
+<li>MobarXterm：基础功能免费、高级功能收费。开源、功能强大、内存占用低（只有10m左右），但是界面不太漂亮。推荐使用</li>
 </ul>
-<p>随着用户体量的增大，像传统的缓存策略，即使 redis 单机并发已经很高了，但仍会达到上限，对于像某宝某东这种并发量甚至能达到亿级以上的网站，redis 就开始有点力不从心了，所以我们引入多级缓存去应对这种如此高并发的需求。</p>
-<h2 id="引入多级缓存"><a href="#引入多级缓存" class="headerlink" title="引入多级缓存"></a>引入多级缓存</h2><p>多级缓存（Multi-Level Caching）是计算机系统中用于提高数据访问速度的一种技术，相对于普通的单一层缓存能应对更高的并发场景。它通过在处理器和主存储器（如RAM）之间引入多个缓存层次，来减少处理器访问数据时所需的时间。</p>
-<p><strong>方案</strong><br>对于某些业务场景，我们可以分为四级缓存：</p>
-<ol>
-<li><strong>浏览器客户端缓存</strong>：<ul>
-<li>浏览器把服务器返回的静态资源缓存在本地，这样在下一次访问这些静态资源的时候，服务器只需要检查一下数据是否变化了（一般情况下静态资源是很少发生变化的），若没有则不需要返回数据，直接用本地缓存的数据渲染即可，减少了很多数据的传输，提高响应速度。</li>
+<h2 id="2-1-安装MobarXterm"><a href="#2-1-安装MobarXterm" class="headerlink" title="2.1.安装MobarXterm"></a>2.1.安装MobarXterm</h2><p>这里我们会选择内存占用较低的MobarXterm作为SSH客户端，其官网地址：</p>
+<p><a target="_blank" rel="noopener" href="https://mobaxterm.mobatek.net/">https://mobaxterm.mobatek.net/</a></p>
+<p>安装完成后界面如图所示：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MjNjYjE3N2NhNWE3YmViYjc2ZWNmNjAwYzAxM2UxMzlfS2dpbHN5NkgycTNGRDFkRGJ2cEpNdEFXZ1BlWDN1M0tfVG9rZW46VFNsQWJRdDBMbzFWdk14OVVlOWNTSDEybjFhXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>点击session按钮，进入会话管理：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc5OTI1ZWMzNDBiZWEyM2RlOWFhNDYxN2JjNTM1MmZfVGY1UlV0OWl6Vm9mcXRHTU9ZTXo0WGZEOVAwVlRxaFVfVG9rZW46T0lsZWJuWjJVb3pkSk54TDRVR2M5dUllbkViXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>在弹出的session管理页面中，按照下图填写信息并保存：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=M2YzYzJkZGJjZWJkYzBhMmE3YmRhNzI5MDBlNDMzZDdfYW8xbG9xeVdrV242Szk4R05CTDdOWHhVZ2xmczZnNWhfVG9rZW46UzJGNWJPbFQwb3hhZ3Z4V1FtRGNYOW95blpmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>点击OK后会提示你是第一次连接，询问你是信任连接的服务：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDQ4Y2FlMDJkMTQ2ODI1YTMwOWMyMWVjMzE3ZGMxY2NfYmdzc0U2UnFxZjhwekRBaGo1M3RJaHhrU0xTYVVDODVfVG9rZW46UE9QSmJaeHRMb2dhQ0l4amxIQmM4U3MzbjlmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>选择accept之后，会询问你是否要记住密码，选择yes：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTUyN2RlNGYwY2FkYzI1ZjBlMDE1YzIyM2YwYzg1NzZfWDdrMFJaU0phdE9DZFF6QVBnZTBVQXpnVE5WQkhvR21fVG9rZW46WEJ1eWJTY1VGbzJqZzV4WlFLYmNKMkJpbnloXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>紧接着需要你设置一个MobarXterm的全局密码用于做密码管理，建议设置一个与虚拟机密码不同的：</p>
+<p>输入密码：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YzY4YzIzZjVhNjJhN2M0N2Q0NThjZWFkNmE2MDQzZmNfaXkzZHZCSzk5eVVQQUxxSkhmV2RMblRZU3d3TG9GdXRfVG9rZW46WmRUSWJXZkJobzhkWmd4bGx3TGNLeEs3blpmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>输入成功后，就会连接成功，并进入操作界面了：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NDQ0N2EzODIzZDg0ZTBiZTgxYWI5OTExYTg0M2NkOTFfM01mQXd1Y2xzbGYwNEF6VlhUOGE1aGdTQXNVcWc2dHVfVG9rZW46VWM4cmJrbXcxb2VwdzV4bm1FVGNiM3VabjBmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>这里需要做一些基础的配置：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NjFjY2M1NjRiOTc2ZDIxYjQ5YzY2MzIwNDcxM2U3NzRfTURHeXhJYWxQOXo2VDFHNWp4UmxkWjhpZ2s5YmlzbEFfVG9rZW46WmJxUGJDakVwbzhYQ3R4a2ZIZGNXUE1Ybm1jXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h2 id="2-2-配置默认编辑器"><a href="#2-2-配置默认编辑器" class="headerlink" title="2.2.配置默认编辑器"></a>2.2.配置默认编辑器</h2><p>首先建议设置一下默认编辑器，这样我们通过MobarXterm的FTP工具打开文件时会以指定的编辑器打开，方便修改。我这里配置的是vscode：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ODczYjMwN2NkYTgwZTY1NGY3Mjk2OGI2ZGNmN2I4NDBfOUdLMHV6TE5kak84dXE3YjZlNDNGYXZiMmtVS1BKRGRfVG9rZW46R2lYcWJNb3Vrb2tJVmp4eTJQRWN1Qm1MblRoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<h2 id="2-3-配置右键粘贴"><a href="#2-3-配置右键粘贴" class="headerlink" title="2.3.配置右键粘贴"></a>2.3.配置右键粘贴</h2><p>复制粘贴是很常用的配置，MobarXterm默认左键选中即<strong>复制</strong>，但是需要配置右键点击为<strong>粘贴：</strong></p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDQ2ZDE4YWEwODUwYzU4YWVlZTc4Nzk5NmU0NTE4YjlfOTE1M3gwOERzS0dTU0lLZ1BHbzB0SHUwb2tmTktKRWNfVG9rZW46SEpJbmJzQXRYbzhyVW94VmV5Z2NmeHVRbjNkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>这样，复制和粘贴可以全部通过鼠标操作，无需按键。</p>
+<h2 id="2-4-SSH配置"><a href="#2-4-SSH配置" class="headerlink" title="2.4.SSH配置"></a>2.4.SSH配置</h2><p>接下来还有几个ssh配置：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmQwOWMxMzJjNzNmYjNlZTQyODUxNzM3YzkxNjNiYmVfY1l0NUJuWTVJTjU0UFBudmdHWmdPSVNmRU5WWmcwOWhfVG9rZW46SXozQmJwc1FWb1hHSGl4V0Q2bGM0WnFxbjBiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>分别是：</p>
+<ul>
+<li>默认的登录用户</li>
+<li>ssh保持连接</li>
+<li>取消连接成功后的欢迎banner</li>
 </ul>
-</li>
-<li><strong>本地缓存</strong>：<ul>
-<li>nginx 本地缓存，作为第二级缓存，处理访问非静态资源的请求。</li>
-</ul>
-</li>
-<li><strong>redis 缓存</strong></li>
-<li><strong>Tomcat进程缓存</strong>：<ul>
-<li>利用 Caffeine 这个高性能本地缓存库来完成（Spring 内部的缓存使用的就是该库）</li>
-<li>因为是本地内存存储，它的存储容量是很有限的，所以 Caffeine 提供了三种缓存驱逐策略：<br> — 1. <em>基于容量</em>：设置缓存的数量上限<br> — 2.<em>基于时间</em>：设置缓存的有效时间<br> — 3.<em>基于引用</em>：设置缓存为软引用或弱引用，利用 GC 来回收缓存数据。（官方：性能较差，不建议使用）<br> — <em>注意</em>：在默认情况下，当一个缓存元素过期的时候，Caffeine 不会自动立即将其清理和驱逐。而是在一次读或写操作后，或者在空闲时间完成对失效数据的驱逐。</li>
-</ul>
-</li>
-</ol>
-<p>使用多级缓存之后，我们的程序已经足以应对上述高并发的场景，但是此时使用缓存要解决的数据一致性问题就更加凸显出来了，我们又应该怎样解决多级缓存的一致性（数据同步）问题呢？</p>
-<h2 id="谈多级缓存的一致性"><a href="#谈多级缓存的一致性" class="headerlink" title="谈多级缓存的一致性"></a>谈多级缓存的一致性</h2><p>缓存一致性（Cache Coherence）是指在分布式系统中，多个缓存副本之间保持数据一致性的能力。当数据在多个位置（如多个处理器或多个计算机节点）被缓存时，缓存一致性确保了对数据的读取和写入操作能够正确地反映数据的最新状态。换句话说，缓存一致性确保了在系统中不同位置的缓存副本之间不会出现数据不一致的情况。</p>
-<p>以下将介绍一些解决多级缓存一致性的方法和概念：</p>
-<ol>
-<li><strong>实时强一致性</strong>：<ul>
-<li>实时强一致性保证了任何时刻，所有的客户端看到的数据都是一样的，读取操作总是返回最新的数据。在分布式系统中实现强一致性意味着，一个操作一旦完成，所有的客户端立即都能看到这个操作的结果。<br> <em>方案</em>：</li>
-<li>这里最容易想到的操作就是加锁，但是既然是加锁的话，这对我们的性能肯定是有影响的，但是我们使用缓存就是为了去提高性能，所以如果为了保证数据的强一致性而去加锁的话在多数场景下显然是不符合需求的。</li>
-<li>double-check：既然是加锁，那么就不得不提到这种 double-check 模式（即简单理解为检查-加锁-检查），第一次是检查缓存是否存在，第二次是检查拿到锁的时候，是否有其他线程已经完成缓存重建。</li>
-<li>使用一些分布式事务协议或者强一致性算法也可以保证数据的一致性。</li>
-</ul>
-</li>
-<li><strong>最终一致性</strong>：<ul>
-<li>最终一致性是指，数据可能在不同的缓存级别之间有延迟，但最终会一致。在这种模型下，数据的副本之间可能会暂时存在不一致。<br> <em>方案</em></li>
-<li>消息队列：在数据发生更新时首先更新数据库，然后可以考虑将更新请求都发送到消息队列上，通过异步将更新同步到其他副本。但是要注意的是，同一个业务的消息必须是有序的，不然最终数据会出错。话又说回来了，既然要先更新数据库，我们大可以引入 Canal 去监听 binlog，数据库更新时再异步去更新缓存或者删除缓存（根据实际场景选择）这样对于代码的侵入性更低，时效性也更强。</li>
-<li>版本控制：每个缓存都有一个对应的版本号，每次更新时版本号会增加。读取时，如果版本号不是最新的，则从主存储中获取最新数据并写入缓存。也可以时间戳来代替版本号</li>
-</ul>
-</li>
-<li><strong>缓存失效策略</strong>：<ul>
-<li>内存淘汰：利用redis的内存淘汰机制，当内存不足时自动淘汰掉一些不重要的数据(可以自己设置策略方式)，下次查询时更新缓存。</li>
-<li>主动更新：当数据库数据变化时，主动更新缓存中的数据。</li>
-<li>超时剔除：为缓存数据设置一个过期时间。定期从数据库中重新加载数据，以保持数据的新鲜度。高并发情况下可能会出现缓存击穿&#x2F;雪崩问题，也无法解决数据在两次加载之间变化导致的一致性问题。</li>
-<li>惰性加载：只有在请求特定数据且发现缓存失效或缓存中没有该数据时，才去数据库加载该数据。高并发场景下可能会导致缓存击穿。</li>
-</ul>
-</li>
-<li><strong>分布式缓存一致性协议</strong>：<ul>
-<li>Paxos</li>
-<li>Raft</li>
-</ul>
-</li>
-<li><strong>缓存一致性协议</strong>：<ul>
-<li>MESI</li>
-<li>MOESI（MESI 的扩展）</li>
-</ul>
-</li>
-</ol>
-<p>对于多级缓存的一致性，还有没办法忽略的问题是该如何选择先更新哪一级缓存或者是一次更新所有缓存？（以下均为先更新数据库再更新缓存）</p>
-<ol>
-<li><strong>全更新</strong>（写通Write-Through）：<ul>
-<li>确保所有缓存中数据的一致性，减少数据不一致带来的问题。但是全更新会导致维护成本增加，全更新所用时间更长，也可能会因为加锁让性能降低。除非有数据强一致性的业务需求，否则不太建议，毕竟对性能的影响无法忽视。</li>
-</ul>
-</li>
-<li><strong>局部更新</strong>（写回Write-Back）：<ul>
-<li>先更新存储非静态数据的第一级缓存，保证用户拿到的数据是最新的，其他缓存则可以使用消息队列等进行异步复制，这种办法会出现短暂的数据不一致性，但是无再更新操作一段时间后数据能达到一致。</li>
-</ul>
-</li>
-<li><strong>按需更新</strong>（标记Tagging）：<ul>
-<li>结合以上的全更新和局部更新策略，我们可以根据业务需求进行按需更新，对于实时性要求高的系统，可能需要选择全更新策略以保证数据一致性。</li>
-<li>对于性能要求高的系统，可能需要选择局部更新策略以减少性能开销。</li>
-<li>但是这种方法实现起来更加复杂，需要精确的预测机制以筛选出不同需求的数据。</li>
-</ul>
-</li>
-</ol>
-<p>结合以上讲述，我们能够知道，不存在绝对好的方案，只有最适合当前系统特性和业务需求的方案。实际开发中我们也需要根据业务对数据不一致的容忍度，综合各方面的因素选择当下的最优解方案，correct !</p>
+<h2 id="2-5-关闭X-Server服务"><a href="#2-5-关闭X-Server服务" class="headerlink" title="2.5.关闭X-Server服务"></a>2.5.关闭X-Server服务</h2><p>大多数情况下，我们没有x-server的需求，因此可以选择不要自启动：</p>
+<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YzY4MDg2M2M1YWRlNGNhNjBhYzdmNDE0MWE2ODFjOTNfRTc4UzJSYnZWRjdCcXM0U2xObmtlUGtRNFU0Yzk2Y1VfVG9rZW46RTIwUmJ3aWJPb3J4T2V4YU1OOWNPNmhKbjBnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
 
       </section>
 
@@ -266,8 +311,8 @@
     
     <div class="card-text">
       
-        <a href="/2024/09/17/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">Linux环境搭建</h2>
+        <a href="/2024/09/08/Docker/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Docker部署和常用指令</h2>
         </a>
       
       <div class="card-text--row">Newer</div>
@@ -275,6 +320,20 @@
   </article>
 </div>
           
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="/2024/08/28/%E8%81%8A%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">聊多级缓存的一致性</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
           
         </nav>
       
