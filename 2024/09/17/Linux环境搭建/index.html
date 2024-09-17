@@ -105,16 +105,11 @@
           <h2 class="title-sub-wrap">
             <strong>Shamrock</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2024-09-02T16:00:00.000Z" itemprop="datePublished">2024-09-03</time>
+            <time  class="article-date" datetime="2024-09-16T16:00:00.000Z" itemprop="datePublished">2024-09-17</time>
           </h2>
           
-            <h2 class="last-time">
-              <span>最后更新于</span>
-              <time  class="article-updated" datetime="2024-09-17T06:05:35.261Z" itemprop="dateUpdated">2024-09-17</time>
-            </h2>
           
-          
-            <h2 id="/2024/09/03/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="title-sub-wrap leancloud_visitors" data-flag-title="Linux环境搭建">
+            <h2 id="/2024/09/17/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" class="title-sub-wrap leancloud_visitors" data-flag-title="Linux环境搭建">
               <em>文章访问量</em>
               <i class="leancloud-visitors-count"></i>
             </h2>
@@ -124,7 +119,7 @@
 </ul>
           <ul class="wrap-list dark">
   
-    <li><a href="/tags/transshipment/">🏷️ transshipment</a></li>
+    <li><a href="/tags/%E8%BD%AC%E8%BD%BD/">🏷️ 转载</a></li>
   
 </ul>
         </div>
@@ -153,65 +148,77 @@
 <h2 id="1-1-安装VMware"><a href="#1-1-安装VMware" class="headerlink" title="1.1.安装VMware"></a>1.1.安装VMware</h2><p>VMware是业界最好用的虚拟机软件之一。</p>
 <p>windows版本的网站如下：</p>
 <p><a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html</a></p>
-<p>特别注意，Windows10以上版本操作系统需要下载安装VMware Workstation Pro16及以上版本</p>
+<p>Mac下也有对应版本，叫做VMware Fusion：</p>
+<p><a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/fusion.html">https://www.vmware.com/cn/products/fusion.html</a></p>
+<p>特别注意，Windows10以上版本操作系统需要下载安装VMware Workstation Pro16及以上版本，安装方式此处略。</p>
 <p>如果自己电脑上已经有了低版本的VMware，则需要先卸载，再重新安装。卸载过程比较麻烦。</p>
-<h3 id="1-1-1-卸载旧版VMware"><a href="#1-1-1-卸载旧版VMware" class="headerlink" title="1.1.1.卸载旧版VMware"></a>1.1.1.卸载旧版VMware</h3><p>首先，在控制面板找到程序和功能选项，找到VMware，进行卸载操作。</p>
+<h3 id="1-1-1-卸载旧版VMware（可选）"><a href="#1-1-1-卸载旧版VMware（可选）" class="headerlink" title="1.1.1.卸载旧版VMware（可选）"></a>1.1.1.卸载旧版VMware（可选）</h3><p>首先，在控制面板找到程序和功能选项，找到VMware，进行卸载操作：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925928.png" alt="img"></p>
+<p>弹出确认框, 点击”下一步”:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171931069.png" alt="img"></p>
+<p>下一步之后, 选择删除:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171932333.png" alt="img"></p>
+<p>接下来，按照提示完成卸载操作即可。</p>
 <p>卸载完成后，还需要看看VMware的安装目录是否有旧数据，一并清理掉。</p>
-<p>需要直接删除整个VMware目录：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NTEzNzA1MGJiYzIwYzE2NTY1NGY1NGE0YzFmMmE3YTJfQ2VNdTNnbGQ1NGpSVUlmVzdWMHpoUDdQQk1HN1oxWXpfVG9rZW46TVFnY2JHdEJUb2IzVHB4QklDSmNNOG0zbmtlXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p>比如安装在<strong>C盘的</strong>Program Files(x86)：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171932352.png" alt="img"></p>
+<p>则需要直接删除整个VMware目录：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925904.png" alt="img"></p>
 <p>接下来要清理注册表：</p>
 <p>首先，按住Windows + R , 在弹出框中输入 “regedit” 调出注册表：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925853.png" alt="img"></p>
 <p>进入注册表编辑器，如图：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OTRlOThmZTBkODM0ZWYyMmY2YWMwODcyNDhjMGRjNDVfZVVmWEx3VjhCMGJZUDlFR0pwZ2tMZFBURFJvZkVKTThfVG9rZW46WUliZGIxWGNlbzFJdUd4Ums3TGNlc2xubnpyXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925537.png" alt="img"></p>
 <p>打开**<code>HKEY_CURRENT_USER</code><strong>文件夹，找到</strong><code>Software</code>**文件夹并打开</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OGU0MGYzYmQ0NmQ2YjI3YTc4ZjgyYWYyMDQ5MTI5N2VfWnN6ZW1Hc0tsQXVBRTlYMVh2bHBrSlp4Sm5ISFhvbVhfVG9rZW46S1FqbmJSTW5ob3Zpc2d4cXE0VWNVcE1ubmVlXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933949.png" alt="img"></p>
 <p>找到“VMware.Inc”，右键删除：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ODY0ZjlkZGU1ODhjOTg5NWYxNTU3ZDNmMzcwZmRiMzVfUzBOYW41bWEzMHJRUmNEOVo4MWNlYUdJdWtGTXRFRHpfVG9rZW46TFIzSGJ2Y0tzb1NJcHV4emtHNWM0U3pEbmZmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<h3 id="1-1-2-安装VMware"><a href="#1-1-2-安装VMware" class="headerlink" title="1.1.2.安装VMware"></a>1.1.2.安装VMware</h3><p>话不多说网上破解教程大把，安装后打开如下：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NTdmOGU1NjQ5OTMwMDlhNmQyM2VkNDBlY2QxODk3NWNfYkdXN2h1QkdiNEh5M0REY1hrRk1FdGJmQmNHUEtKUEpfVG9rZW46RTJBMWJKWmVsbzFBMmp4dXhTbmNpbHh0blFnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925911.png" alt="img"></p>
+<h3 id="1-1-2-安装VMware"><a href="#1-1-2-安装VMware" class="headerlink" title="1.1.2.安装VMware"></a>1.1.2.安装VMware</h3><p>安装步骤略。。</p>
+<p>安装以后可以免费试用，大家可以去官网购买正版许可证，或者去网上看看有没有好心人赠送你一个许可证。启动后的界面如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925266.png" alt="img"></p>
 <h3 id="1-1-3-常见错误"><a href="#1-1-3-常见错误" class="headerlink" title="1.1.3.常见错误"></a>1.1.3.常见错误</h3><p>如果VMware虚拟机运行报错，例如：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OTU2NjM0MDUzNDdkZmNhNDMyM2ZmZjA2NTA1OTMxMDVfYU5TbnlxR0lBYndJV1Badk1oZHFBamE1SnVLVzZOTm9fVG9rZW46WlJKcmJZUXlIb3BYSFB4alNiS2N4YVZObndkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933017.png" alt="img"></p>
 <p>这个是由于英特尔的虚拟化技术, 没有开启, 需要进入系统的BIOS界面 , 开启英特尔的虚拟化技术 ; 不同的电脑型号 , 进入BIOS界面的方式不同, 需要百度查询一下自己电脑的型号 , 如何进BIOS ;</p>
 <p>windows10系统可以参考: <a target="_blank" rel="noopener" href="https://blog.csdn.net/biu_code/article/details/107504627">https://blog.csdn.net/biu_code/article/details/107504627</a></p>
 <p>以ThinkPad为例，如图：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=Njk1NjU0NzZkYmE3YWRkYzMzYzZmNjE3NmI0NWVlNmNfbUJJZmFaRDRWeUNKZ09GdGtuRzgyZzNsTjFsZGxpNUJfVG9rZW46VXpsWGJVZ1B4b09uQjJ4M3hjZ2NqZzZmbmpnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<h2 id="1-2-创建虚拟机"><a href="#1-2-创建虚拟机" class="headerlink" title="1.2.创建虚拟机"></a>1.2.创建虚拟机</h2><p>Centos7是比较常用的一个Linux发行版本（使用Ubuntu也行），这俩在国内的使用比例还是比较高的。</p>
-<p>首先要下载一个Centos7的iso映射文件</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDBmMWZiMDUxOTViZGYwNjRlNzc2ZDBmOWNmODYwNjhfVmRXdXBJQUVTZUdheHlmRWdlVVhQYlMzeUNLUHdlQ1FfVG9rZW46UDRKdGJmRHExb2hFNGt4Z3Q2dWNXWHJzbndiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<p>VMware《主页》界面中点击《创建新的虚拟机》按钮：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MjcwYjVkOTVjMGZjNDExYmFjYmNjMjg1MzVmNTgwZjdfdjFhaFhhNkRvNExhcVBGT0pTWVUwWG04ZWV6MjBDYTRfVG9rZW46UVVkSmJmU1Zrb0ZsaEh4ckFVeWM1aTVnblJoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<p>然后会弹出一个窗口，直接点击下一步：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTk1YTcyZTM0NWMzMzU1OTdkOTgwZWU4NGU4OGY4OTlfYVk5UExwVlJtT3c3YTFvaVRNRFp4cVN5YWNpOEI3ak1fVG9rZW46VGZzNWJOUVJJb3hnbzF4dmxNdWNRaGpqbkhjXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933734.png" alt="img"></p>
+<h2 id="1-2-创建虚拟机"><a href="#1-2-创建虚拟机" class="headerlink" title="1.2.创建虚拟机"></a>1.2.创建虚拟机</h2><p>Centos7是比较常用的一个Linux发行版本，在国内的使用比例还是比较高的。</p>
+<p>大家首先要下载一个Centos7的iso文件，我在资料中给大家准备了一个mini的版本，体积不到1G，推荐大家使用：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925090.png" alt="img"></p>
+<p>我们在VMware《主页》界面中点击《创建新的虚拟机》按钮：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171934221.png" alt="img"></p>
+<p>然后会弹出一个窗口，我们直接点击下一步：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925500.png" alt="img"></p>
 <p>然后页面中选择你准备好的ISO文件，继续点击下一步：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZGI5NzEwNjlkMTRkYTE3OTE5ODc0MTc5YWY1ZGQ2MTVfc1k1TjdBbFpPSDJyS0J4YUZJZlFSQ2pUa3ZKTm5pem1fVG9rZW46VHRBMGJVUU12b2lnNUt4QlNtM2NpRERBbnZkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171934293.png" alt="img"></p>
 <p>然后填写<code>虚拟机的名称</code>以及虚拟机将来<code>保存的位置</code>：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGE5NTQ3YjgwYjdhNjBjZTBhOTM1ZDczNWMwOGI2YWRfcDVaR1luNGJqTXlaRll3Qk5scGJIWXZoWkFGOUM1cjZfVG9rZW46RGlnZWJSMXNPb2dtSnZ4Y0lvbGNtaU0wbkFoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925520.png" alt="img"></p>
 <p>再次下一步，填写虚拟机磁盘大小。这里建议给大一点，否则将来不够用调整起来麻烦。而且这里设置大小并不是立刻占用这么多，而是设置一个上限：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjEyMjRiYmNjMWNlMDIwYjFiOGI4M2E2YTM3NzI5YjFfdDlmWGJDWUU0YWlmemxIcVB6bkpBOEE3Yzc5NVMwcGVfVG9rZW46RmF5U2JlUndVb1V1am94VFppR2M4RnlpbkRkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925370.png" alt="img"></p>
 <p>继续下一步，然后选择虚拟机硬件设置：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjljNGVlMDM4NzhjYzczYWQzMGM0ZWRhNDVmMWI3MzVfN0Q2WGNSYlZvR2VTaHpUWVVRUEo2N1dSUkpRa1lOd3ZfVG9rZW46RFhMNWIzSFNmb1Z0dEx4S2M1V2NLb0plbjJjXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925782.png" alt="img"></p>
 <p>在弹出的窗口中设置虚拟机硬件，建议CPU给到4核，内存给到8G：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YmRjMDFmMmQ2NTYwZDg5ZDQ1ZDBlMTE0ZDI0YWQwMmFfamhxTm1CeFA4MnBhYVZnOExsb2dTNlYwUm4wWklGdUxfVG9rZW46TUcyUGI1cU1ab3EzYkF4OW04VGNxZXNYblQwXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925255.png" alt="img"></p>
 <p>配置完成后，点击<code>关闭</code>，回到上一页面，继续点击<code>完成</code>：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NWFkMmRiM2ZkYTVjOTIwZmQyNzFiNGZlMTM0ZjNmYTNfc0R5UHVPZzhYRklIaEdsMk02d0RuYnd5QnRwQURhWWJfVG9rZW46QXI2TWJHV3hFb3ZnNGd4d3VWcmNvMGRTbldJXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925872.png" alt="img"></p>
 <p>虚拟机就创建完毕了：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDFmOTM5OWIxNmU0ODg5ZjIzMmUzOWU2YTUyZGRlOWRfbmpoa2RuUWNjcnhkUjB4Q1BaQ20zQ0V3NHA3bGM4ZXpfVG9rZW46QW1DTWJhRzhLb3Bmb3d4cmNPcGNqb3FzbmNiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<h2 id="1-3-安装Centos7"><a href="#1-3-安装Centos7" class="headerlink" title="1.3.安装Centos7"></a>1.3.安装Centos7</h2><p>启动刚刚创建的虚拟机，开始安装Centos7系统：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NjQ1MmYwMzIxMjhjYzQxNDA5MzYwNGYwODQ2NjVhNTVfb1RxNkNyUHpkV2gwdG1Ubkt4RUN4YWhGQ2kyZ0lsMXBfVG9rZW46RTJ5aWJ2Ym9Vb0xDdWV4SURJcGMzdGJtbkdoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935334.png" alt="img"></p>
+<h2 id="1-3-安装Centos7"><a href="#1-3-安装Centos7" class="headerlink" title="1.3.安装Centos7"></a>1.3.安装Centos7</h2><p>接下来，我们启动刚刚创建的虚拟机，开始安装Centos7系统：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925876.png" alt="img"></p>
 <p>启动后需要选择安装菜单，将鼠标移入黑窗口中后，将无法再使用鼠标，需要按上下键选择菜单。选中Install Centos 7 后按下回车：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGZkNTljZmI0OGNlMzFlZDA1M2E0Mzk2MGUyMjg2YzdfWXZ3VkFNWU4xeGhyZEM2NWhtelFTT3U0S3VUMlZJTVJfVG9rZW46SDAyZmJYRElVb2RadWJ4bXFTUmNOWnVGbjhiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935902.png" alt="img"></p>
 <p>然后会提示我们按下enter键继续：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NmVmZjlhMWU5MjYxNjNlOGJiM2QyODczMDA2ZWVkNzdfazNBN0tTbjA1QkcxVzByMVZHVEVKN2dHSGlycXByZnBfVG9rZW46R3lva2JaMW02b1FTWDd4Z3lTZ2NuMXdPbmNWXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925702.png" alt="img"></p>
 <p>过一会儿后，会进入语言选择菜单，这里可以使用鼠标选择。选择中文-简体中文，然后继续：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjEyZDQzZmJlNzMzMzM0YTIzOTAwZjIxNGI2NGU0ZWZfekhzcXpLSHpZWFNaN1JjQWtrZmlrVzF6bWlnUFAyZGFfVG9rZW46TlpqOWJMaHhwbzBrZnF4R0k2V2NJbEJtbjVmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935636.png" alt="img"></p>
 <p>接下来，会进入安装配置页面：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OGExZWVjMmQ0OGQwYmUyZWM3ZTk5MzJmNDRkZjNjZTRfbEV2aEdVM3lsN3NEYzJxb0J6YVBTdWdud1NuOEszTmZfVG9rZW46RFZBUWJBODFkb01ldzF4UlJjWmNvZFo5bnljXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925082.png" alt="img"></p>
 <p>鼠标向下滚动后，找到系统-安装位置配置，点击：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YjM0OGFkODJjNGM0M2Q3NTFkN2IyNTNiZjgzZTRiNGVfTmVzWHk1MnVUbnJhaVVsUnR1M09UMWV4aXRlWGgxOXRfVG9rZW46U0xMamJPb0tJb05XZ1R4MGN4YWNpcEFLbjVkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925679.png" alt="img"></p>
 <p>选择刚刚添加的磁盘，并点击完成：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NDcyNzg3NGU1ZjAxMzJiZDM1MmQxYzAzNmIzOWI4ZmJfZzFyZ01RTEgwT2NsYklkN09wNm9nR3VyTDVjeHNzeklfVG9rZW46VGtpa2JNeVdBb1ZraEV4aGNWbGNmSm0xbmtoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925598.png" alt="img"></p>
 <p>然后回到配置页面，这次点击《网络和主机名》：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGNhNjBhYzA2YWI2YjAwY2ZkZjQ4NzBjODQ0YmNiYzBfanRnNHFSYWY0Z203bUthVzBnamR1alhGc1FjdFFCaXBfVG9rZW46TUNmR2JpZlMwbzBJZHd4UjkyYWNxWHdzbmJnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935901.png" alt="img"></p>
 <p>在网络页面做下面的几件事情：</p>
 <ol>
 <li>修改主机名为自己喜欢的主机名，不要出现中文和特殊字符，建议用localhost</li>
@@ -219,46 +226,46 @@
 <li>将网络连接打开</li>
 <li>点击配置，设置详细网络信息</li>
 </ol>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDkxZjYwOGRjNGZhMjFkNDVjMGYwMzhkZTc1YWQ4NmVfVjY2N1hVNDVqR3ZyQmREWDNoMDdQRjl6MmY3UnBmS3dfVG9rZW46WnNsNWJCZDI4bzJNU1N4MTVNVGNlZVYzbnZoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<p><strong>重要</strong>：截图记住上图中的网络详细信息，接下来的配置要参考：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NGMyNzc2N2I3MTQ2YTA4MjM1YmJkNjdhY2ZlYWUxNzdfYkZZV1l0bElUUU1PMEsyeWdCR25IOFBBeFF3WXkwcFRfVG9rZW46UmpxemJqMGl2b01BUVR4ZFFtNmNTOUVvbmRmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<p>点击配置按钮后，需要把网卡地址改为静态IP，这样可以避免每次启动虚拟机IP都变化。所有配置照搬你自己截图的网络信息填写，不要照抄我的：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MGU4YjU0YThiNmQ4ZTQ0ODJkMThmMTgwOGZmZGEyMjVfbVU2M2xQVTVWNXNONzJkUkEzWHVQWm9RWVNhbjdwMTlfVG9rZW46UXR5amJlSEs3b0J4QTF4MUc5UGNTZEx3bmViXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<p>上图中的四个信息参考之前的<strong>以太网</strong> <strong>(ens33)</strong> <strong>网卡</strong>的截图，不要照搬我的来写。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925234.png" alt="img"></p>
+<p>最好用一个截图软件，记住上图中的网络详细信息，接下来的配置要参考：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925229.png" alt="img"></p>
+<p>点击配置按钮后，我们需要把网卡地址改为静态IP，这样可以避免每次启动虚拟机IP都变化。所有配置照搬你自己截图的网络信息填写，不要照抄我的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925765.png" alt="img"></p>
+<p>上图中的四个信息参考之前的<strong>以太网</strong> <strong>(ens33)</strong> <strong>网卡</strong> 的截图，不要照搬我的来写。</p>
 <p>最后，点击完成按钮：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MWYzYTc5MzIwOTA2NWNkOTFkYmRkMTAzNzA0YWRlMDFfMG43cVF5SVJSd1B6RjYwME05cEowQlF0RHJOczlEMElfVG9rZW46SkhLb2J2aXlUb2poVXB4VmVudGNCOVBEblFnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925061.png" alt="img"></p>
 <p>回到配置界面后，点击<code>开始安装</code>：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDUyN2NmYThiYzJkNDgxOTUxZjc4OTJhYjg0ZmVhNjdfVnVmTUl4SzNjRE5kYnJrRnVzWHRMYzIxOHBSZmZMcUdfVG9rZW46RlpUemJWYzRqb2pUUTJ4MW1FM2N6YTJDbktiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925570.png" alt="img"></p>
 <p>接下来需要设置root密码：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTYzOTUxZmUxMGUxMDg3ZTQxYTdkOWY1MWY0NTRiNThfNzh3MURNa2duSklFbldqWG1Ta3hNOFltdkdiOUZCNFJfVG9rZW46WDZhTGJTNldBb2ozTXd4UjJVOGNyMkdGbk9nXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171936373.png" alt="img"></p>
 <p>填写你要使用的root密码，然后点击完成：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=Yzg4ZTk4MjEwNmUzYWQyOGI0MTBhNDBmMzExNzU5MzZfSE9RUUlkREE0elNYMDZ6YWJXWkJnUDNDa2VuaUZiak9fVG9rZW46T244emJ0ZzE2b0J5bEd4QjJXOGN0MTZobmpiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925484.png" alt="img"></p>
 <p>接下来，耐心等待安装即可。</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDAwOTlhMmY4ODE4ZjlmZjQ4ZWNmZTM3YmU3OWZiYzlfRVlOZ3p2NDRlM1FYYnUwOHkwVG1ycURJcWNaa2s0NWVfVG9rZW46TlFlYWJrVm8wb0dNY094ekRYRmMwRjRBbmhjXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925092.png" alt="img"></p>
 <p>等待安装完成后，点击<strong>重启</strong>：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWE4ZmRkY2YxNjNmMTU1YjQ3NjRlZjQzMTA4MDY2YzNfbXNKbDhCTlAwc3M2bmtoZ0UzZXVYRDl4MWVad2pqc2tfVG9rZW46THBEZmJwTFZzb2NUS1l4Y2d3dWNRc2s4bmc5XzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171936641.png" alt="img"></p>
 <p>耐心等待一段时间，不要做任何操作，虚拟机即可启动完毕：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MWQ5NDBhY2QwYmEyY2JkOWM1OGNhMGMzODczM2I5NTdfellyeGh5TU9tNHZPYzdCSVJUQ2UzN0FRQ1N5MWVMclhfVG9rZW46V2J0UmJkMmx0b1JETlZ4UFUyTGNzZ01zbjVmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937707.png" alt="img"></p>
 <p>输入用户名root，然后点击回车，会要求你输入密码：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZTJlMjNjNTQxMzg2YmViYjJhYjI2OWE1NGJmYmQyODNfTWN1SjMzYTdkdW5wN3dzcDVqVnhCS2trSGtDZDF3YVFfVG9rZW46Q2dEcmJmQkYxb2RRUk54UjFjdWN5dkVpbldkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925513.png" alt="img"></p>
 <p>此时你要输入密码，不过需要注意的是密码是<strong>隐藏</strong>的，输入了也看不见。所以放心输入，完成后回车即可：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YWMyNTM0ZDg2MjU2YjA5YmNhYjc5MmVmNzgwMWQ1MmFfaEJsNHZKa2lzaUJRUDdzSjEwNXgxUTFocUZHclNpNndfVG9rZW46R09JN2JHRG5lb3pXcTB4UU1mc2NNRGNlbnNiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937090.png" alt="img"></p>
 <p>只要密码输入正确，就可以正常登录。此时可以用命令测试虚拟机网络是否畅通：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
 
 <p>如果看到这样的结果代表网络畅通：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=OTcxODI0YjkxOWI2NmI5OWMwYjFiYzIyYTA3MzczMTJfckdmS0M2T1pFbG9uQk1kdFliQnpOTEE3cUZxeW16Tk9fVG9rZW46TE9nbmJvbjVwbzJ0NWx4ZTlBaGMyODNZbktiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925105.png" alt="img"></p>
 <p>默认ping命令会持续执行，按下<code>CTRL </code>+ <code>C</code>后命令即可停止。</p>
 <h2 id="1-4-设置虚拟机快照"><a href="#1-4-设置虚拟机快照" class="headerlink" title="1.4.设置虚拟机快照"></a>1.4.设置虚拟机快照</h2><p>在虚拟机安装完成后，最好立刻设置一个快照，这样一旦将来虚拟机出现问题，可以快速恢复。</p>
 <p>我们先停止虚拟机，点击VMware顶部菜单中的<code>暂停</code>**<code>下拉选框</code>**，选择<code>关闭客户机</code>：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YzZiNGIwNWE2NDA2OGI2MTEzYzhlYWEwNDIwYmYwMjZfTTZpSVdWcERKc1hjVkRLNThqM0NuSHAwMVMxaEg2bjhfVG9rZW46R2lPZGJiYXlnb0xtTm54eHVlemNpN1pVbmNoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937041.png" alt="img"></p>
 <p>接着，点击VMware菜单中的🔧按钮:</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTM4YTcwOTY4OTRhYjA0NzkzMWI3ZWQ2ZjlhMzUxOGZfendReUZlZHA0dmJHTVBZaDlOMWM3UUNPT0Iybk03S1ZfVG9rZW46VUNMZGJJOTNqbzJGdGV4eU1DdGM0VEQ0bkhmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925279.png" alt="img"></p>
 <p>然后在弹出的快照管理窗口中，点击<strong>拍摄快照</strong>，填写新的快照信息：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=M2Q2Nzk2NDZhNzFjZjc3NDk1MDM5NDdkOGJhZWU3ZjVfUUtWOVB4eFlXdUFNckdBYm10cWluakljVUQ4MlYyMnZfVG9rZW46TWZXQmJZajl5bzhhVWJ4SWkzRWM3SXhEbjRCXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
-<p>快照拍摄完成了，可以在不同阶段拍摄多个不同快照作为备份，方便后期恢复数据。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938354.png" alt="img"></p>
+<p>快照拍摄完成了！而且我们可以在不同阶段拍摄多个不同快照作为备份，方便后期恢复数据。</p>
 <p>假如以后虚拟机文件受损，需要恢复到初始状态的话，可以选中要恢复的快照，点击转到即可：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2I0MmNkZDFkZGU5YzI5MjM5ZGVmMTllNzMyNjFlZDRfQ3RkMXFCMnZwVnRKOXpDTVhmODhzVlUzMGhCc3d0ZjFfVG9rZW46SE9VMmJsTnkxbzl0Y2J4QUNnOGNMZGJLbktmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925624.png" alt="img"></p>
 <h1 id="2-SSH客户端"><a href="#2-SSH客户端" class="headerlink" title="2.SSH客户端"></a>2.SSH客户端</h1><p>在VMware界面中操作虚拟机非常不友好，所以一般推荐使用专门的SSH客户端。市面上常见的有：</p>
 <ul>
 <li>Xshell：个人免费，商业收费，之前爆出过有隐藏后门。不推荐</li>
@@ -268,29 +275,29 @@
 <h2 id="2-1-安装MobarXterm"><a href="#2-1-安装MobarXterm" class="headerlink" title="2.1.安装MobarXterm"></a>2.1.安装MobarXterm</h2><p>这里我们会选择内存占用较低的MobarXterm作为SSH客户端，其官网地址：</p>
 <p><a target="_blank" rel="noopener" href="https://mobaxterm.mobatek.net/">https://mobaxterm.mobatek.net/</a></p>
 <p>安装完成后界面如图所示：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MjNjYjE3N2NhNWE3YmViYjc2ZWNmNjAwYzAxM2UxMzlfS2dpbHN5NkgycTNGRDFkRGJ2cEpNdEFXZ1BlWDN1M0tfVG9rZW46VFNsQWJRdDBMbzFWdk14OVVlOWNTSDEybjFhXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925877.png" alt="img"></p>
 <p>点击session按钮，进入会话管理：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDc5OTI1ZWMzNDBiZWEyM2RlOWFhNDYxN2JjNTM1MmZfVGY1UlV0OWl6Vm9mcXRHTU9ZTXo0WGZEOVAwVlRxaFVfVG9rZW46T0lsZWJuWjJVb3pkSk54TDRVR2M5dUllbkViXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938218.png" alt="img"></p>
 <p>在弹出的session管理页面中，按照下图填写信息并保存：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=M2YzYzJkZGJjZWJkYzBhMmE3YmRhNzI5MDBlNDMzZDdfYW8xbG9xeVdrV242Szk4R05CTDdOWHhVZ2xmczZnNWhfVG9rZW46UzJGNWJPbFQwb3hhZ3Z4V1FtRGNYOW95blpmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925835.png" alt="img"></p>
 <p>点击OK后会提示你是第一次连接，询问你是信任连接的服务：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MDQ4Y2FlMDJkMTQ2ODI1YTMwOWMyMWVjMzE3ZGMxY2NfYmdzc0U2UnFxZjhwekRBaGo1M3RJaHhrU0xTYVVDODVfVG9rZW46UE9QSmJaeHRMb2dhQ0l4amxIQmM4U3MzbjlmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938751.png" alt="img"></p>
 <p>选择accept之后，会询问你是否要记住密码，选择yes：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=MTUyN2RlNGYwY2FkYzI1ZjBlMDE1YzIyM2YwYzg1NzZfWDdrMFJaU0phdE9DZFF6QVBnZTBVQXpnVE5WQkhvR21fVG9rZW46WEJ1eWJTY1VGbzJqZzV4WlFLYmNKMkJpbnloXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925076.png" alt="img"></p>
 <p>紧接着需要你设置一个MobarXterm的全局密码用于做密码管理，建议设置一个与虚拟机密码不同的：</p>
 <p>输入密码：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YzY4YzIzZjVhNjJhN2M0N2Q0NThjZWFkNmE2MDQzZmNfaXkzZHZCSzk5eVVQQUxxSkhmV2RMblRZU3d3TG9GdXRfVG9rZW46WmRUSWJXZkJobzhkWmd4bGx3TGNLeEs3blpmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938344.png" alt="img"></p>
 <p>输入成功后，就会连接成功，并进入操作界面了：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NDQ0N2EzODIzZDg0ZTBiZTgxYWI5OTExYTg0M2NkOTFfM01mQXd1Y2xzbGYwNEF6VlhUOGE1aGdTQXNVcWc2dHVfVG9rZW46VWM4cmJrbXcxb2VwdzV4bm1FVGNiM3VabjBmXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939174.png" alt="img"></p>
 <p>这里需要做一些基础的配置：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=NjFjY2M1NjRiOTc2ZDIxYjQ5YzY2MzIwNDcxM2U3NzRfTURHeXhJYWxQOXo2VDFHNWp4UmxkWjhpZ2s5YmlzbEFfVG9rZW46WmJxUGJDakVwbzhYQ3R4a2ZIZGNXUE1Ybm1jXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939206.png" alt="img"></p>
 <h2 id="2-2-配置默认编辑器"><a href="#2-2-配置默认编辑器" class="headerlink" title="2.2.配置默认编辑器"></a>2.2.配置默认编辑器</h2><p>首先建议设置一下默认编辑器，这样我们通过MobarXterm的FTP工具打开文件时会以指定的编辑器打开，方便修改。我这里配置的是vscode：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ODczYjMwN2NkYTgwZTY1NGY3Mjk2OGI2ZGNmN2I4NDBfOUdLMHV6TE5kak84dXE3YjZlNDNGYXZiMmtVS1BKRGRfVG9rZW46R2lYcWJNb3Vrb2tJVmp4eTJQRWN1Qm1MblRoXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939808.png" alt="img"></p>
 <h2 id="2-3-配置右键粘贴"><a href="#2-3-配置右键粘贴" class="headerlink" title="2.3.配置右键粘贴"></a>2.3.配置右键粘贴</h2><p>复制粘贴是很常用的配置，MobarXterm默认左键选中即<strong>复制</strong>，但是需要配置右键点击为<strong>粘贴：</strong></p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDQ2ZDE4YWEwODUwYzU4YWVlZTc4Nzk5NmU0NTE4YjlfOTE1M3gwOERzS0dTU0lLZ1BHbzB0SHUwb2tmTktKRWNfVG9rZW46SEpJbmJzQXRYbzhyVW94VmV5Z2NmeHVRbjNkXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939383.png" alt="img"></p>
 <p>这样，复制和粘贴可以全部通过鼠标操作，无需按键。</p>
 <h2 id="2-4-SSH配置"><a href="#2-4-SSH配置" class="headerlink" title="2.4.SSH配置"></a>2.4.SSH配置</h2><p>接下来还有几个ssh配置：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmQwOWMxMzJjNzNmYjNlZTQyODUxNzM3YzkxNjNiYmVfY1l0NUJuWTVJTjU0UFBudmdHWmdPSVNmRU5WWmcwOWhfVG9rZW46SXozQmJwc1FWb1hHSGl4V0Q2bGM0WnFxbjBiXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925709.png" alt="img"></p>
 <p>分别是：</p>
 <ul>
 <li>默认的登录用户</li>
@@ -298,13 +305,14 @@
 <li>取消连接成功后的欢迎banner</li>
 </ul>
 <h2 id="2-5-关闭X-Server服务"><a href="#2-5-关闭X-Server服务" class="headerlink" title="2.5.关闭X-Server服务"></a>2.5.关闭X-Server服务</h2><p>大多数情况下，我们没有x-server的需求，因此可以选择不要自启动：</p>
-<p><img src="https://b11et3un53m.feishu.cn/space/api/box/stream/download/asynccode/?code=YzY4MDg2M2M1YWRlNGNhNjBhYzdmNDE0MWE2ODFjOTNfRTc4UzJSYnZWRjdCcXM0U2xObmtlUGtRNFU0Yzk2Y1VfVG9rZW46RTIwUmJ3aWJPb3J4T2V4YU1OOWNPNmhKbjBnXzE3MjY1MTI3NzY6MTcyNjUxNjM3Nl9WNA" alt="img"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925040.png" alt="img"></p>
 
       </section>
 
       
       
         <nav class="article-nav">
+          
           
             <div class="article-nav-item layout-padding">
   <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
@@ -313,21 +321,6 @@
       
         <a href="/2024/09/08/Docker/" itemprop="url">
           <h2 class="card-text--title text-ellipsis">Docker部署和常用指令</h2>
-        </a>
-      
-      <div class="card-text--row">Newer</div>
-    </div>
-  </article>
-</div>
-          
-          
-            <div class="article-nav-item layout-padding">
-  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
-    
-    <div class="card-text">
-      
-        <a href="/2024/08/28/%E8%81%8A%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">聊多级缓存的一致性</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -634,7 +627,7 @@
   </div>
   <div class="widget-body">
     <div class="tags-cloud">
-      <a href="/tags/notes/" style="font-size: 20px;" class="tags-cloud-10">notes</a> <a href="/tags/transshipment/" style="font-size: 10px;" class="tags-cloud-0">transshipment</a>
+      <a href="/tags/notes/" style="font-size: 20px;" class="tags-cloud-10">notes</a> <a href="/tags/%E8%BD%AC%E8%BD%BD/" style="font-size: 10px;" class="tags-cloud-0">转载</a>
     </div>
   </div>
 </section>
