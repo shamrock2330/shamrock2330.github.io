@@ -1,129 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MybatisPlus相关</title>
-    <url>/2024/08/17/MybatisPlus/</url>
-    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
-<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
-<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
-
-
-
-<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
-<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
-
-<p>2、设置生成代码的配置</p>
-<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
-
-
-
-<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
-<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
-<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
-<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git管理</title>
-    <url>/2023/11/26/Git/</url>
-    <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
-<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
-<p>2、设置用户信息（第一次使用需要配置）：</p>
-<p>   git config –global user.name “用户名”</p>
-<p>   git config –global user.email “邮箱”</p>
-<p> 查看配置信息<br>   git config –global user.name</p>
-<p>   git config –global user.email</p>
-<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
-<p>2、在 .bashrc 文件中输入以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
-<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
-
-<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
-<p>2、进入这个目录中，右键打开GitBash窗口</p>
-<p>3、执行命令(初始化) git init</p>
-<p>4、如果创建成功则会看到  .git  目录</p>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
-<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
-<p>3、查看状态            git status</p>
-<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
-<p>5、版本回退            git reset –hard <commitID></p>
-<p>6、查看分支            git branch</p>
-<p>7、创建并切换分支     git checkout -b 分支名</p>
-<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
-<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
-<ul>
-<li>ssh-keygen -t rsa</li>
-<li>不断回车（即使用默认设置）</li>
-</ul>
-<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
-<ul>
-<li>查看生成的公钥<ul>
-<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
-</ul>
-</li>
-<li>验证是否配置成功<ul>
-<li>ssh -T 地址</li>
-<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#105;&#116;&#64;&#x67;&#105;&#x74;&#104;&#x75;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
-<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
-</ul>
-</li>
-</ul>
-<p>3、设置ssh免密登录：</p>
-<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
-<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
-<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
-<p>接着在GitHub上面进行设置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
-<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
-<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
-<ul>
-<li>远端名称，默认是origin，取决于远端服务器的设置</li>
-<li>仓库名称，从远端服务器获取此URL</li>
-</ul>
-<p>2、查看远程仓库      git remote</p>
-<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
-<ul>
-<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
-</li>
-<li><p>例如：git push origin master</p>
-</li>
-<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
-</li>
-<li><p>例如：git push –set-upstream origin master</p>
-</li>
-<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
-</li>
-<li><p>例如：git push</p>
-</li>
-</ul>
-<p>4、查看关联关系      git branch -vv</p>
-<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
-<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
-<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
-<ul>
-<li>相当于执行了 fetch和merge</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker部署和常用指令</title>
     <url>/2024/09/08/Docker/</url>
     <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="1-卸载旧版"><a href="#1-卸载旧版" class="headerlink" title="1.卸载旧版"></a>1.卸载旧版</h3><p>首先如果系统中已经存在旧的Docker，则先卸载：</p>
@@ -267,6 +144,169 @@
 ]]></content>
       <tags>
         <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MybatisPlus相关</title>
+    <url>/2024/08/17/MybatisPlus/</url>
+    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
+<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
+<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
+
+
+
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
+<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
+
+<p>2、设置生成代码的配置</p>
+<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
+
+
+
+<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
+<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
+<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
+<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git管理</title>
+    <url>/2023/11/26/Git/</url>
+    <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
+<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
+<p>2、设置用户信息（第一次使用需要配置）：</p>
+<p>   git config –global user.name “用户名”</p>
+<p>   git config –global user.email “邮箱”</p>
+<p> 查看配置信息<br>   git config –global user.name</p>
+<p>   git config –global user.email</p>
+<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
+<p>2、在 .bashrc 文件中输入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
+<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
+
+<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
+<p>2、进入这个目录中，右键打开GitBash窗口</p>
+<p>3、执行命令(初始化) git init</p>
+<p>4、如果创建成功则会看到  .git  目录</p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
+<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
+<p>3、查看状态            git status</p>
+<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
+<p>5、版本回退            git reset –hard <commitID></p>
+<p>6、查看分支            git branch</p>
+<p>7、创建并切换分支     git checkout -b 分支名</p>
+<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
+<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
+<ul>
+<li>ssh-keygen -t rsa</li>
+<li>不断回车（即使用默认设置）</li>
+</ul>
+<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
+<ul>
+<li>查看生成的公钥<ul>
+<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
+</ul>
+</li>
+<li>验证是否配置成功<ul>
+<li>ssh -T 地址</li>
+<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#x69;&#116;&#64;&#x67;&#105;&#116;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a></li>
+<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
+</ul>
+</li>
+</ul>
+<p>3、设置ssh免密登录：</p>
+<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
+<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
+<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
+<p>接着在GitHub上面进行设置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
+<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
+<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
+<ul>
+<li>远端名称，默认是origin，取决于远端服务器的设置</li>
+<li>仓库名称，从远端服务器获取此URL</li>
+</ul>
+<p>2、查看远程仓库      git remote</p>
+<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
+<ul>
+<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
+</li>
+<li><p>例如：git push origin master</p>
+</li>
+<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
+</li>
+<li><p>例如：git push –set-upstream origin master</p>
+</li>
+<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
+</li>
+<li><p>例如：git push</p>
+</li>
+</ul>
+<p>4、查看关联关系      git branch -vv</p>
+<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
+<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
+<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
+<ul>
+<li>相当于执行了 fetch和merge</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存</title>
+    <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
+    <content><![CDATA[<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
+<p>这样肯定看着乏味了，那么简单来说呢：</p>
+<p>缓存，就像是你家里的零食柜。可以想象一下，你每天都要吃一些零食，而这些零食是从超市买回来的。超市离你家有一段距离，所以每次去超市买零食都要花一些时间，太麻烦啦。</p>
+<p>现在，假设你发现你经常吃的零食就那么几种，比如薯片、巧克力和肥宅水。为了节省时间，你决定在家里放一个零食柜，把这几种经常吃的零食提前买好放在柜子里。这样，每次你想吃零食的时候，就可以直接从零食柜里拿，而不需要再去超市了，这样是不是节约了很多时间呢。</p>
+<p>在这个比喻中：</p>
+<ol>
+<li><strong>超市</strong>：就像是电脑里的硬盘，存储着所有的数据，但是访问速度比较慢。</li>
+<li><strong>零食柜</strong>：就是缓存，存储着你经常需要的数据（零食），访问速度快。</li>
+<li><strong>经常吃的零食</strong>：就是那些你经常需要访问的数据。</li>
+</ol>
+<p>缓存的工作原理也是类似的：</p>
+<ol>
+<li><strong>提前准备</strong>：电脑系统会提前把一些常用的数据（比如你经常吃的零食）放到缓存里。</li>
+<li><strong>快速访问</strong>：当你需要这些数据的时候，系统会首先检查缓存里有没有，如果有就直接从缓存里拿，这样速度就很快。</li>
+<li><strong>定期更新</strong>：如果缓存里的数据用完了，或者有新的常用数据出现，系统会从硬盘里把新的数据放到缓存里，替换掉旧的数据。</li>
+</ol>
+<p>通过这种方式，缓存帮助电脑系统更快地获取常用的数据，就像零食柜帮助你更快地拿到你喜欢的零食一样。这样，无论是电脑还是你，都能更高效地完成任务。</p>
+<p>缓存图解如下：</p>
+<p><img src="https://pic3.zhimg.com/v2-0a9cbc7e660c7bf87f40075124c46a75_r.jpg" alt="缓存模式以及如何保存缓存的数据一致性 - 知乎"></p>
+<h3 id="2、解决缓存问题所用部分技术"><a href="#2、解决缓存问题所用部分技术" class="headerlink" title="2、解决缓存问题所用部分技术"></a>2、解决缓存问题所用部分技术</h3><ol>
+<li><strong>Spring Cache</strong>：Spring 框架提供的缓存抽象，支持多种缓存实现，如 Ehcache、Redis 等。</li>
+<li><strong>Redis</strong>：一种高性能的键值对存储数据库，常用于缓存数据，属于分布式缓存。</li>
+<li><strong>Ehcache</strong>：一个开源的缓存框架，提供了多种缓存策略和配置选项，性能较好。</li>
+<li><strong>Guava Cache</strong>：Google Guava 库中的缓存实现，性能较好。</li>
+<li><strong>memcached</strong>：一个高性能的分布式内存对象缓存系统。</li>
+<li><strong>Simple</strong>（默认）</li>
+</ol>
+<h3 id="3、多级缓存"><a href="#3、多级缓存" class="headerlink" title="3、多级缓存"></a>3、多级缓存</h3><p>可能有些小伙伴会有些疑问，有一级缓存了为什么还需要多级缓存呢？那么在这浅谈一下：</p>
+<p>你可以想象一下这个场景：一级缓存和多级缓存就像是你去超市购物时的两种不同类型的购物车。</p>
+<p><strong>一级缓存</strong>就像你随身携带的小购物篮。当你在超市里走动时，你可能会随手拿起一些你觉得可能会需要的商品，放进了这个小篮子里。这些商品可能是一些你经常购买的，或者你觉得可能会用到的。当你决定买这些商品时，你直接从篮子里取出来，非常方便快捷。但是，这个小篮子的空间是有限的，你不能放太多东西。</p>
+<p><strong>多级缓存</strong>则像是你在超市里租用的大型购物车。这个大型购物车可以放更多的商品，而且通常放在超市的某个固定位置，比如靠近收银台。你可以在逛超市的过程中，把一些需要的商品先放在这里，等到你逛完超市，确认需要购买的物品后，再从大型购物车里取出来结账。大型购物车的好处是容量大，可以存放更多的商品，而且位置固定，方便你随时查看和取用。</p>
+<p>So，一级缓存和多级缓存的共同作用就是帮助我们更高效地获取和管理需要的商品（数据），一级缓存提供了快速的、局部的访问，而多级缓存提供了更持久的、全局的存储。两者结合使用，可以确保我们在购物（数据处理）的过程中既快速又不遗漏，同时还能节省空间（资源），何乐而不为。</p>
+]]></content>
+      <tags>
+        <tag>科普</tag>
       </tags>
   </entry>
   <entry>
@@ -467,46 +507,6 @@
 <p><a href="https://blog.csdn.net/xianrenzhou/article/details/137369119?ops_request_misc=&request_id=&biz_id=102&spm=1018.2226.3001.4450">2024新版-使用GitHub搭建个人图床_用github建图床-CSDN博客</a></p>
 <p>因为GitHub是国外的一个代码托管平台，所以有时候访问起来会很慢，but如果你luck的话也是能访问的，如果不行就可以去下载Watt Toolkit（也叫steam++），操作起来很简单。</p>
 <p>不想用加速器也可以使用SwitchHosts，这可能就需要稍微进行一点点的配置，感兴趣可以去了解一下DNS，就知道为什么SwitchHosts也能给你加速了。</p>
-]]></content>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>缓存</title>
-    <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
-    <content><![CDATA[<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
-<p>这样肯定看着乏味了，那么简单来说呢：</p>
-<p>缓存，就像是你家里的零食柜。可以想象一下，你每天都要吃一些零食，而这些零食是从超市买回来的。超市离你家有一段距离，所以每次去超市买零食都要花一些时间，太麻烦啦。</p>
-<p>现在，假设你发现你经常吃的零食就那么几种，比如薯片、巧克力和肥宅水。为了节省时间，你决定在家里放一个零食柜，把这几种经常吃的零食提前买好放在柜子里。这样，每次你想吃零食的时候，就可以直接从零食柜里拿，而不需要再去超市了，这样是不是节约了很多时间呢。</p>
-<p>在这个比喻中：</p>
-<ol>
-<li><strong>超市</strong>：就像是电脑里的硬盘，存储着所有的数据，但是访问速度比较慢。</li>
-<li><strong>零食柜</strong>：就是缓存，存储着你经常需要的数据（零食），访问速度快。</li>
-<li><strong>经常吃的零食</strong>：就是那些你经常需要访问的数据。</li>
-</ol>
-<p>缓存的工作原理也是类似的：</p>
-<ol>
-<li><strong>提前准备</strong>：电脑系统会提前把一些常用的数据（比如你经常吃的零食）放到缓存里。</li>
-<li><strong>快速访问</strong>：当你需要这些数据的时候，系统会首先检查缓存里有没有，如果有就直接从缓存里拿，这样速度就很快。</li>
-<li><strong>定期更新</strong>：如果缓存里的数据用完了，或者有新的常用数据出现，系统会从硬盘里把新的数据放到缓存里，替换掉旧的数据。</li>
-</ol>
-<p>通过这种方式，缓存帮助电脑系统更快地获取常用的数据，就像零食柜帮助你更快地拿到你喜欢的零食一样。这样，无论是电脑还是你，都能更高效地完成任务。</p>
-<p>缓存图解如下：</p>
-<p><img src="https://pic3.zhimg.com/v2-0a9cbc7e660c7bf87f40075124c46a75_r.jpg" alt="缓存模式以及如何保存缓存的数据一致性 - 知乎"></p>
-<h3 id="2、解决缓存问题所用部分技术"><a href="#2、解决缓存问题所用部分技术" class="headerlink" title="2、解决缓存问题所用部分技术"></a>2、解决缓存问题所用部分技术</h3><ol>
-<li><strong>Spring Cache</strong>：Spring 框架提供的缓存抽象，支持多种缓存实现，如 Ehcache、Redis 等。</li>
-<li><strong>Redis</strong>：一种高性能的键值对存储数据库，常用于缓存数据，属于分布式缓存。</li>
-<li><strong>Ehcache</strong>：一个开源的缓存框架，提供了多种缓存策略和配置选项，性能较好。</li>
-<li><strong>Guava Cache</strong>：Google Guava 库中的缓存实现，性能较好。</li>
-<li><strong>memcached</strong>：一个高性能的分布式内存对象缓存系统。</li>
-<li><strong>Simple</strong>（默认）</li>
-</ol>
-<h3 id="3、多级缓存"><a href="#3、多级缓存" class="headerlink" title="3、多级缓存"></a>3、多级缓存</h3><p>可能有些小伙伴会有些疑问，有一级缓存了为什么还需要多级缓存呢？那么在这浅谈一下：</p>
-<p>你可以想象一下这个场景：一级缓存和多级缓存就像是你去超市购物时的两种不同类型的购物车。</p>
-<p><strong>一级缓存</strong>就像你随身携带的小购物篮。当你在超市里走动时，你可能会随手拿起一些你觉得可能会需要的商品，放进了这个小篮子里。这些商品可能是一些你经常购买的，或者你觉得可能会用到的。当你决定买这些商品时，你直接从篮子里取出来，非常方便快捷。但是，这个小篮子的空间是有限的，你不能放太多东西。</p>
-<p><strong>多级缓存</strong>则像是你在超市里租用的大型购物车。这个大型购物车可以放更多的商品，而且通常放在超市的某个固定位置，比如靠近收银台。你可以在逛超市的过程中，把一些需要的商品先放在这里，等到你逛完超市，确认需要购买的物品后，再从大型购物车里取出来结账。大型购物车的好处是容量大，可以存放更多的商品，而且位置固定，方便你随时查看和取用。</p>
-<p>So，一级缓存和多级缓存的共同作用就是帮助我们更高效地获取和管理需要的商品（数据），一级缓存提供了快速的、局部的访问，而多级缓存提供了更持久的、全局的存储。两者结合使用，可以确保我们在购物（数据处理）的过程中既快速又不遗漏，同时还能节省空间（资源），何乐而不为。</p>
 ]]></content>
       <tags>
         <tag>科普</tag>
