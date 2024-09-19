@@ -193,7 +193,7 @@
 </li>
 <li>验证是否配置成功<ul>
 <li>ssh -T 地址</li>
-<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;">&#x67;&#105;&#x74;&#64;&#103;&#x69;&#x74;&#104;&#117;&#x62;&#46;&#99;&#111;&#x6d;</a></li>
+<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#x75;&#98;&#46;&#99;&#x6f;&#x6d;</a></li>
 <li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
 </ul>
 </li>
@@ -238,6 +238,33 @@
 <li>相当于执行了 fetch和merge</li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MybatisPlus相关</title>
+    <url>/2024/08/17/MybatisPlus/</url>
+    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
+<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
+<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
+
+
+
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
+<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
+
+<p>2、设置生成代码的配置</p>
+<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
+
+
+
+<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
+<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
+<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
+<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
       <tags>
         <tag>notes</tag>
       </tags>
@@ -411,33 +438,6 @@
 ]]></content>
       <tags>
         <tag>转载</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MybatisPlus相关</title>
-    <url>/2024/08/17/MybatisPlus/</url>
-    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
-<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
-<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
-
-
-
-<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
-<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
-
-<p>2、设置生成代码的配置</p>
-<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
-
-
-
-<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
-<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
-<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
-<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
-      <tags>
-        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
