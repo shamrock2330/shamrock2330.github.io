@@ -147,97 +147,28 @@
       </tags>
   </entry>
   <entry>
-    <title>git管理</title>
-    <url>/2023/11/26/Git/</url>
-    <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
-<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
-<p>2、设置用户信息（第一次使用需要配置）：</p>
-<p>   git config –global user.name “用户名”</p>
-<p>   git config –global user.email “邮箱”</p>
-<p> 查看配置信息<br>   git config –global user.name</p>
-<p>   git config –global user.email</p>
-<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
-<p>2、在 .bashrc 文件中输入以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
+    <title>MybatisPlus相关</title>
+    <url>/2024/08/17/MybatisPlus/</url>
+    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
+<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
+<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
 
-<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
-<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
 
-<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
-<p>2、进入这个目录中，右键打开GitBash窗口</p>
-<p>3、执行命令(初始化) git init</p>
-<p>4、如果创建成功则会看到  .git  目录</p>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
-<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
-<p>3、查看状态            git status</p>
-<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
-<p>5、版本回退            git reset –hard <commitID></p>
-<p>6、查看分支            git branch</p>
-<p>7、创建并切换分支     git checkout -b 分支名</p>
-<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
-<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
-<ul>
-<li>ssh-keygen -t rsa</li>
-<li>不断回车（即使用默认设置）</li>
-</ul>
-<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
-<ul>
-<li>查看生成的公钥<ul>
-<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
-</ul>
-</li>
-<li>验证是否配置成功<ul>
-<li>ssh -T 地址</li>
-<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#111;&#109;</a></li>
-<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
-</ul>
-</li>
-</ul>
-<p>3、设置ssh免密登录：</p>
-<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
-<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
-<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
-<p>接着在GitHub上面进行设置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
-<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
-<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
-<ul>
-<li>远端名称，默认是origin，取决于远端服务器的设置</li>
-<li>仓库名称，从远端服务器获取此URL</li>
-</ul>
-<p>2、查看远程仓库      git remote</p>
-<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
-<ul>
-<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
-</li>
-<li><p>例如：git push origin master</p>
-</li>
-<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
-</li>
-<li><p>例如：git push –set-upstream origin master</p>
-</li>
-<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
-</li>
-<li><p>例如：git push</p>
-</li>
-</ul>
-<p>4、查看关联关系      git branch -vv</p>
-<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
-<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
-<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
-<ul>
-<li>相当于执行了 fetch和merge</li>
-</ul>
-]]></content>
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
+<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
+
+<p>2、设置生成代码的配置</p>
+<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
+
+
+
+<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
+<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
+<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
+<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
       <tags>
         <tag>notes</tag>
       </tags>
@@ -414,28 +345,97 @@
       </tags>
   </entry>
   <entry>
-    <title>MybatisPlus相关</title>
-    <url>/2024/08/17/MybatisPlus/</url>
-    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
-<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
-<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
+    <title>git管理</title>
+    <url>/2023/11/26/Git/</url>
+    <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
+<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
+<p>2、设置用户信息（第一次使用需要配置）：</p>
+<p>   git config –global user.name “用户名”</p>
+<p>   git config –global user.email “邮箱”</p>
+<p> 查看配置信息<br>   git config –global user.name</p>
+<p>   git config –global user.email</p>
+<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
+<p>2、在 .bashrc 文件中输入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
 
+<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
+<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
 
+<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
-<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
-
-<p>2、设置生成代码的配置</p>
-<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
-
-
-
-<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
-<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
-<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
-<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
+<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
+<p>2、进入这个目录中，右键打开GitBash窗口</p>
+<p>3、执行命令(初始化) git init</p>
+<p>4、如果创建成功则会看到  .git  目录</p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
+<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
+<p>3、查看状态            git status</p>
+<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
+<p>5、版本回退            git reset –hard <commitID></p>
+<p>6、查看分支            git branch</p>
+<p>7、创建并切换分支     git checkout -b 分支名</p>
+<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
+<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
+<ul>
+<li>ssh-keygen -t rsa</li>
+<li>不断回车（即使用默认设置）</li>
+</ul>
+<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
+<ul>
+<li>查看生成的公钥<ul>
+<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
+</ul>
+</li>
+<li>验证是否配置成功<ul>
+<li>ssh -T 地址</li>
+<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a></li>
+<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
+</ul>
+</li>
+</ul>
+<p>3、设置ssh免密登录：</p>
+<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
+<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
+<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
+<p>接着在GitHub上面进行设置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
+<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
+<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
+<ul>
+<li>远端名称，默认是origin，取决于远端服务器的设置</li>
+<li>仓库名称，从远端服务器获取此URL</li>
+</ul>
+<p>2、查看远程仓库      git remote</p>
+<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
+<ul>
+<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
+</li>
+<li><p>例如：git push origin master</p>
+</li>
+<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
+</li>
+<li><p>例如：git push –set-upstream origin master</p>
+</li>
+<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
+</li>
+<li><p>例如：git push</p>
+</li>
+</ul>
+<p>4、查看关联关系      git branch -vv</p>
+<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
+<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
+<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
+<ul>
+<li>相当于执行了 fetch和merge</li>
+</ul>
+]]></content>
       <tags>
         <tag>notes</tag>
       </tags>
