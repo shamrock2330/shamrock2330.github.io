@@ -1,6 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Linux环境搭建</title>
+    <url>/2024/09/17/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h1 id="1-准备Linux环境"><a href="#1-准备Linux环境" class="headerlink" title="1.准备Linux环境"></a>1.准备Linux环境</h1><p>首先，我们要准备一个Linux的系统，成本最低的方式就是在本地安装一台虚拟机。为了统一学习环境，不管是使用MacOS还是Windows系统的同学，都建议安装一台虚拟机。</p>
+<p>windows采用VMware，Mac则采用Fusion</p>
+<h2 id="1-1-安装VMware"><a href="#1-1-安装VMware" class="headerlink" title="1.1.安装VMware"></a>1.1.安装VMware</h2><p>VMware是业界最好用的虚拟机软件之一。</p>
+<p>windows版本的网站如下：</p>
+<p><a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html</a></p>
+<p>Mac下也有对应版本，叫做VMware Fusion：</p>
+<p><a href="https://www.vmware.com/cn/products/fusion.html">https://www.vmware.com/cn/products/fusion.html</a></p>
+<p>特别注意，Windows10以上版本操作系统需要下载安装VMware Workstation Pro16及以上版本，安装方式此处略。</p>
+<p>如果自己电脑上已经有了低版本的VMware，则需要先卸载，再重新安装。卸载过程比较麻烦。</p>
+<h3 id="1-1-1-卸载旧版VMware（可选）"><a href="#1-1-1-卸载旧版VMware（可选）" class="headerlink" title="1.1.1.卸载旧版VMware（可选）"></a>1.1.1.卸载旧版VMware（可选）</h3><p>首先，在控制面板找到程序和功能选项，找到VMware，进行卸载操作：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925928.png" alt="img"></p>
+<p>弹出确认框, 点击”下一步”:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171931069.png" alt="img"></p>
+<p>下一步之后, 选择删除:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171932333.png" alt="img"></p>
+<p>接下来，按照提示完成卸载操作即可。</p>
+<p>卸载完成后，还需要看看VMware的安装目录是否有旧数据，一并清理掉。</p>
+<p>比如安装在<strong>C盘的</strong>Program Files(x86)：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171932352.png" alt="img"></p>
+<p>则需要直接删除整个VMware目录：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925904.png" alt="img"></p>
+<p>接下来要清理注册表：</p>
+<p>首先，按住Windows + R , 在弹出框中输入 “regedit” 调出注册表：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925853.png" alt="img"></p>
+<p>进入注册表编辑器，如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925537.png" alt="img"></p>
+<p>打开**<code>HKEY_CURRENT_USER</code><strong>文件夹，找到</strong><code>Software</code>**文件夹并打开</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933949.png" alt="img"></p>
+<p>找到“VMware.Inc”，右键删除：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925911.png" alt="img"></p>
+<h3 id="1-1-2-安装VMware"><a href="#1-1-2-安装VMware" class="headerlink" title="1.1.2.安装VMware"></a>1.1.2.安装VMware</h3><p>安装步骤略。。</p>
+<p>安装以后可以免费试用，大家可以去官网购买正版许可证，或者去网上看看有没有好心人赠送你一个许可证。启动后的界面如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925266.png" alt="img"></p>
+<h3 id="1-1-3-常见错误"><a href="#1-1-3-常见错误" class="headerlink" title="1.1.3.常见错误"></a>1.1.3.常见错误</h3><p>如果VMware虚拟机运行报错，例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933017.png" alt="img"></p>
+<p>这个是由于英特尔的虚拟化技术, 没有开启, 需要进入系统的BIOS界面 , 开启英特尔的虚拟化技术 ; 不同的电脑型号 , 进入BIOS界面的方式不同, 需要百度查询一下自己电脑的型号 , 如何进BIOS ;</p>
+<p>windows10系统可以参考: <a href="https://blog.csdn.net/biu_code/article/details/107504627">https://blog.csdn.net/biu_code/article/details/107504627</a></p>
+<p>以ThinkPad为例，如图：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933734.png" alt="img"></p>
+<h2 id="1-2-创建虚拟机"><a href="#1-2-创建虚拟机" class="headerlink" title="1.2.创建虚拟机"></a>1.2.创建虚拟机</h2><p>Centos7是比较常用的一个Linux发行版本，在国内的使用比例还是比较高的。</p>
+<p>大家首先要下载一个Centos7的iso文件，我在资料中给大家准备了一个mini的版本，体积不到1G，推荐大家使用：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925090.png" alt="img"></p>
+<p>我们在VMware《主页》界面中点击《创建新的虚拟机》按钮：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171934221.png" alt="img"></p>
+<p>然后会弹出一个窗口，我们直接点击下一步：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925500.png" alt="img"></p>
+<p>然后页面中选择你准备好的ISO文件，继续点击下一步：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171934293.png" alt="img"></p>
+<p>然后填写<code>虚拟机的名称</code>以及虚拟机将来<code>保存的位置</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925520.png" alt="img"></p>
+<p>再次下一步，填写虚拟机磁盘大小。这里建议给大一点，否则将来不够用调整起来麻烦。而且这里设置大小并不是立刻占用这么多，而是设置一个上限：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925370.png" alt="img"></p>
+<p>继续下一步，然后选择虚拟机硬件设置：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925782.png" alt="img"></p>
+<p>在弹出的窗口中设置虚拟机硬件，建议CPU给到4核，内存给到8G：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925255.png" alt="img"></p>
+<p>配置完成后，点击<code>关闭</code>，回到上一页面，继续点击<code>完成</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925872.png" alt="img"></p>
+<p>虚拟机就创建完毕了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935334.png" alt="img"></p>
+<h2 id="1-3-安装Centos7"><a href="#1-3-安装Centos7" class="headerlink" title="1.3.安装Centos7"></a>1.3.安装Centos7</h2><p>接下来，我们启动刚刚创建的虚拟机，开始安装Centos7系统：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925876.png" alt="img"></p>
+<p>启动后需要选择安装菜单，将鼠标移入黑窗口中后，将无法再使用鼠标，需要按上下键选择菜单。选中Install Centos 7 后按下回车：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935902.png" alt="img"></p>
+<p>然后会提示我们按下enter键继续：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925702.png" alt="img"></p>
+<p>过一会儿后，会进入语言选择菜单，这里可以使用鼠标选择。选择中文-简体中文，然后继续：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935636.png" alt="img"></p>
+<p>接下来，会进入安装配置页面：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925082.png" alt="img"></p>
+<p>鼠标向下滚动后，找到系统-安装位置配置，点击：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925679.png" alt="img"></p>
+<p>选择刚刚添加的磁盘，并点击完成：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925598.png" alt="img"></p>
+<p>然后回到配置页面，这次点击《网络和主机名》：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935901.png" alt="img"></p>
+<p>在网络页面做下面的几件事情：</p>
+<ol>
+<li>修改主机名为自己喜欢的主机名，不要出现中文和特殊字符，建议用localhost</li>
+<li>点击应用</li>
+<li>将网络连接打开</li>
+<li>点击配置，设置详细网络信息</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925234.png" alt="img"></p>
+<p>最好用一个截图软件，记住上图中的网络详细信息，接下来的配置要参考：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925229.png" alt="img"></p>
+<p>点击配置按钮后，我们需要把网卡地址改为静态IP，这样可以避免每次启动虚拟机IP都变化。所有配置照搬你自己截图的网络信息填写，不要照抄我的：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925765.png" alt="img"></p>
+<p>上图中的四个信息参考之前的<strong>以太网</strong> <strong>(ens33)</strong> <strong>网卡</strong> 的截图，不要照搬我的来写。</p>
+<p>最后，点击完成按钮：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925061.png" alt="img"></p>
+<p>回到配置界面后，点击<code>开始安装</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925570.png" alt="img"></p>
+<p>接下来需要设置root密码：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171936373.png" alt="img"></p>
+<p>填写你要使用的root密码，然后点击完成：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925484.png" alt="img"></p>
+<p>接下来，耐心等待安装即可。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925092.png" alt="img"></p>
+<p>等待安装完成后，点击<strong>重启</strong>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171936641.png" alt="img"></p>
+<p>耐心等待一段时间，不要做任何操作，虚拟机即可启动完毕：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937707.png" alt="img"></p>
+<p>输入用户名root，然后点击回车，会要求你输入密码：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925513.png" alt="img"></p>
+<p>此时你要输入密码，不过需要注意的是密码是<strong>隐藏</strong>的，输入了也看不见。所以放心输入，完成后回车即可：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937090.png" alt="img"></p>
+<p>只要密码输入正确，就可以正常登录。此时可以用命令测试虚拟机网络是否畅通：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
+
+<p>如果看到这样的结果代表网络畅通：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925105.png" alt="img"></p>
+<p>默认ping命令会持续执行，按下<code>CTRL </code>+ <code>C</code>后命令即可停止。</p>
+<h2 id="1-4-设置虚拟机快照"><a href="#1-4-设置虚拟机快照" class="headerlink" title="1.4.设置虚拟机快照"></a>1.4.设置虚拟机快照</h2><p>在虚拟机安装完成后，最好立刻设置一个快照，这样一旦将来虚拟机出现问题，可以快速恢复。</p>
+<p>我们先停止虚拟机，点击VMware顶部菜单中的<code>暂停</code>**<code>下拉选框</code>**，选择<code>关闭客户机</code>：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937041.png" alt="img"></p>
+<p>接着，点击VMware菜单中的🔧按钮:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925279.png" alt="img"></p>
+<p>然后在弹出的快照管理窗口中，点击<strong>拍摄快照</strong>，填写新的快照信息：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938354.png" alt="img"></p>
+<p>快照拍摄完成了！而且我们可以在不同阶段拍摄多个不同快照作为备份，方便后期恢复数据。</p>
+<p>假如以后虚拟机文件受损，需要恢复到初始状态的话，可以选中要恢复的快照，点击转到即可：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925624.png" alt="img"></p>
+<h1 id="2-SSH客户端"><a href="#2-SSH客户端" class="headerlink" title="2.SSH客户端"></a>2.SSH客户端</h1><p>在VMware界面中操作虚拟机非常不友好，所以一般推荐使用专门的SSH客户端。市面上常见的有：</p>
+<ul>
+<li>Xshell：个人免费，商业收费，之前爆出过有隐藏后门。不推荐</li>
+<li>Finshell：基础功能免费，高级功能收费，基于Java，内存占用较高（在1个G左右）。不推荐</li>
+<li>MobarXterm：基础功能免费、高级功能收费。开源、功能强大、内存占用低（只有10m左右），但是界面不太漂亮。推荐使用</li>
+</ul>
+<h2 id="2-1-安装MobarXterm"><a href="#2-1-安装MobarXterm" class="headerlink" title="2.1.安装MobarXterm"></a>2.1.安装MobarXterm</h2><p>这里我们会选择内存占用较低的MobarXterm作为SSH客户端，其官网地址：</p>
+<p><a href="https://mobaxterm.mobatek.net/">https://mobaxterm.mobatek.net/</a></p>
+<p>安装完成后界面如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925877.png" alt="img"></p>
+<p>点击session按钮，进入会话管理：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938218.png" alt="img"></p>
+<p>在弹出的session管理页面中，按照下图填写信息并保存：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925835.png" alt="img"></p>
+<p>点击OK后会提示你是第一次连接，询问你是信任连接的服务：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938751.png" alt="img"></p>
+<p>选择accept之后，会询问你是否要记住密码，选择yes：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925076.png" alt="img"></p>
+<p>紧接着需要你设置一个MobarXterm的全局密码用于做密码管理，建议设置一个与虚拟机密码不同的：</p>
+<p>输入密码：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938344.png" alt="img"></p>
+<p>输入成功后，就会连接成功，并进入操作界面了：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939174.png" alt="img"></p>
+<p>这里需要做一些基础的配置：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939206.png" alt="img"></p>
+<h2 id="2-2-配置默认编辑器"><a href="#2-2-配置默认编辑器" class="headerlink" title="2.2.配置默认编辑器"></a>2.2.配置默认编辑器</h2><p>首先建议设置一下默认编辑器，这样我们通过MobarXterm的FTP工具打开文件时会以指定的编辑器打开，方便修改。我这里配置的是vscode：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939808.png" alt="img"></p>
+<h2 id="2-3-配置右键粘贴"><a href="#2-3-配置右键粘贴" class="headerlink" title="2.3.配置右键粘贴"></a>2.3.配置右键粘贴</h2><p>复制粘贴是很常用的配置，MobarXterm默认左键选中即<strong>复制</strong>，但是需要配置右键点击为<strong>粘贴：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939383.png" alt="img"></p>
+<p>这样，复制和粘贴可以全部通过鼠标操作，无需按键。</p>
+<h2 id="2-4-SSH配置"><a href="#2-4-SSH配置" class="headerlink" title="2.4.SSH配置"></a>2.4.SSH配置</h2><p>接下来还有几个ssh配置：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925709.png" alt="img"></p>
+<p>分别是：</p>
+<ul>
+<li>默认的登录用户</li>
+<li>ssh保持连接</li>
+<li>取消连接成功后的欢迎banner</li>
+</ul>
+<h2 id="2-5-关闭X-Server服务"><a href="#2-5-关闭X-Server服务" class="headerlink" title="2.5.关闭X-Server服务"></a>2.5.关闭X-Server服务</h2><p>大多数情况下，我们没有x-server的需求，因此可以选择不要自启动：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925040.png" alt="img"></p>
+]]></content>
+      <tags>
+        <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>git管理</title>
     <url>/2023/11/26/Git/</url>
     <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
@@ -47,7 +218,7 @@
 </li>
 <li>验证是否配置成功<ul>
 <li>ssh -T 地址</li>
-<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#103;&#105;&#x74;&#x40;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a></li>
+<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a></li>
 <li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
 </ul>
 </li>
@@ -243,177 +414,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Linux环境搭建</title>
-    <url>/2024/09/17/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h1 id="1-准备Linux环境"><a href="#1-准备Linux环境" class="headerlink" title="1.准备Linux环境"></a>1.准备Linux环境</h1><p>首先，我们要准备一个Linux的系统，成本最低的方式就是在本地安装一台虚拟机。为了统一学习环境，不管是使用MacOS还是Windows系统的同学，都建议安装一台虚拟机。</p>
-<p>windows采用VMware，Mac则采用Fusion</p>
-<h2 id="1-1-安装VMware"><a href="#1-1-安装VMware" class="headerlink" title="1.1.安装VMware"></a>1.1.安装VMware</h2><p>VMware是业界最好用的虚拟机软件之一。</p>
-<p>windows版本的网站如下：</p>
-<p><a href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html</a></p>
-<p>Mac下也有对应版本，叫做VMware Fusion：</p>
-<p><a href="https://www.vmware.com/cn/products/fusion.html">https://www.vmware.com/cn/products/fusion.html</a></p>
-<p>特别注意，Windows10以上版本操作系统需要下载安装VMware Workstation Pro16及以上版本，安装方式此处略。</p>
-<p>如果自己电脑上已经有了低版本的VMware，则需要先卸载，再重新安装。卸载过程比较麻烦。</p>
-<h3 id="1-1-1-卸载旧版VMware（可选）"><a href="#1-1-1-卸载旧版VMware（可选）" class="headerlink" title="1.1.1.卸载旧版VMware（可选）"></a>1.1.1.卸载旧版VMware（可选）</h3><p>首先，在控制面板找到程序和功能选项，找到VMware，进行卸载操作：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925928.png" alt="img"></p>
-<p>弹出确认框, 点击”下一步”:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171931069.png" alt="img"></p>
-<p>下一步之后, 选择删除:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171932333.png" alt="img"></p>
-<p>接下来，按照提示完成卸载操作即可。</p>
-<p>卸载完成后，还需要看看VMware的安装目录是否有旧数据，一并清理掉。</p>
-<p>比如安装在<strong>C盘的</strong>Program Files(x86)：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171932352.png" alt="img"></p>
-<p>则需要直接删除整个VMware目录：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925904.png" alt="img"></p>
-<p>接下来要清理注册表：</p>
-<p>首先，按住Windows + R , 在弹出框中输入 “regedit” 调出注册表：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925853.png" alt="img"></p>
-<p>进入注册表编辑器，如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925537.png" alt="img"></p>
-<p>打开**<code>HKEY_CURRENT_USER</code><strong>文件夹，找到</strong><code>Software</code>**文件夹并打开</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933949.png" alt="img"></p>
-<p>找到“VMware.Inc”，右键删除：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925911.png" alt="img"></p>
-<h3 id="1-1-2-安装VMware"><a href="#1-1-2-安装VMware" class="headerlink" title="1.1.2.安装VMware"></a>1.1.2.安装VMware</h3><p>安装步骤略。。</p>
-<p>安装以后可以免费试用，大家可以去官网购买正版许可证，或者去网上看看有没有好心人赠送你一个许可证。启动后的界面如图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925266.png" alt="img"></p>
-<h3 id="1-1-3-常见错误"><a href="#1-1-3-常见错误" class="headerlink" title="1.1.3.常见错误"></a>1.1.3.常见错误</h3><p>如果VMware虚拟机运行报错，例如：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933017.png" alt="img"></p>
-<p>这个是由于英特尔的虚拟化技术, 没有开启, 需要进入系统的BIOS界面 , 开启英特尔的虚拟化技术 ; 不同的电脑型号 , 进入BIOS界面的方式不同, 需要百度查询一下自己电脑的型号 , 如何进BIOS ;</p>
-<p>windows10系统可以参考: <a href="https://blog.csdn.net/biu_code/article/details/107504627">https://blog.csdn.net/biu_code/article/details/107504627</a></p>
-<p>以ThinkPad为例，如图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171933734.png" alt="img"></p>
-<h2 id="1-2-创建虚拟机"><a href="#1-2-创建虚拟机" class="headerlink" title="1.2.创建虚拟机"></a>1.2.创建虚拟机</h2><p>Centos7是比较常用的一个Linux发行版本，在国内的使用比例还是比较高的。</p>
-<p>大家首先要下载一个Centos7的iso文件，我在资料中给大家准备了一个mini的版本，体积不到1G，推荐大家使用：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925090.png" alt="img"></p>
-<p>我们在VMware《主页》界面中点击《创建新的虚拟机》按钮：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171934221.png" alt="img"></p>
-<p>然后会弹出一个窗口，我们直接点击下一步：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925500.png" alt="img"></p>
-<p>然后页面中选择你准备好的ISO文件，继续点击下一步：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171934293.png" alt="img"></p>
-<p>然后填写<code>虚拟机的名称</code>以及虚拟机将来<code>保存的位置</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925520.png" alt="img"></p>
-<p>再次下一步，填写虚拟机磁盘大小。这里建议给大一点，否则将来不够用调整起来麻烦。而且这里设置大小并不是立刻占用这么多，而是设置一个上限：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925370.png" alt="img"></p>
-<p>继续下一步，然后选择虚拟机硬件设置：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925782.png" alt="img"></p>
-<p>在弹出的窗口中设置虚拟机硬件，建议CPU给到4核，内存给到8G：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925255.png" alt="img"></p>
-<p>配置完成后，点击<code>关闭</code>，回到上一页面，继续点击<code>完成</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925872.png" alt="img"></p>
-<p>虚拟机就创建完毕了：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935334.png" alt="img"></p>
-<h2 id="1-3-安装Centos7"><a href="#1-3-安装Centos7" class="headerlink" title="1.3.安装Centos7"></a>1.3.安装Centos7</h2><p>接下来，我们启动刚刚创建的虚拟机，开始安装Centos7系统：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925876.png" alt="img"></p>
-<p>启动后需要选择安装菜单，将鼠标移入黑窗口中后，将无法再使用鼠标，需要按上下键选择菜单。选中Install Centos 7 后按下回车：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935902.png" alt="img"></p>
-<p>然后会提示我们按下enter键继续：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925702.png" alt="img"></p>
-<p>过一会儿后，会进入语言选择菜单，这里可以使用鼠标选择。选择中文-简体中文，然后继续：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935636.png" alt="img"></p>
-<p>接下来，会进入安装配置页面：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925082.png" alt="img"></p>
-<p>鼠标向下滚动后，找到系统-安装位置配置，点击：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925679.png" alt="img"></p>
-<p>选择刚刚添加的磁盘，并点击完成：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925598.png" alt="img"></p>
-<p>然后回到配置页面，这次点击《网络和主机名》：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171935901.png" alt="img"></p>
-<p>在网络页面做下面的几件事情：</p>
-<ol>
-<li>修改主机名为自己喜欢的主机名，不要出现中文和特殊字符，建议用localhost</li>
-<li>点击应用</li>
-<li>将网络连接打开</li>
-<li>点击配置，设置详细网络信息</li>
-</ol>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925234.png" alt="img"></p>
-<p>最好用一个截图软件，记住上图中的网络详细信息，接下来的配置要参考：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925229.png" alt="img"></p>
-<p>点击配置按钮后，我们需要把网卡地址改为静态IP，这样可以避免每次启动虚拟机IP都变化。所有配置照搬你自己截图的网络信息填写，不要照抄我的：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925765.png" alt="img"></p>
-<p>上图中的四个信息参考之前的<strong>以太网</strong> <strong>(ens33)</strong> <strong>网卡</strong> 的截图，不要照搬我的来写。</p>
-<p>最后，点击完成按钮：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925061.png" alt="img"></p>
-<p>回到配置界面后，点击<code>开始安装</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925570.png" alt="img"></p>
-<p>接下来需要设置root密码：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171936373.png" alt="img"></p>
-<p>填写你要使用的root密码，然后点击完成：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925484.png" alt="img"></p>
-<p>接下来，耐心等待安装即可。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925092.png" alt="img"></p>
-<p>等待安装完成后，点击<strong>重启</strong>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171936641.png" alt="img"></p>
-<p>耐心等待一段时间，不要做任何操作，虚拟机即可启动完毕：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937707.png" alt="img"></p>
-<p>输入用户名root，然后点击回车，会要求你输入密码：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925513.png" alt="img"></p>
-<p>此时你要输入密码，不过需要注意的是密码是<strong>隐藏</strong>的，输入了也看不见。所以放心输入，完成后回车即可：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937090.png" alt="img"></p>
-<p>只要密码输入正确，就可以正常登录。此时可以用命令测试虚拟机网络是否畅通：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ping www.baidu.com</span><br></pre></td></tr></table></figure>
-
-<p>如果看到这样的结果代表网络畅通：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925105.png" alt="img"></p>
-<p>默认ping命令会持续执行，按下<code>CTRL </code>+ <code>C</code>后命令即可停止。</p>
-<h2 id="1-4-设置虚拟机快照"><a href="#1-4-设置虚拟机快照" class="headerlink" title="1.4.设置虚拟机快照"></a>1.4.设置虚拟机快照</h2><p>在虚拟机安装完成后，最好立刻设置一个快照，这样一旦将来虚拟机出现问题，可以快速恢复。</p>
-<p>我们先停止虚拟机，点击VMware顶部菜单中的<code>暂停</code>**<code>下拉选框</code>**，选择<code>关闭客户机</code>：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171937041.png" alt="img"></p>
-<p>接着，点击VMware菜单中的🔧按钮:</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925279.png" alt="img"></p>
-<p>然后在弹出的快照管理窗口中，点击<strong>拍摄快照</strong>，填写新的快照信息：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938354.png" alt="img"></p>
-<p>快照拍摄完成了！而且我们可以在不同阶段拍摄多个不同快照作为备份，方便后期恢复数据。</p>
-<p>假如以后虚拟机文件受损，需要恢复到初始状态的话，可以选中要恢复的快照，点击转到即可：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925624.png" alt="img"></p>
-<h1 id="2-SSH客户端"><a href="#2-SSH客户端" class="headerlink" title="2.SSH客户端"></a>2.SSH客户端</h1><p>在VMware界面中操作虚拟机非常不友好，所以一般推荐使用专门的SSH客户端。市面上常见的有：</p>
-<ul>
-<li>Xshell：个人免费，商业收费，之前爆出过有隐藏后门。不推荐</li>
-<li>Finshell：基础功能免费，高级功能收费，基于Java，内存占用较高（在1个G左右）。不推荐</li>
-<li>MobarXterm：基础功能免费、高级功能收费。开源、功能强大、内存占用低（只有10m左右），但是界面不太漂亮。推荐使用</li>
-</ul>
-<h2 id="2-1-安装MobarXterm"><a href="#2-1-安装MobarXterm" class="headerlink" title="2.1.安装MobarXterm"></a>2.1.安装MobarXterm</h2><p>这里我们会选择内存占用较低的MobarXterm作为SSH客户端，其官网地址：</p>
-<p><a href="https://mobaxterm.mobatek.net/">https://mobaxterm.mobatek.net/</a></p>
-<p>安装完成后界面如图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925877.png" alt="img"></p>
-<p>点击session按钮，进入会话管理：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938218.png" alt="img"></p>
-<p>在弹出的session管理页面中，按照下图填写信息并保存：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925835.png" alt="img"></p>
-<p>点击OK后会提示你是第一次连接，询问你是信任连接的服务：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938751.png" alt="img"></p>
-<p>选择accept之后，会询问你是否要记住密码，选择yes：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925076.png" alt="img"></p>
-<p>紧接着需要你设置一个MobarXterm的全局密码用于做密码管理，建议设置一个与虚拟机密码不同的：</p>
-<p>输入密码：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171938344.png" alt="img"></p>
-<p>输入成功后，就会连接成功，并进入操作界面了：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939174.png" alt="img"></p>
-<p>这里需要做一些基础的配置：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939206.png" alt="img"></p>
-<h2 id="2-2-配置默认编辑器"><a href="#2-2-配置默认编辑器" class="headerlink" title="2.2.配置默认编辑器"></a>2.2.配置默认编辑器</h2><p>首先建议设置一下默认编辑器，这样我们通过MobarXterm的FTP工具打开文件时会以指定的编辑器打开，方便修改。我这里配置的是vscode：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939808.png" alt="img"></p>
-<h2 id="2-3-配置右键粘贴"><a href="#2-3-配置右键粘贴" class="headerlink" title="2.3.配置右键粘贴"></a>2.3.配置右键粘贴</h2><p>复制粘贴是很常用的配置，MobarXterm默认左键选中即<strong>复制</strong>，但是需要配置右键点击为<strong>粘贴：</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171939383.png" alt="img"></p>
-<p>这样，复制和粘贴可以全部通过鼠标操作，无需按键。</p>
-<h2 id="2-4-SSH配置"><a href="#2-4-SSH配置" class="headerlink" title="2.4.SSH配置"></a>2.4.SSH配置</h2><p>接下来还有几个ssh配置：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925709.png" alt="img"></p>
-<p>分别是：</p>
-<ul>
-<li>默认的登录用户</li>
-<li>ssh保持连接</li>
-<li>取消连接成功后的欢迎banner</li>
-</ul>
-<h2 id="2-5-关闭X-Server服务"><a href="#2-5-关闭X-Server服务" class="headerlink" title="2.5.关闭X-Server服务"></a>2.5.关闭X-Server服务</h2><p>大多数情况下，我们没有x-server的需求，因此可以选择不要自启动：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409171925040.png" alt="img"></p>
-]]></content>
-      <tags>
-        <tag>转载</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图床</title>
     <url>/2024/09/18/%E5%9B%BE%E5%BA%8A/</url>
     <content><![CDATA[<h1 id="图床那些事"><a href="#图床那些事" class="headerlink" title="图床那些事"></a>图床那些事</h1><p><strong>1.图床到底是用来干什么的呢？？</strong></p>
@@ -440,6 +440,46 @@
 <p><a href="https://blog.csdn.net/xianrenzhou/article/details/137369119?ops_request_misc=&request_id=&biz_id=102&spm=1018.2226.3001.4450">2024新版-使用GitHub搭建个人图床_用github建图床-CSDN博客</a></p>
 <p>因为GitHub是国外的一个代码托管平台，所以有时候访问起来会很慢，but如果你luck的话也是能访问的，如果不行就可以去下载Watt Toolkit（也叫steam++），操作起来很简单。</p>
 <p>不想用加速器也可以使用SwitchHosts，这可能就需要稍微进行一点点的配置，感兴趣可以去了解一下DNS，就知道为什么SwitchHosts也能给你加速了。</p>
+]]></content>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存</title>
+    <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
+    <content><![CDATA[<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
+<p>这样肯定看着乏味了，那么简单来说呢：</p>
+<p>缓存，就像是你家里的零食柜。可以想象一下，你每天都要吃一些零食，而这些零食是从超市买回来的。超市离你家有一段距离，所以每次去超市买零食都要花一些时间，太麻烦啦。</p>
+<p>现在，假设你发现你经常吃的零食就那么几种，比如薯片、巧克力和肥宅水。为了节省时间，你决定在家里放一个零食柜，把这几种经常吃的零食提前买好放在柜子里。这样，每次你想吃零食的时候，就可以直接从零食柜里拿，而不需要再去超市了，这样是不是节约了很多时间呢。</p>
+<p>在这个比喻中：</p>
+<ol>
+<li><strong>超市</strong>：就像是电脑里的硬盘，存储着所有的数据，但是访问速度比较慢。</li>
+<li><strong>零食柜</strong>：就是缓存，存储着你经常需要的数据（零食），访问速度快。</li>
+<li><strong>经常吃的零食</strong>：就是那些你经常需要访问的数据。</li>
+</ol>
+<p>缓存的工作原理也是类似的：</p>
+<ol>
+<li><strong>提前准备</strong>：电脑系统会提前把一些常用的数据（比如你经常吃的零食）放到缓存里。</li>
+<li><strong>快速访问</strong>：当你需要这些数据的时候，系统会首先检查缓存里有没有，如果有就直接从缓存里拿，这样速度就很快。</li>
+<li><strong>定期更新</strong>：如果缓存里的数据用完了，或者有新的常用数据出现，系统会从硬盘里把新的数据放到缓存里，替换掉旧的数据。</li>
+</ol>
+<p>通过这种方式，缓存帮助电脑系统更快地获取常用的数据，就像零食柜帮助你更快地拿到你喜欢的零食一样。这样，无论是电脑还是你，都能更高效地完成任务。</p>
+<p>缓存图解如下：</p>
+<p><img src="https://pic3.zhimg.com/v2-0a9cbc7e660c7bf87f40075124c46a75_r.jpg" alt="缓存模式以及如何保存缓存的数据一致性 - 知乎"></p>
+<h3 id="2、解决缓存问题所用部分技术"><a href="#2、解决缓存问题所用部分技术" class="headerlink" title="2、解决缓存问题所用部分技术"></a>2、解决缓存问题所用部分技术</h3><ol>
+<li><strong>Spring Cache</strong>：Spring 框架提供的缓存抽象，支持多种缓存实现，如 Ehcache、Redis 等。</li>
+<li><strong>Redis</strong>：一种高性能的键值对存储数据库，常用于缓存数据，属于分布式缓存。</li>
+<li><strong>Ehcache</strong>：一个开源的缓存框架，提供了多种缓存策略和配置选项，性能较好。</li>
+<li><strong>Guava Cache</strong>：Google Guava 库中的缓存实现，性能较好。</li>
+<li><strong>memcached</strong>：一个高性能的分布式内存对象缓存系统。</li>
+<li><strong>Simple</strong>（默认）</li>
+</ol>
+<h3 id="3、多级缓存"><a href="#3、多级缓存" class="headerlink" title="3、多级缓存"></a>3、多级缓存</h3><p>可能有些小伙伴会有些疑问，有一级缓存了为什么还需要多级缓存呢？那么在这浅谈一下：</p>
+<p>你可以想象一下这个场景：一级缓存和多级缓存就像是你去超市购物时的两种不同类型的购物车。</p>
+<p><strong>一级缓存</strong>就像你随身携带的小购物篮。当你在超市里走动时，你可能会随手拿起一些你觉得可能会需要的商品，放进了这个小篮子里。这些商品可能是一些你经常购买的，或者你觉得可能会用到的。当你决定买这些商品时，你直接从篮子里取出来，非常方便快捷。但是，这个小篮子的空间是有限的，你不能放太多东西。</p>
+<p><strong>多级缓存</strong>则像是你在超市里租用的大型购物车。这个大型购物车可以放更多的商品，而且通常放在超市的某个固定位置，比如靠近收银台。你可以在逛超市的过程中，把一些需要的商品先放在这里，等到你逛完超市，确认需要购买的物品后，再从大型购物车里取出来结账。大型购物车的好处是容量大，可以存放更多的商品，而且位置固定，方便你随时查看和取用。</p>
+<p>So，一级缓存和多级缓存的共同作用就是帮助我们更高效地获取和管理需要的商品（数据），一级缓存提供了快速的、局部的访问，而多级缓存提供了更持久的、全局的存储。两者结合使用，可以确保我们在购物（数据处理）的过程中既快速又不遗漏，同时还能节省空间（资源），何乐而不为。</p>
 ]]></content>
       <tags>
         <tag>科普</tag>
@@ -584,46 +624,6 @@
 ]]></content>
       <tags>
         <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>缓存</title>
-    <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
-    <content><![CDATA[<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
-<p>这样肯定看着乏味了，那么简单来说呢：</p>
-<p>缓存，就像是你家里的零食柜。可以想象一下，你每天都要吃一些零食，而这些零食是从超市买回来的。超市离你家有一段距离，所以每次去超市买零食都要花一些时间，太麻烦啦。</p>
-<p>现在，假设你发现你经常吃的零食就那么几种，比如薯片、巧克力和肥宅水。为了节省时间，你决定在家里放一个零食柜，把这几种经常吃的零食提前买好放在柜子里。这样，每次你想吃零食的时候，就可以直接从零食柜里拿，而不需要再去超市了，这样是不是节约了很多时间呢。</p>
-<p>在这个比喻中：</p>
-<ol>
-<li><strong>超市</strong>：就像是电脑里的硬盘，存储着所有的数据，但是访问速度比较慢。</li>
-<li><strong>零食柜</strong>：就是缓存，存储着你经常需要的数据（零食），访问速度快。</li>
-<li><strong>经常吃的零食</strong>：就是那些你经常需要访问的数据。</li>
-</ol>
-<p>缓存的工作原理也是类似的：</p>
-<ol>
-<li><strong>提前准备</strong>：电脑系统会提前把一些常用的数据（比如你经常吃的零食）放到缓存里。</li>
-<li><strong>快速访问</strong>：当你需要这些数据的时候，系统会首先检查缓存里有没有，如果有就直接从缓存里拿，这样速度就很快。</li>
-<li><strong>定期更新</strong>：如果缓存里的数据用完了，或者有新的常用数据出现，系统会从硬盘里把新的数据放到缓存里，替换掉旧的数据。</li>
-</ol>
-<p>通过这种方式，缓存帮助电脑系统更快地获取常用的数据，就像零食柜帮助你更快地拿到你喜欢的零食一样。这样，无论是电脑还是你，都能更高效地完成任务。</p>
-<p>缓存图解如下：</p>
-<p><img src="https://pic3.zhimg.com/v2-0a9cbc7e660c7bf87f40075124c46a75_r.jpg" alt="缓存模式以及如何保存缓存的数据一致性 - 知乎"></p>
-<h3 id="2、解决缓存问题所用部分技术"><a href="#2、解决缓存问题所用部分技术" class="headerlink" title="2、解决缓存问题所用部分技术"></a>2、解决缓存问题所用部分技术</h3><ol>
-<li><strong>Spring Cache</strong>：Spring 框架提供的缓存抽象，支持多种缓存实现，如 Ehcache、Redis 等。</li>
-<li><strong>Redis</strong>：一种高性能的键值对存储数据库，常用于缓存数据，属于分布式缓存。</li>
-<li><strong>Ehcache</strong>：一个开源的缓存框架，提供了多种缓存策略和配置选项，性能较好。</li>
-<li><strong>Guava Cache</strong>：Google Guava 库中的缓存实现，性能较好。</li>
-<li><strong>memcached</strong>：一个高性能的分布式内存对象缓存系统。</li>
-<li><strong>Simple</strong>（默认）</li>
-</ol>
-<h3 id="3、多级缓存"><a href="#3、多级缓存" class="headerlink" title="3、多级缓存"></a>3、多级缓存</h3><p>可能有些小伙伴会有些疑问，有一级缓存了为什么还需要多级缓存呢？那么在这浅谈一下：</p>
-<p>你可以想象一下这个场景：一级缓存和多级缓存就像是你去超市购物时的两种不同类型的购物车。</p>
-<p><strong>一级缓存</strong>就像你随身携带的小购物篮。当你在超市里走动时，你可能会随手拿起一些你觉得可能会需要的商品，放进了这个小篮子里。这些商品可能是一些你经常购买的，或者你觉得可能会用到的。当你决定买这些商品时，你直接从篮子里取出来，非常方便快捷。但是，这个小篮子的空间是有限的，你不能放太多东西。</p>
-<p><strong>多级缓存</strong>则像是你在超市里租用的大型购物车。这个大型购物车可以放更多的商品，而且通常放在超市的某个固定位置，比如靠近收银台。你可以在逛超市的过程中，把一些需要的商品先放在这里，等到你逛完超市，确认需要购买的物品后，再从大型购物车里取出来结账。大型购物车的好处是容量大，可以存放更多的商品，而且位置固定，方便你随时查看和取用。</p>
-<p>So，一级缓存和多级缓存的共同作用就是帮助我们更高效地获取和管理需要的商品（数据），一级缓存提供了快速的、局部的访问，而多级缓存提供了更持久的、全局的存储。两者结合使用，可以确保我们在购物（数据处理）的过程中既快速又不遗漏，同时还能节省空间（资源），何乐而不为。</p>
-]]></content>
-      <tags>
-        <tag>科普</tag>
       </tags>
   </entry>
 </search>
