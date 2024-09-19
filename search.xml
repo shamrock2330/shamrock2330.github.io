@@ -1,6 +1,307 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git管理</title>
+    <url>/2023/11/26/Git/</url>
+    <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
+<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
+<p>2、设置用户信息（第一次使用需要配置）：</p>
+<p>   git config –global user.name “用户名”</p>
+<p>   git config –global user.email “邮箱”</p>
+<p> 查看配置信息<br>   git config –global user.name</p>
+<p>   git config –global user.email</p>
+<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
+<p>2、在 .bashrc 文件中输入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
+<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
+
+<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
+<p>2、进入这个目录中，右键打开GitBash窗口</p>
+<p>3、执行命令(初始化) git init</p>
+<p>4、如果创建成功则会看到  .git  目录</p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
+<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
+<p>3、查看状态            git status</p>
+<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
+<p>5、版本回退            git reset –hard <commitID></p>
+<p>6、查看分支            git branch</p>
+<p>7、创建并切换分支     git checkout -b 分支名</p>
+<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
+<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
+<ul>
+<li>ssh-keygen -t rsa</li>
+<li>不断回车（即使用默认设置）</li>
+</ul>
+<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
+<ul>
+<li>查看生成的公钥<ul>
+<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
+</ul>
+</li>
+<li>验证是否配置成功<ul>
+<li>ssh -T 地址</li>
+<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#64;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#x63;&#x6f;&#x6d;</a></li>
+<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
+</ul>
+</li>
+</ul>
+<p>3、设置ssh免密登录：</p>
+<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
+<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
+<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
+<p>接着在GitHub上面进行设置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
+<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
+<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
+<ul>
+<li>远端名称，默认是origin，取决于远端服务器的设置</li>
+<li>仓库名称，从远端服务器获取此URL</li>
+</ul>
+<p>2、查看远程仓库      git remote</p>
+<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
+<ul>
+<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
+</li>
+<li><p>例如：git push origin master</p>
+</li>
+<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
+</li>
+<li><p>例如：git push –set-upstream origin master</p>
+</li>
+<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
+</li>
+<li><p>例如：git push</p>
+</li>
+</ul>
+<p>4、查看关联关系      git branch -vv</p>
+<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
+<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
+<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
+<ul>
+<li>相当于执行了 fetch和merge</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图床</title>
+    <url>/2024/09/18/%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<h1 id="图床那些事"><a href="#图床那些事" class="headerlink" title="图床那些事"></a>图床那些事</h1><p><strong>1.图床到底是用来干什么的呢？？</strong></p>
+<p>图床是其实一种在线存储图片的服务，它允许用户上传图片并获取图片的链接，也就是说当你把一张照片上传到图床上，那么通过生成的这个链接，你就能在任何联网的电脑或者手机设备上访问（查看）到该图片。这些链接可以用于网页、博客、论坛等地方，使得图片能够在不同的平台上展示。</p>
+<p><strong>SMMS</strong></p>
+<p>下面这个就是我在SMMS这地上传的图片，上传之后它会给你生成链接，该链接就能直接访问该图片</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180045352.png" alt="image-20240918004525307"></p>
+<p><strong>Github</strong></p>
+<p>再下面这个呢就是我在GitHub上面创建的一个public（公开）的仓库，当我把图片上传到仓库里，其他人就能通过我仓库的地址来查看到我的图片，pictures就是我存放图片的文件夹，你们现在看到的该图就是我在写笔记的时候引入了我图片的链接，然后你们就能看得到my photos</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180048173.png" alt="image-20240918004818033"></p>
+<p>其实除了上述俩可以搭建图床外，也还有很多其他的，比如：</p>
+<p>腾讯云COS、</p>
+<p>阿里云OSS、</p>
+<p>七牛云、</p>
+<p>imgur…….</p>
+<p>但是很多都是要收费的，而且上传的图片会有大小的限制等等，所以我选择使用Github白嫖哈哈。。</p>
+<p><strong>2.为什么要把图片上传到图床，我微信发给别人那不也是能看得到吗？？</strong></p>
+<p>你把本地的图片（也就是手机或者电脑上保存的图片）发给你的微信&#x2F;QQ好友，这时候你的friend确实是能看得到图片，也能下载，但是你可不要误会了，这可不是因为你把图片上传到网上了（这里的网指的是所有联网设备都能查看的地方），这是因为你把图片上传到一个小仓库里面（也就是缓存），当你有网络可以加载的时候它就能从仓库里面把图片拿出来给你看，因为都说是小仓库了，如果它把你发的图片都给永久的存储起来，那当你给你的   girlfriend&#x2F;boyfriend 发的图片越来越多的时候，你的小仓库是不是要爆炸了，就跟你告急的体重一样哈哈哈。</p>
+<p>如果想大概知道缓存是什么可以去看看<a href="https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/">https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/</a></p>
+<p>你估计也曾遇到过当你想回去微信&#x2F;QQ找一些久远的图片但是发现它说被清理了，这就是你的小仓库它存储东西是有一个期限的，到时间它就给你清掉了，不然你的小仓库就没地方放东西啦！！</p>
+<p>So你觉得重要的文件或图片就能保存下来，防止丢失</p>
+<p><strong>3.使用Picgo+Github搭建图床（可以配合Typora&#x2F;obsidian使用—写笔记）</strong></p>
+<p>网上教程很多，不会的可以去找来玩玩，这边也直接V个链接：</p>
+<p><a href="https://blog.csdn.net/xianrenzhou/article/details/137369119?ops_request_misc=&request_id=&biz_id=102&spm=1018.2226.3001.4450">2024新版-使用GitHub搭建个人图床_用github建图床-CSDN博客</a></p>
+<p>因为GitHub是国外的一个代码托管平台，所以有时候访问起来会很慢，but如果你luck的话也是能访问的，如果不行就可以去下载Watt Toolkit（也叫steam++），操作起来很简单。</p>
+<p>不想用加速器也可以使用SwitchHosts，这可能就需要稍微进行一点点的配置，感兴趣可以去了解一下DNS，就知道为什么SwitchHosts也能给你加速了。</p>
+]]></content>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MybatisPlus相关</title>
+    <url>/2024/08/17/MybatisPlus/</url>
+    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
+<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
+<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
+
+
+
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
+<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
+
+<p>2、设置生成代码的配置</p>
+<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
+
+
+
+<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
+<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
+<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
+<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker部署和常用指令</title>
+    <url>/2024/09/08/Docker/</url>
+    <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="1-卸载旧版"><a href="#1-卸载旧版" class="headerlink" title="1.卸载旧版"></a>1.卸载旧版</h3><p>首先如果系统中已经存在旧的Docker，则先卸载：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">    docker-client \</span><br><span class="line">    docker-client-latest \</span><br><span class="line">    docker-common \</span><br><span class="line">    docker-latest \</span><br><span class="line">    docker-latest-logrotate \</span><br><span class="line">    docker-logrotate \</span><br><span class="line">    docker-engine \</span><br><span class="line">    docker-selinux </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-配置Docker的yum库"><a href="#2-配置Docker的yum库" class="headerlink" title="2.配置Docker的yum库"></a>2.配置Docker的yum库</h3><p>首先要安装一个yum工具</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install -y yum-utils</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：</p>
+<p>如果在此处出现了以下情况：</p>
+<img src="https://s2.loli.net/2024/09/17/dWpZ5rL2aeYFqAD.png" alt="image-20240908180439022" style="zoom:50%;" />
+
+<p>原因是仓库问题，可以进行以下配置：</p>
+<p>原文链接：<a href="https://blog.csdn.net/qq_39428589/article/details/134483549">https://blog.csdn.net/qq_39428589/article/details/134483549</a></p>
+<p>安装成功后，执行命令，配置Docker的yum源（已更新为阿里云源）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&#x27;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#x27;</span> /etc/yum.repos.d/docker-ce.repo</span><br></pre></td></tr></table></figure>
+
+<p>更新yum，建立缓存</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安装Docker"><a href="#3-安装Docker" class="headerlink" title="3.安装Docker"></a>3.安装Docker</h3><p>最后，执行命令，安装Docker</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-启动和校验"><a href="#4-启动和校验" class="headerlink" title="4.启动和校验"></a>4.启动和校验</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动Docker</span></span><br><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止Docker</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行docker ps命令，如果不报错，说明安装启动成功</span></span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<h2 id="命令解读"><a href="#命令解读" class="headerlink" title="命令解读"></a>命令解读</h2><p>利用Docker快速的安装了MySQL，非常的方便，不过我们执行的命令到底是什么意思呢？</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">docker run <span class="literal">-d</span> \</span><br><span class="line">  <span class="literal">--name</span> mysql \</span><br><span class="line">  <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> \</span><br><span class="line">  <span class="literal">-e</span> TZ=Asia/Shanghai \</span><br><span class="line">  <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123</span> \</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解读：</p>
+<ul>
+<li><code>docker run -d</code> ：创建并运行一个容器，<code>-d</code>则是让容器以后台进程运行</li>
+<li><code>--name`` mysql </code> : 给容器起个名字叫<code>mysql</code>，你可以叫别的</li>
+<li><code>-p 3306:3306</code> : 设置端口映射。<ul>
+<li><strong>容器是隔离环境</strong>，外界不可访问。但是可以<strong>将<strong><strong>宿主机</strong></strong>端口****映射容器内到端口</strong>，当访问宿主机指定端口时，就是在访问容器内的端口了。</li>
+<li>容器内端口往往是由容器内的进程决定，例如MySQL进程默认端口是3306，因此容器内端口一定是3306；而宿主机端口则可以任意指定，一般与容器内保持一致。</li>
+<li>格式： <code>-p 宿主机端口:容器内端口</code>，示例中就是将宿主机的3306映射到容器内的3306端口</li>
+</ul>
+</li>
+<li><code>-``e`` TZ=Asia/Shanghai</code> : 配置容器内进程运行时的一些参数<ul>
+<li>格式：<code>-e KEY=VALUE</code>，KEY和VALUE都由容器内进程决定</li>
+<li>案例中，<code>TZ``=Asia/Shanghai</code>是设置时区；<code>MYSQL_ROOT_PASSWORD=123</code>是设置MySQL默认密码</li>
+</ul>
+</li>
+<li><code>mysql</code> : 设置<strong>镜像</strong>名称，Docker会根据这个名字搜索并下载镜像<ul>
+<li>格式：<code>REPOSITORY:TAG</code>，例如<code>mysql:8.0</code>，其中<code>REPOSITORY</code>可以理解为镜像名，<code>TAG</code>是版本号</li>
+<li>在未指定<code>TAG</code>的情况下，默认是最新版本，也就是<code>mysql:latest</code></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>镜像的名称不是随意的，而是要到DockerRegistry中寻找，镜像运行时的配置也不是随意的，要参考镜像的帮助文档，这些在DockerHub网站或者软件的官方网站中都能找到。</p>
+<p>如果我们要安装其它软件，也可以到DockerRegistry中寻找对应的镜像名称和版本，阅读相关配置即可。</p>
+<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>首先我们来学习Docker中的常见命令，可以参考官方文档：</p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/cli/">https://docs.docker.com/engine/reference/commandline/cli/</a></p>
+<h3 id="1-命令介绍"><a href="#1-命令介绍" class="headerlink" title="1.命令介绍"></a>1.命令介绍</h3><p>其中，比较常见的命令有：</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>命令</strong></th>
+<th align="left"><strong>说明</strong></th>
+<th align="left"><strong>文档地址</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">docker pull</td>
+<td align="left">拉取镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/pull/">docker pull</a></td>
+</tr>
+<tr>
+<td align="left">docker push</td>
+<td align="left">推送镜像到DockerRegistry</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/push/">docker push</a></td>
+</tr>
+<tr>
+<td align="left">docker images</td>
+<td align="left">查看本地镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/images/">docker images</a></td>
+</tr>
+<tr>
+<td align="left">docker rmi</td>
+<td align="left">删除本地镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/rmi/">docker rmi</a></td>
+</tr>
+<tr>
+<td align="left">docker run</td>
+<td align="left">创建并运行容器（不能重复创建）</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/run/">docker run</a></td>
+</tr>
+<tr>
+<td align="left">docker stop</td>
+<td align="left">停止指定容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/stop/">docker stop</a></td>
+</tr>
+<tr>
+<td align="left">docker start</td>
+<td align="left">启动指定容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/start/">docker start</a></td>
+</tr>
+<tr>
+<td align="left">docker restart</td>
+<td align="left">重新启动容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/restart/">docker restart</a></td>
+</tr>
+<tr>
+<td align="left">docker rm</td>
+<td align="left">删除指定容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/rm/">docs.docker.com</a></td>
+</tr>
+<tr>
+<td align="left">docker ps</td>
+<td align="left">查看容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/ps/">docker ps</a></td>
+</tr>
+<tr>
+<td align="left">docker logs</td>
+<td align="left">查看容器运行日志</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/logs/">docker logs</a></td>
+</tr>
+<tr>
+<td align="left">docker exec</td>
+<td align="left">进入容器</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/exec/">docker exec</a></td>
+</tr>
+<tr>
+<td align="left">docker save</td>
+<td align="left">保存镜像到本地压缩文件</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/save/">docker save</a></td>
+</tr>
+<tr>
+<td align="left">docker load</td>
+<td align="left">加载本地压缩文件到镜像</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/load/">docker load</a></td>
+</tr>
+<tr>
+<td align="left">docker inspect</td>
+<td align="left">查看容器详细信息</td>
+<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/inspect/">docker inspect</a></td>
+</tr>
+</tbody></table>
+]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Linux环境搭建</title>
     <url>/2024/09/17/Linux%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h1 id="1-准备Linux环境"><a href="#1-准备Linux环境" class="headerlink" title="1.准备Linux环境"></a>1.准备Linux环境</h1><p>首先，我们要准备一个Linux的系统，成本最低的方式就是在本地安装一台虚拟机。为了统一学习环境，不管是使用MacOS还是Windows系统的同学，都建议安装一台虚拟机。</p>
@@ -172,280 +473,6 @@
       </tags>
   </entry>
   <entry>
-    <title>git管理</title>
-    <url>/2023/11/26/Git/</url>
-    <content><![CDATA[<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
-<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
-<p>2、设置用户信息（第一次使用需要配置）：</p>
-<p>   git config –global user.name “用户名”</p>
-<p>   git config –global user.email “邮箱”</p>
-<p> 查看配置信息<br>   git config –global user.name</p>
-<p>   git config –global user.email</p>
-<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
-<p>2、在 .bashrc 文件中输入以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
-<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
-
-<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
-<p>2、进入这个目录中，右键打开GitBash窗口</p>
-<p>3、执行命令(初始化) git init</p>
-<p>4、如果创建成功则会看到  .git  目录</p>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
-<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
-<p>3、查看状态            git status</p>
-<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
-<p>5、版本回退            git reset –hard <commitID></p>
-<p>6、查看分支            git branch</p>
-<p>7、创建并切换分支     git checkout -b 分支名</p>
-<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
-<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
-<ul>
-<li>ssh-keygen -t rsa</li>
-<li>不断回车（即使用默认设置）</li>
-</ul>
-<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
-<ul>
-<li>查看生成的公钥<ul>
-<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
-</ul>
-</li>
-<li>验证是否配置成功<ul>
-<li>ssh -T 地址</li>
-<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#116;&#x40;&#103;&#105;&#116;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a></li>
-<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
-</ul>
-</li>
-</ul>
-<p>3、设置ssh免密登录：</p>
-<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
-<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
-<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
-<p>接着在GitHub上面进行设置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
-<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
-<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
-<ul>
-<li>远端名称，默认是origin，取决于远端服务器的设置</li>
-<li>仓库名称，从远端服务器获取此URL</li>
-</ul>
-<p>2、查看远程仓库      git remote</p>
-<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
-<ul>
-<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
-</li>
-<li><p>例如：git push origin master</p>
-</li>
-<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
-</li>
-<li><p>例如：git push –set-upstream origin master</p>
-</li>
-<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
-</li>
-<li><p>例如：git push</p>
-</li>
-</ul>
-<p>4、查看关联关系      git branch -vv</p>
-<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
-<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
-<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
-<ul>
-<li>相当于执行了 fetch和merge</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker部署和常用指令</title>
-    <url>/2024/09/08/Docker/</url>
-    <content><![CDATA[<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="1-卸载旧版"><a href="#1-卸载旧版" class="headerlink" title="1.卸载旧版"></a>1.卸载旧版</h3><p>首先如果系统中已经存在旧的Docker，则先卸载：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum remove docker \</span><br><span class="line">    docker-client \</span><br><span class="line">    docker-client-latest \</span><br><span class="line">    docker-common \</span><br><span class="line">    docker-latest \</span><br><span class="line">    docker-latest-logrotate \</span><br><span class="line">    docker-logrotate \</span><br><span class="line">    docker-engine \</span><br><span class="line">    docker-selinux </span><br></pre></td></tr></table></figure>
-
-<h3 id="2-配置Docker的yum库"><a href="#2-配置Docker的yum库" class="headerlink" title="2.配置Docker的yum库"></a>2.配置Docker的yum库</h3><p>首先要安装一个yum工具</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum install -y yum-utils</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意</strong>：</p>
-<p>如果在此处出现了以下情况：</p>
-<img src="https://s2.loli.net/2024/09/17/dWpZ5rL2aeYFqAD.png" alt="image-20240908180439022" style="zoom:50%;" />
-
-<p>原因是仓库问题，可以进行以下配置：</p>
-<p>原文链接：<a href="https://blog.csdn.net/qq_39428589/article/details/134483549">https://blog.csdn.net/qq_39428589/article/details/134483549</a></p>
-<p>安装成功后，执行命令，配置Docker的yum源（已更新为阿里云源）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum-config-manager --add-repo https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> sed -i <span class="string">&#x27;s+download.docker.com+mirrors.aliyun.com/docker-ce+&#x27;</span> /etc/yum.repos.d/docker-ce.repo</span><br></pre></td></tr></table></figure>
-
-<p>更新yum，建立缓存</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> yum makecache fast</span><br></pre></td></tr></table></figure>
-
-<h3 id="3-安装Docker"><a href="#3-安装Docker" class="headerlink" title="3.安装Docker"></a>3.安装Docker</h3><p>最后，执行命令，安装Docker</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-启动和校验"><a href="#4-启动和校验" class="headerlink" title="4.启动和校验"></a>4.启动和校验</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 启动Docker</span></span><br><span class="line">systemctl start docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止Docker</span></span><br><span class="line">systemctl stop docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启</span></span><br><span class="line">systemctl restart docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置开机自启</span></span><br><span class="line">systemctl <span class="built_in">enable</span> docker</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行docker ps命令，如果不报错，说明安装启动成功</span></span><br><span class="line">docker ps</span><br></pre></td></tr></table></figure>
-
-<h2 id="命令解读"><a href="#命令解读" class="headerlink" title="命令解读"></a>命令解读</h2><p>利用Docker快速的安装了MySQL，非常的方便，不过我们执行的命令到底是什么意思呢？</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">docker run <span class="literal">-d</span> \</span><br><span class="line">  <span class="literal">--name</span> mysql \</span><br><span class="line">  <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> \</span><br><span class="line">  <span class="literal">-e</span> TZ=Asia/Shanghai \</span><br><span class="line">  <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123</span> \</span><br><span class="line">  mysql</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>解读：</p>
-<ul>
-<li><code>docker run -d</code> ：创建并运行一个容器，<code>-d</code>则是让容器以后台进程运行</li>
-<li><code>--name`` mysql </code> : 给容器起个名字叫<code>mysql</code>，你可以叫别的</li>
-<li><code>-p 3306:3306</code> : 设置端口映射。<ul>
-<li><strong>容器是隔离环境</strong>，外界不可访问。但是可以<strong>将<strong><strong>宿主机</strong></strong>端口****映射容器内到端口</strong>，当访问宿主机指定端口时，就是在访问容器内的端口了。</li>
-<li>容器内端口往往是由容器内的进程决定，例如MySQL进程默认端口是3306，因此容器内端口一定是3306；而宿主机端口则可以任意指定，一般与容器内保持一致。</li>
-<li>格式： <code>-p 宿主机端口:容器内端口</code>，示例中就是将宿主机的3306映射到容器内的3306端口</li>
-</ul>
-</li>
-<li><code>-``e`` TZ=Asia/Shanghai</code> : 配置容器内进程运行时的一些参数<ul>
-<li>格式：<code>-e KEY=VALUE</code>，KEY和VALUE都由容器内进程决定</li>
-<li>案例中，<code>TZ``=Asia/Shanghai</code>是设置时区；<code>MYSQL_ROOT_PASSWORD=123</code>是设置MySQL默认密码</li>
-</ul>
-</li>
-<li><code>mysql</code> : 设置<strong>镜像</strong>名称，Docker会根据这个名字搜索并下载镜像<ul>
-<li>格式：<code>REPOSITORY:TAG</code>，例如<code>mysql:8.0</code>，其中<code>REPOSITORY</code>可以理解为镜像名，<code>TAG</code>是版本号</li>
-<li>在未指定<code>TAG</code>的情况下，默认是最新版本，也就是<code>mysql:latest</code></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<p>镜像的名称不是随意的，而是要到DockerRegistry中寻找，镜像运行时的配置也不是随意的，要参考镜像的帮助文档，这些在DockerHub网站或者软件的官方网站中都能找到。</p>
-<p>如果我们要安装其它软件，也可以到DockerRegistry中寻找对应的镜像名称和版本，阅读相关配置即可。</p>
-<h2 id="常见命令"><a href="#常见命令" class="headerlink" title="常见命令"></a>常见命令</h2><p>首先我们来学习Docker中的常见命令，可以参考官方文档：</p>
-<p><a href="https://docs.docker.com/engine/reference/commandline/cli/">https://docs.docker.com/engine/reference/commandline/cli/</a></p>
-<h3 id="1-命令介绍"><a href="#1-命令介绍" class="headerlink" title="1.命令介绍"></a>1.命令介绍</h3><p>其中，比较常见的命令有：</p>
-<table>
-<thead>
-<tr>
-<th align="left"><strong>命令</strong></th>
-<th align="left"><strong>说明</strong></th>
-<th align="left"><strong>文档地址</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">docker pull</td>
-<td align="left">拉取镜像</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/pull/">docker pull</a></td>
-</tr>
-<tr>
-<td align="left">docker push</td>
-<td align="left">推送镜像到DockerRegistry</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/push/">docker push</a></td>
-</tr>
-<tr>
-<td align="left">docker images</td>
-<td align="left">查看本地镜像</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/images/">docker images</a></td>
-</tr>
-<tr>
-<td align="left">docker rmi</td>
-<td align="left">删除本地镜像</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/rmi/">docker rmi</a></td>
-</tr>
-<tr>
-<td align="left">docker run</td>
-<td align="left">创建并运行容器（不能重复创建）</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/run/">docker run</a></td>
-</tr>
-<tr>
-<td align="left">docker stop</td>
-<td align="left">停止指定容器</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/stop/">docker stop</a></td>
-</tr>
-<tr>
-<td align="left">docker start</td>
-<td align="left">启动指定容器</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/start/">docker start</a></td>
-</tr>
-<tr>
-<td align="left">docker restart</td>
-<td align="left">重新启动容器</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/restart/">docker restart</a></td>
-</tr>
-<tr>
-<td align="left">docker rm</td>
-<td align="left">删除指定容器</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/rm/">docs.docker.com</a></td>
-</tr>
-<tr>
-<td align="left">docker ps</td>
-<td align="left">查看容器</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/ps/">docker ps</a></td>
-</tr>
-<tr>
-<td align="left">docker logs</td>
-<td align="left">查看容器运行日志</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/logs/">docker logs</a></td>
-</tr>
-<tr>
-<td align="left">docker exec</td>
-<td align="left">进入容器</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/exec/">docker exec</a></td>
-</tr>
-<tr>
-<td align="left">docker save</td>
-<td align="left">保存镜像到本地压缩文件</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/save/">docker save</a></td>
-</tr>
-<tr>
-<td align="left">docker load</td>
-<td align="left">加载本地压缩文件到镜像</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/load/">docker load</a></td>
-</tr>
-<tr>
-<td align="left">docker inspect</td>
-<td align="left">查看容器详细信息</td>
-<td align="left"><a href="https://docs.docker.com/engine/reference/commandline/inspect/">docker inspect</a></td>
-</tr>
-</tbody></table>
-]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图床</title>
-    <url>/2024/09/18/%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<h1 id="图床那些事"><a href="#图床那些事" class="headerlink" title="图床那些事"></a>图床那些事</h1><p><strong>1.图床到底是用来干什么的呢？？</strong></p>
-<p>图床是其实一种在线存储图片的服务，它允许用户上传图片并获取图片的链接，也就是说当你把一张照片上传到图床上，那么通过生成的这个链接，你就能在任何联网的电脑或者手机设备上访问（查看）到该图片。这些链接可以用于网页、博客、论坛等地方，使得图片能够在不同的平台上展示。</p>
-<p><strong>SMMS</strong></p>
-<p>下面这个就是我在SMMS这地上传的图片，上传之后它会给你生成链接，该链接就能直接访问该图片</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180045352.png" alt="image-20240918004525307"></p>
-<p><strong>Github</strong></p>
-<p>再下面这个呢就是我在GitHub上面创建的一个public（公开）的仓库，当我把图片上传到仓库里，其他人就能通过我仓库的地址来查看到我的图片，pictures就是我存放图片的文件夹，你们现在看到的该图就是我在写笔记的时候引入了我图片的链接，然后你们就能看得到my photos</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180048173.png" alt="image-20240918004818033"></p>
-<p>其实除了上述俩可以搭建图床外，也还有很多其他的，比如：</p>
-<p>腾讯云COS、</p>
-<p>阿里云OSS、</p>
-<p>七牛云、</p>
-<p>imgur…….</p>
-<p>但是很多都是要收费的，而且上传的图片会有大小的限制等等，所以我选择使用Github白嫖哈哈。。</p>
-<p><strong>2.为什么要把图片上传到图床，我微信发给别人那不也是能看得到吗？？</strong></p>
-<p>你把本地的图片（也就是手机或者电脑上保存的图片）发给你的微信&#x2F;QQ好友，这时候你的friend确实是能看得到图片，也能下载，但是你可不要误会了，这可不是因为你把图片上传到网上了（这里的网指的是所有联网设备都能查看的地方），这是因为你把图片上传到一个小仓库里面（也就是缓存），当你有网络可以加载的时候它就能从仓库里面把图片拿出来给你看，因为都说是小仓库了，如果它把你发的图片都给永久的存储起来，那当你给你的   girlfriend&#x2F;boyfriend 发的图片越来越多的时候，你的小仓库是不是要爆炸了，就跟你告急的体重一样哈哈哈。</p>
-<p>如果想大概知道缓存是什么可以去看看<a href="https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/">https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/</a></p>
-<p>你估计也曾遇到过当你想回去微信&#x2F;QQ找一些久远的图片但是发现它说被清理了，这就是你的小仓库它存储东西是有一个期限的，到时间它就给你清掉了，不然你的小仓库就没地方放东西啦！！</p>
-<p>So你觉得重要的文件或图片就能保存下来，防止丢失</p>
-<p><strong>3.使用Picgo+Github搭建图床（可以配合Typora&#x2F;obsidian使用—写笔记）</strong></p>
-<p>网上教程很多，不会的可以去找来玩玩，这边也直接V个链接：</p>
-<p><a href="https://blog.csdn.net/xianrenzhou/article/details/137369119?ops_request_misc=&request_id=&biz_id=102&spm=1018.2226.3001.4450">2024新版-使用GitHub搭建个人图床_用github建图床-CSDN博客</a></p>
-<p>因为GitHub是国外的一个代码托管平台，所以有时候访问起来会很慢，but如果你luck的话也是能访问的，如果不行就可以去下载Watt Toolkit（也叫steam++），操作起来很简单。</p>
-<p>不想用加速器也可以使用SwitchHosts，这可能就需要稍微进行一点点的配置，感兴趣可以去了解一下DNS，就知道为什么SwitchHosts也能给你加速了。</p>
-]]></content>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>缓存</title>
     <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
     <content><![CDATA[<h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
@@ -483,33 +510,6 @@
 ]]></content>
       <tags>
         <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MybatisPlus相关</title>
-    <url>/2024/08/17/MybatisPlus/</url>
-    <content><![CDATA[<h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
-<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
-<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
-
-
-
-<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
-<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
-
-<p>2、设置生成代码的配置</p>
-<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
-
-
-
-<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
-<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
-<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
-<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
-      <tags>
-        <tag>notes</tag>
       </tags>
   </entry>
   <entry>
