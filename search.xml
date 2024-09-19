@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>图床</title>
-    <url>/2024/09/18/%E5%9B%BE%E5%BA%8A/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="图床那些事"><a href="#图床那些事" class="headerlink" title="图床那些事"></a>图床那些事</h1><p><strong>1.图床到底是用来干什么的呢？？</strong></p>
-<p>图床是其实一种在线存储图片的服务，它允许用户上传图片并获取图片的链接，也就是说当你把一张照片上传到图床上，那么通过生成的这个链接，你就能在任何联网的电脑或者手机设备上访问（查看）到该图片。这些链接可以用于网页、博客、论坛等地方，使得图片能够在不同的平台上展示。</p>
-<p><strong>SMMS</strong></p>
-<p>下面这个就是我在SMMS这地上传的图片，上传之后它会给你生成链接，该链接就能直接访问该图片</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180045352.png" alt="image-20240918004525307"></p>
-<p><strong>Github</strong></p>
-<p>再下面这个呢就是我在GitHub上面创建的一个public（公开）的仓库，当我把图片上传到仓库里，其他人就能通过我仓库的地址来查看到我的图片，pictures就是我存放图片的文件夹，你们现在看到的该图就是我在写笔记的时候引入了我图片的链接，然后你们就能看得到my photos</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180048173.png" alt="image-20240918004818033"></p>
-<p>其实除了上述俩可以搭建图床外，也还有很多其他的，比如：</p>
-<p>腾讯云COS、</p>
-<p>阿里云OSS、</p>
-<p>七牛云、</p>
-<p>imgur…….</p>
-<p>但是很多都是要收费的，而且上传的图片会有大小的限制等等，所以我选择使用Github白嫖哈哈。。</p>
-<p><strong>2.为什么要把图片上传到图床，我微信发给别人那不也是能看得到吗？？</strong></p>
-<p>你把本地的图片（也就是手机或者电脑上保存的图片）发给你的微信&#x2F;QQ好友，这时候你的friend确实是能看得到图片，也能下载，但是你可不要误会了，这可不是因为你把图片上传到网上了（这里的网指的是所有联网设备都能查看的地方），这是因为你把图片上传到一个小仓库里面（也就是缓存），当你有网络可以加载的时候它就能从仓库里面把图片拿出来给你看，因为都说是小仓库了，如果它把你发的图片都给永久的存储起来，那当你给你的   girlfriend&#x2F;boyfriend 发的图片越来越多的时候，你的小仓库是不是要爆炸了，就跟你告急的体重一样哈哈哈。</p>
-<p>如果想大概知道缓存是什么可以去看看<a href="https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/">https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/</a></p>
-<p>你估计也曾遇到过当你想回去微信&#x2F;QQ找一些久远的图片但是发现它说被清理了，这就是你的小仓库它存储东西是有一个期限的，到时间它就给你清掉了，不然你的小仓库就没地方放东西啦！！</p>
-<p>So你觉得重要的文件或图片就能保存下来，防止丢失</p>
-<p><strong>3.使用Picgo+Github搭建图床（可以配合Typora&#x2F;obsidian使用—写笔记）</strong></p>
-<p>网上教程很多，不会的可以去找来玩玩，这边也直接V个链接：</p>
-<p><a href="https://blog.csdn.net/xianrenzhou/article/details/137369119?ops_request_misc=&request_id=&biz_id=102&spm=1018.2226.3001.4450">2024新版-使用GitHub搭建个人图床_用github建图床-CSDN博客</a></p>
-<p>因为GitHub是国外的一个代码托管平台，所以有时候访问起来会很慢，but如果你luck的话也是能访问的，如果不行就可以去下载Watt Toolkit（也叫steam++），操作起来很简单。</p>
-<p>不想用加速器也可以使用SwitchHosts，这可能就需要稍微进行一点点的配置，感兴趣可以去了解一下DNS，就知道为什么SwitchHosts也能给你加速了。</p>
-]]></content>
-      <tags>
-        <tag>科普</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker部署和常用指令</title>
     <url>/2024/09/08/Docker/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h2><h3 id="1-卸载旧版"><a href="#1-卸载旧版" class="headerlink" title="1.卸载旧版"></a>1.卸载旧版</h3><p>首先如果系统中已经存在旧的Docker，则先卸载：</p>
@@ -176,283 +144,6 @@
 ]]></content>
       <tags>
         <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MybatisPlus相关</title>
-    <url>/2024/08/17/MybatisPlus/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
-<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
-<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
-
-
-
-<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
-<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
-
-<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
-
-<p>2、设置生成代码的配置</p>
-<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
-
-
-
-<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
-<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
-<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
-<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git管理</title>
-    <url>/2023/11/26/Git/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
-<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
-<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
-<p>2、设置用户信息（第一次使用需要配置）：</p>
-<p>   git config –global user.name “用户名”</p>
-<p>   git config –global user.email “邮箱”</p>
-<p> 查看配置信息<br>   git config –global user.name</p>
-<p>   git config –global user.email</p>
-<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
-<p>2、在 .bashrc 文件中输入以下内容：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
-
-<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
-<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
-
-<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
-<p>2、进入这个目录中，右键打开GitBash窗口</p>
-<p>3、执行命令(初始化) git init</p>
-<p>4、如果创建成功则会看到  .git  目录</p>
-<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
-<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
-<p>3、查看状态            git status</p>
-<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
-<p>5、版本回退            git reset –hard <commitID></p>
-<p>6、查看分支            git branch</p>
-<p>7、创建并切换分支     git checkout -b 分支名</p>
-<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
-<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
-<ul>
-<li>ssh-keygen -t rsa</li>
-<li>不断回车（即使用默认设置）</li>
-</ul>
-<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
-<ul>
-<li>查看生成的公钥<ul>
-<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
-</ul>
-</li>
-<li>验证是否配置成功<ul>
-<li>ssh -T 地址</li>
-<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a></li>
-<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
-</ul>
-</li>
-</ul>
-<p>3、设置ssh免密登录：</p>
-<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
-<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
-<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
-<p>接着在GitHub上面进行设置</p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
-<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
-<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
-<ul>
-<li>远端名称，默认是origin，取决于远端服务器的设置</li>
-<li>仓库名称，从远端服务器获取此URL</li>
-</ul>
-<p>2、查看远程仓库      git remote</p>
-<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
-<ul>
-<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
-</li>
-<li><p>例如：git push origin master</p>
-</li>
-<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
-</li>
-<li><p>例如：git push –set-upstream origin master</p>
-</li>
-<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
-</li>
-<li><p>例如：git push</p>
-</li>
-</ul>
-<p>4、查看关联关系      git branch -vv</p>
-<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
-<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
-<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
-<ul>
-<li>相当于执行了 fetch和merge</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>聊多级缓存的一致性</title>
-    <url>/2024/08/28/%E8%81%8A%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>缓存（Cache）是一种临时存储系统，主要用于存储最近或频繁访问的数据。其主要目的是为了提高数据访问速度，减少对原始数据源（如磁盘、网络服务器等）的访问次数，从而提升系统的性能和响应速度。</p>
-<p>为了降低高并发下数据库的压力，我们多以 redis 作为缓存去存储频繁访问的数据，避免更多的请求直接打到数据库给其造成巨大压力。</p>
-<p>但是与此同时，我们单一级的 redis 缓存也可能会遇到以下一些问题：</p>
-<p>这里先补充一点关于<strong>数据的一致性</strong>问题：</p>
-<p>数据一致性问题是指当数据在多个地方（如缓存和数据库）存储时，这些地方的数据可能会出现不一致的情况。这种不一致可能是由于缓存更新滞后、系统故障或其他原因引起的。</p>
-<ol>
-<li><strong>并发访问问题</strong>：<ul>
-<li>Redis是一个共享内存数据库，当 n 多个客户端同时访问缓存时，可能会出现并发访问问题，尤其是在高并发场景下。Redis虽然提供了多种锁机制（如SETNX命令等）来解决并发问题，但在高并发场景下，仍然可能导致数据不一致或性能瓶颈。</li>
-</ul>
-</li>
-<li><strong>缓存穿透</strong>：<ul>
-<li>当请求的数据在缓存和数据库中都不存在时，如果缓存直接返回空或错误信息，可能会导致大量无效请求直接冲击数据库，影响性能和数据库负载。<br> <em>解决方案</em><br> -可以采用布隆过滤器（Bloom Filter）来预判数据是否不存在于缓存中，从而避免直接查询数据库；还有一个最简单的就是缓存空值，并设置合理的过期时间。</li>
-</ul>
-</li>
-<li><strong>缓存雪崩</strong>：<ul>
-<li>当缓存中大量数据同时过期，高并发场景下请求直接访问数据库，导致数据库压力剧增，可能导致数据库崩溃，进而导致数据不一致。<br> <em>解决方案</em></li>
-<li>可以通过将缓存数据的过期时间设置为随机，这样就可以防止太多缓存同时过期导致出现雪崩；把筛出来的热点数据设置为静态，可以减少数据库的访问，减轻压力。</li>
-</ul>
-</li>
-<li><strong>缓存击穿</strong>：<ul>
-<li>当缓存中某个热点数据在高并发情况下失效（例如缓存过期或故障被删除），并且此时数据库查询结果也未及时更新到缓存中，可能会导致大量请求直接冲击数据库，造成性能瓶颈。<br> <em>解决方案</em></li>
-<li>可以通过设置缓存的互斥锁（如 Redis 的 SETNX 命令）来确保在缓存失效时只有一条请求能进入数据库查询，其余请求等待缓存更新，性能会稍有影响，毕竟这么多的请求都在阻塞等待，好处是能防止同一时间大量请求涌入数据库造成巨大压力；另外还有一种办法，可以将热点数据的缓存设置为永不过期，但是这样的话有要求系统准确判断热 key 的能力较好。</li>
-</ul>
-</li>
-<li><strong>内存使用问题</strong>：<ul>
-<li>Redis缓存会占用服务器的内存资源。如果缓存数据量过大，可能会导致服务器内存不足，影响其他应用或服务的运行，性能下降。</li>
-</ul>
-</li>
-</ol>
-<h2 id="传统缓存的不足之处"><a href="#传统缓存的不足之处" class="headerlink" title="传统缓存的不足之处"></a>传统缓存的不足之处</h2><p>传统的缓存策略一般是请求到达 Tomcat 后，先查询 Redis，如果未命中则查询数据库，这种如此直接的缓存策略会存在下面的问题: </p>
-<ul>
-<li>请求需要经过 Tomcat 处理，那么 Tomcat 的性能成为整个系统的瓶颈</li>
-<li>当Redis 缓存失效时，会对数据库产生冲击，导致性能下降</li>
-</ul>
-<p>随着用户体量的增大，像传统的缓存策略，即使 redis 单机并发已经很高了，但仍会达到上限，对于像某宝某东这种并发量甚至能达到亿级以上的网站，redis 就开始有点力不从心了，所以我们引入多级缓存去应对这种如此高并发的需求。</p>
-<h2 id="引入多级缓存"><a href="#引入多级缓存" class="headerlink" title="引入多级缓存"></a>引入多级缓存</h2><p>多级缓存（Multi-Level Caching）是计算机系统中用于提高数据访问速度的一种技术，相对于普通的单一层缓存能应对更高的并发场景。它通过在处理器和主存储器（如RAM）之间引入多个缓存层次，来减少处理器访问数据时所需的时间。</p>
-<p><strong>方案</strong><br>对于某些业务场景，我们可以分为四级缓存：</p>
-<ol>
-<li><strong>浏览器客户端缓存</strong>：<ul>
-<li>浏览器把服务器返回的静态资源缓存在本地，这样在下一次访问这些静态资源的时候，服务器只需要检查一下数据是否变化了（一般情况下静态资源是很少发生变化的），若没有则不需要返回数据，直接用本地缓存的数据渲染即可，减少了很多数据的传输，提高响应速度。</li>
-</ul>
-</li>
-<li><strong>本地缓存</strong>：<ul>
-<li>nginx 本地缓存，作为第二级缓存，处理访问非静态资源的请求。</li>
-</ul>
-</li>
-<li><strong>redis 缓存</strong></li>
-<li><strong>Tomcat进程缓存</strong>：<ul>
-<li>利用 Caffeine 这个高性能本地缓存库来完成（Spring 内部的缓存使用的就是该库）</li>
-<li>因为是本地内存存储，它的存储容量是很有限的，所以 Caffeine 提供了三种缓存驱逐策略：<br> — 1. <em>基于容量</em>：设置缓存的数量上限<br> — 2.<em>基于时间</em>：设置缓存的有效时间<br> — 3.<em>基于引用</em>：设置缓存为软引用或弱引用，利用 GC 来回收缓存数据。（官方：性能较差，不建议使用）<br> — <em>注意</em>：在默认情况下，当一个缓存元素过期的时候，Caffeine 不会自动立即将其清理和驱逐。而是在一次读或写操作后，或者在空闲时间完成对失效数据的驱逐。</li>
-</ul>
-</li>
-</ol>
-<p>使用多级缓存之后，我们的程序已经足以应对上述高并发的场景，但是此时使用缓存要解决的数据一致性问题就更加凸显出来了，我们又应该怎样解决多级缓存的一致性（数据同步）问题呢？</p>
-<h2 id="谈多级缓存的一致性"><a href="#谈多级缓存的一致性" class="headerlink" title="谈多级缓存的一致性"></a>谈多级缓存的一致性</h2><p>缓存一致性（Cache Coherence）是指在分布式系统中，多个缓存副本之间保持数据一致性的能力。当数据在多个位置（如多个处理器或多个计算机节点）被缓存时，缓存一致性确保了对数据的读取和写入操作能够正确地反映数据的最新状态。换句话说，缓存一致性确保了在系统中不同位置的缓存副本之间不会出现数据不一致的情况。</p>
-<p>以下将介绍一些解决多级缓存一致性的方法和概念：</p>
-<ol>
-<li><strong>实时强一致性</strong>：<ul>
-<li>实时强一致性保证了任何时刻，所有的客户端看到的数据都是一样的，读取操作总是返回最新的数据。在分布式系统中实现强一致性意味着，一个操作一旦完成，所有的客户端立即都能看到这个操作的结果。<br> <em>方案</em>：</li>
-<li>这里最容易想到的操作就是加锁，但是既然是加锁的话，这对我们的性能肯定是有影响的，但是我们使用缓存就是为了去提高性能，所以如果为了保证数据的强一致性而去加锁的话在多数场景下显然是不符合需求的。</li>
-<li>double-check：既然是加锁，那么就不得不提到这种 double-check 模式（即简单理解为检查-加锁-检查），第一次是检查缓存是否存在，第二次是检查拿到锁的时候，是否有其他线程已经完成缓存重建。</li>
-<li>使用一些分布式事务协议或者强一致性算法也可以保证数据的一致性。</li>
-</ul>
-</li>
-<li><strong>最终一致性</strong>：<ul>
-<li>最终一致性是指，数据可能在不同的缓存级别之间有延迟，但最终会一致。在这种模型下，数据的副本之间可能会暂时存在不一致。<br> <em>方案</em></li>
-<li>消息队列：在数据发生更新时首先更新数据库，然后可以考虑将更新请求都发送到消息队列上，通过异步将更新同步到其他副本。但是要注意的是，同一个业务的消息必须是有序的，不然最终数据会出错。话又说回来了，既然要先更新数据库，我们大可以引入 Canal 去监听 binlog，数据库更新时再异步去更新缓存或者删除缓存（根据实际场景选择）这样对于代码的侵入性更低，时效性也更强。</li>
-<li>版本控制：每个缓存都有一个对应的版本号，每次更新时版本号会增加。读取时，如果版本号不是最新的，则从主存储中获取最新数据并写入缓存。也可以时间戳来代替版本号</li>
-</ul>
-</li>
-<li><strong>缓存失效策略</strong>：<ul>
-<li>内存淘汰：利用redis的内存淘汰机制，当内存不足时自动淘汰掉一些不重要的数据(可以自己设置策略方式)，下次查询时更新缓存。</li>
-<li>主动更新：当数据库数据变化时，主动更新缓存中的数据。</li>
-<li>超时剔除：为缓存数据设置一个过期时间。定期从数据库中重新加载数据，以保持数据的新鲜度。高并发情况下可能会出现缓存击穿&#x2F;雪崩问题，也无法解决数据在两次加载之间变化导致的一致性问题。</li>
-<li>惰性加载：只有在请求特定数据且发现缓存失效或缓存中没有该数据时，才去数据库加载该数据。高并发场景下可能会导致缓存击穿。</li>
-</ul>
-</li>
-<li><strong>分布式缓存一致性协议</strong>：<ul>
-<li>Paxos</li>
-<li>Raft</li>
-</ul>
-</li>
-<li><strong>缓存一致性协议</strong>：<ul>
-<li>MESI</li>
-<li>MOESI（MESI 的扩展）</li>
-</ul>
-</li>
-</ol>
-<p>对于多级缓存的一致性，还有没办法忽略的问题是该如何选择先更新哪一级缓存或者是一次更新所有缓存？（以下均为先更新数据库再更新缓存）</p>
-<ol>
-<li><strong>全更新</strong>（写通Write-Through）：<ul>
-<li>确保所有缓存中数据的一致性，减少数据不一致带来的问题。但是全更新会导致维护成本增加，全更新所用时间更长，也可能会因为加锁让性能降低。除非有数据强一致性的业务需求，否则不太建议，毕竟对性能的影响无法忽视。</li>
-</ul>
-</li>
-<li><strong>局部更新</strong>（写回Write-Back）：<ul>
-<li>先更新存储非静态数据的第一级缓存，保证用户拿到的数据是最新的，其他缓存则可以使用消息队列等进行异步复制，这种办法会出现短暂的数据不一致性，但是无再更新操作一段时间后数据能达到一致。</li>
-</ul>
-</li>
-<li><strong>按需更新</strong>（标记Tagging）：<ul>
-<li>结合以上的全更新和局部更新策略，我们可以根据业务需求进行按需更新，对于实时性要求高的系统，可能需要选择全更新策略以保证数据一致性。</li>
-<li>对于性能要求高的系统，可能需要选择局部更新策略以减少性能开销。</li>
-<li>但是这种方法实现起来更加复杂，需要精确的预测机制以筛选出不同需求的数据。</li>
-</ul>
-</li>
-</ol>
-<p>结合以上讲述，我们能够知道，不存在绝对好的方案，只有最适合当前系统特性和业务需求的方案。实际开发中我们也需要根据业务对数据不一致的容忍度，综合各方面的因素选择当下的最优解方案，correct !</p>
-]]></content>
-      <tags>
-        <tag>notes</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>缓存</title>
-    <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
-<p>这样肯定看着乏味了，那么简单来说呢：</p>
-<p>缓存，就像是你家里的零食柜。可以想象一下，你每天都要吃一些零食，而这些零食是从超市买回来的。超市离你家有一段距离，所以每次去超市买零食都要花一些时间，太麻烦啦。</p>
-<p>现在，假设你发现你经常吃的零食就那么几种，比如薯片、巧克力和肥宅水。为了节省时间，你决定在家里放一个零食柜，把这几种经常吃的零食提前买好放在柜子里。这样，每次你想吃零食的时候，就可以直接从零食柜里拿，而不需要再去超市了，这样是不是节约了很多时间呢。</p>
-<p>在这个比喻中：</p>
-<ol>
-<li><strong>超市</strong>：就像是电脑里的硬盘，存储着所有的数据，但是访问速度比较慢。</li>
-<li><strong>零食柜</strong>：就是缓存，存储着你经常需要的数据（零食），访问速度快。</li>
-<li><strong>经常吃的零食</strong>：就是那些你经常需要访问的数据。</li>
-</ol>
-<p>缓存的工作原理也是类似的：</p>
-<ol>
-<li><strong>提前准备</strong>：电脑系统会提前把一些常用的数据（比如你经常吃的零食）放到缓存里。</li>
-<li><strong>快速访问</strong>：当你需要这些数据的时候，系统会首先检查缓存里有没有，如果有就直接从缓存里拿，这样速度就很快。</li>
-<li><strong>定期更新</strong>：如果缓存里的数据用完了，或者有新的常用数据出现，系统会从硬盘里把新的数据放到缓存里，替换掉旧的数据。</li>
-</ol>
-<p>通过这种方式，缓存帮助电脑系统更快地获取常用的数据，就像零食柜帮助你更快地拿到你喜欢的零食一样。这样，无论是电脑还是你，都能更高效地完成任务。</p>
-<p>缓存图解如下：</p>
-<p><img src="https://pic3.zhimg.com/v2-0a9cbc7e660c7bf87f40075124c46a75_r.jpg" alt="缓存模式以及如何保存缓存的数据一致性 - 知乎"></p>
-<h3 id="2、解决缓存问题所用部分技术"><a href="#2、解决缓存问题所用部分技术" class="headerlink" title="2、解决缓存问题所用部分技术"></a>2、解决缓存问题所用部分技术</h3><ol>
-<li><strong>Spring Cache</strong>：Spring 框架提供的缓存抽象，支持多种缓存实现，如 Ehcache、Redis 等。</li>
-<li><strong>Redis</strong>：一种高性能的键值对存储数据库，常用于缓存数据，属于分布式缓存。</li>
-<li><strong>Ehcache</strong>：一个开源的缓存框架，提供了多种缓存策略和配置选项，性能较好。</li>
-<li><strong>Guava Cache</strong>：Google Guava 库中的缓存实现，性能较好。</li>
-<li><strong>memcached</strong>：一个高性能的分布式内存对象缓存系统。</li>
-<li><strong>Simple</strong>（默认）</li>
-</ol>
-<h3 id="3、多级缓存"><a href="#3、多级缓存" class="headerlink" title="3、多级缓存"></a>3、多级缓存</h3><p>可能有些小伙伴会有些疑问，有一级缓存了为什么还需要多级缓存呢？那么在这浅谈一下：</p>
-<p>你可以想象一下这个场景：一级缓存和多级缓存就像是你去超市购物时的两种不同类型的购物车。</p>
-<p><strong>一级缓存</strong>就像你随身携带的小购物篮。当你在超市里走动时，你可能会随手拿起一些你觉得可能会需要的商品，放进了这个小篮子里。这些商品可能是一些你经常购买的，或者你觉得可能会用到的。当你决定买这些商品时，你直接从篮子里取出来，非常方便快捷。但是，这个小篮子的空间是有限的，你不能放太多东西。</p>
-<p><strong>多级缓存</strong>则像是你在超市里租用的大型购物车。这个大型购物车可以放更多的商品，而且通常放在超市的某个固定位置，比如靠近收银台。你可以在逛超市的过程中，把一些需要的商品先放在这里，等到你逛完超市，确认需要购买的物品后，再从大型购物车里取出来结账。大型购物车的好处是容量大，可以存放更多的商品，而且位置固定，方便你随时查看和取用。</p>
-<p>So，一级缓存和多级缓存的共同作用就是帮助我们更高效地获取和管理需要的商品（数据），一级缓存提供了快速的、局部的访问，而多级缓存提供了更持久的、全局的存储。两者结合使用，可以确保我们在购物（数据处理）的过程中既快速又不遗漏，同时还能节省空间（资源），何乐而不为。</p>
-]]></content>
-      <tags>
-        <tag>科普</tag>
       </tags>
   </entry>
   <entry>
@@ -624,6 +315,315 @@
 ]]></content>
       <tags>
         <tag>转载</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git管理</title>
+    <url>/2023/11/26/Git/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><h3 id="Git-GUI"><a href="#Git-GUI" class="headerlink" title="Git GUI"></a>Git GUI</h3><p>Git提供的图形界面工具</p>
+<h3 id="Git-Bash"><a href="#Git-Bash" class="headerlink" title="Git Bash"></a>Git Bash</h3><p>Git提供的命令行工具（小黑窗）</p>
+<h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>1、打开Git Bash</p>
+<p>2、设置用户信息（第一次使用需要配置）：</p>
+<p>   git config –global user.name “用户名”</p>
+<p>   git config –global user.email “邮箱”</p>
+<p> 查看配置信息<br>   git config –global user.name</p>
+<p>   git config –global user.email</p>
+<h3 id="设置命令的别名"><a href="#设置命令的别名" class="headerlink" title="设置命令的别名"></a>设置命令的别名</h3><p>1、打开用户目录，创建 .bashrc 文件</p>
+<p>2、在 .bashrc 文件中输入以下内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#用于输出git提交日志</span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line">#用于输出当前目录所有文件及其基本信息</span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>3、打开GitBash，执行source ~&#x2F;.bashrc</p>
+<h3 id="解决乱码问题"><a href="#解决乱码问题" class="headerlink" title="解决乱码问题"></a>解决乱码问题</h3><p>1、打开GitBash执行下面命令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
+
+<p>2、在 ${git_home}&#x2F;etc&#x2F;bash.bashrc 文件最后加入下面两行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="获取本地仓库"><a href="#获取本地仓库" class="headerlink" title="获取本地仓库"></a>获取本地仓库</h3><p>1、在电脑的任意位置创建一个空目录（例如text）作为本地Git仓库</p>
+<p>2、进入这个目录中，右键打开GitBash窗口</p>
+<p>3、执行命令(初始化) git init</p>
+<p>4、如果创建成功则会看到  .git  目录</p>
+<h3 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h3><p>1、工作区–&gt;暂存区     git add .</p>
+<p>2、暂存区–&gt;仓库        git commit -m ‘commit message 01’</p>
+<p>3、查看状态            git status</p>
+<p>4、查看提交记录        git log       git-log（设置别名后可以使用）</p>
+<p>5、版本回退            git reset –hard <commitID></p>
+<p>6、查看分支            git branch</p>
+<p>7、创建并切换分支     git checkout -b 分支名</p>
+<p>8、分支合并            git merge 分支名（需要先切换到目标分支上）</p>
+<h3 id="配置SSH公钥"><a href="#配置SSH公钥" class="headerlink" title="配置SSH公钥"></a>配置SSH公钥</h3><p>1、生成SSH公钥（如果公钥已经存在，则自动覆盖）</p>
+<ul>
+<li>ssh-keygen -t rsa</li>
+<li>不断回车（即使用默认设置）</li>
+</ul>
+<p>2、Gitee设置账户公共钥（或者GitHub仓库的公钥）</p>
+<ul>
+<li>查看生成的公钥<ul>
+<li>cat ~&#x2F;.ssh&#x2F;id_rsa.pub</li>
+</ul>
+</li>
+<li>验证是否配置成功<ul>
+<li>ssh -T 地址</li>
+<li>例如验证是否连接了GitHub：ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#x62;&#46;&#99;&#x6f;&#x6d;</a></li>
+<li>一定要注意使用该指令测试GitHub的连接时不要开Watt Toolkit，否则可能导致连接失败</li>
+</ul>
+</li>
+</ul>
+<p>3、设置ssh免密登录：</p>
+<p>首先按照上述方法生成查看公钥并复制（需要进入对应的目录才能查看）</p>
+<p>以下连续按三次回车（这是执行了ssh-keygen -t rsa生成公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320979.png" alt="image-20240918131038474"></p>
+<p>（也可以直接去到  C:\用户\{你的用户名}\.ssh  目录下查看id_rsa.pub并复制公钥）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181320169.png" alt="image-20240918131144729"></p>
+<p>接着在GitHub上面进行设置</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181319850.png" alt="image-20240918131953765"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181326205.png" alt="image-20240918132300236"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409181329296.png" alt="image-20240918132917244"></p>
+<p>弄完以后当前电脑客户端接下来再往远程仓库 push pull 东西的时候使用 SSH 连接就不需要登录了。</p>
+<h3 id="远程仓库常用指令"><a href="#远程仓库常用指令" class="headerlink" title="远程仓库常用指令"></a>远程仓库常用指令</h3><p>1、添加远程仓库      git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</p>
+<ul>
+<li>远端名称，默认是origin，取决于远端服务器的设置</li>
+<li>仓库名称，从远端服务器获取此URL</li>
+</ul>
+<p>2、查看远程仓库      git remote</p>
+<p>3、推送到远程仓库   git push [-f] [–set-upstream] [远端名称[本地分支名][:远端分支名]]</p>
+<ul>
+<li><p>如果远端分支名和本地分支名称相同，则可以只写本地分支</p>
+</li>
+<li><p>例如：git push origin master</p>
+</li>
+<li><p>–set-upstream 推送到远端的同时并且建立起和远端分支的关联关系</p>
+</li>
+<li><p>例如：git push –set-upstream origin master</p>
+</li>
+<li><p>如果当前分支已经和远端分支关联，则可以省略分支名和远端名</p>
+</li>
+<li><p>例如：git push</p>
+</li>
+</ul>
+<p>4、查看关联关系      git branch -vv</p>
+<p>5、从远程仓库克隆   git clone &lt;仓库路径&gt; [本地目录]</p>
+<p>6、拉取远程仓库的更新但不合并     git fetch [远端名称] [本地分支名]</p>
+<p>7、拉取远程仓库的修改并且合并     git pull [远端名称] [本地分支名]</p>
+<ul>
+<li>相当于执行了 fetch和merge</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MybatisPlus相关</title>
+    <url>/2024/08/17/MybatisPlus/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="MybatisPlus"><a href="#MybatisPlus" class="headerlink" title="MybatisPlus"></a>MybatisPlus</h1><h3 id="使用IService"><a href="#使用IService" class="headerlink" title="使用IService"></a><strong>使用IService</strong></h3><p>1、引入依赖，设置yml，让Mapper继承BaseMapper<T></p>
+<p>2、IUserService继承IService<User>，UserServiceImpl继承ServiceImpl&lt;UserMapper,User&gt;</p>
+<img src="https://s2.loli.net/2024/09/17/GV4qZQY8XitjeA2.png" style="zoom:50%;" />
+
+
+
+<h3 id="代码生成器"><a href="#代码生成器" class="headerlink" title="代码生成器"></a><strong>代码生成器</strong></h3><p>1、连接数据库选择扫描的表</p>
+<img src="https://s2.loli.net/2024/09/17/bUF1ZRxtiNjAp7d.png" style="zoom:50%;" />
+
+<img src="https://s2.loli.net/2024/09/17/nWw4hPJ7OIbi2G8.png" style="zoom: 33%;" />
+
+<p>2、设置生成代码的配置</p>
+<img src="https://s2.loli.net/2024/09/17/IpkW6wNJP4iZGjf.png" style="zoom:50%;" />
+
+
+
+<h3 id="JSON类型的处理"><a href="#JSON类型的处理" class="headerlink" title="JSON类型的处理"></a>JSON类型的处理</h3><p>1、给json类型定义实体类UserInfo</p>
+<p>2、实体类User上UserInfo实体加上@TableField注解并指定处理器</p>
+<p>3、实体类User上加上@TableName并指定autoResultMap为true</p>
+<img src="https://s2.loli.net/2024/09/17/17iEaWD9xqntsP8.png" style="zoom:50%;" />]]></content>
+      <tags>
+        <tag>notes</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>缓存</title>
+    <url>/2024/07/14/%E7%BC%93%E5%AD%98/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h1><h3 id="1、缓存是什么？？？"><a href="#1、缓存是什么？？？" class="headerlink" title="1、缓存是什么？？？"></a>1、缓存是什么？？？</h3><p>若是官方来讲，缓存（cache）就是一种高速存储设备，用于在计算机系统中存储经常访问的数据的副本，提供临时的数据存储空间，以减少从较慢的存储设备（如硬盘）读取数据所需的时间。</p>
+<p>这样肯定看着乏味了，那么简单来说呢：</p>
+<p>缓存，就像是你家里的零食柜。可以想象一下，你每天都要吃一些零食，而这些零食是从超市买回来的。超市离你家有一段距离，所以每次去超市买零食都要花一些时间，太麻烦啦。</p>
+<p>现在，假设你发现你经常吃的零食就那么几种，比如薯片、巧克力和肥宅水。为了节省时间，你决定在家里放一个零食柜，把这几种经常吃的零食提前买好放在柜子里。这样，每次你想吃零食的时候，就可以直接从零食柜里拿，而不需要再去超市了，这样是不是节约了很多时间呢。</p>
+<p>在这个比喻中：</p>
+<ol>
+<li><strong>超市</strong>：就像是电脑里的硬盘，存储着所有的数据，但是访问速度比较慢。</li>
+<li><strong>零食柜</strong>：就是缓存，存储着你经常需要的数据（零食），访问速度快。</li>
+<li><strong>经常吃的零食</strong>：就是那些你经常需要访问的数据。</li>
+</ol>
+<p>缓存的工作原理也是类似的：</p>
+<ol>
+<li><strong>提前准备</strong>：电脑系统会提前把一些常用的数据（比如你经常吃的零食）放到缓存里。</li>
+<li><strong>快速访问</strong>：当你需要这些数据的时候，系统会首先检查缓存里有没有，如果有就直接从缓存里拿，这样速度就很快。</li>
+<li><strong>定期更新</strong>：如果缓存里的数据用完了，或者有新的常用数据出现，系统会从硬盘里把新的数据放到缓存里，替换掉旧的数据。</li>
+</ol>
+<p>通过这种方式，缓存帮助电脑系统更快地获取常用的数据，就像零食柜帮助你更快地拿到你喜欢的零食一样。这样，无论是电脑还是你，都能更高效地完成任务。</p>
+<p>缓存图解如下：</p>
+<p><img src="https://pic3.zhimg.com/v2-0a9cbc7e660c7bf87f40075124c46a75_r.jpg" alt="缓存模式以及如何保存缓存的数据一致性 - 知乎"></p>
+<h3 id="2、解决缓存问题所用部分技术"><a href="#2、解决缓存问题所用部分技术" class="headerlink" title="2、解决缓存问题所用部分技术"></a>2、解决缓存问题所用部分技术</h3><ol>
+<li><strong>Spring Cache</strong>：Spring 框架提供的缓存抽象，支持多种缓存实现，如 Ehcache、Redis 等。</li>
+<li><strong>Redis</strong>：一种高性能的键值对存储数据库，常用于缓存数据，属于分布式缓存。</li>
+<li><strong>Ehcache</strong>：一个开源的缓存框架，提供了多种缓存策略和配置选项，性能较好。</li>
+<li><strong>Guava Cache</strong>：Google Guava 库中的缓存实现，性能较好。</li>
+<li><strong>memcached</strong>：一个高性能的分布式内存对象缓存系统。</li>
+<li><strong>Simple</strong>（默认）</li>
+</ol>
+<h3 id="3、多级缓存"><a href="#3、多级缓存" class="headerlink" title="3、多级缓存"></a>3、多级缓存</h3><p>可能有些小伙伴会有些疑问，有一级缓存了为什么还需要多级缓存呢？那么在这浅谈一下：</p>
+<p>你可以想象一下这个场景：一级缓存和多级缓存就像是你去超市购物时的两种不同类型的购物车。</p>
+<p><strong>一级缓存</strong>就像你随身携带的小购物篮。当你在超市里走动时，你可能会随手拿起一些你觉得可能会需要的商品，放进了这个小篮子里。这些商品可能是一些你经常购买的，或者你觉得可能会用到的。当你决定买这些商品时，你直接从篮子里取出来，非常方便快捷。但是，这个小篮子的空间是有限的，你不能放太多东西。</p>
+<p><strong>多级缓存</strong>则像是你在超市里租用的大型购物车。这个大型购物车可以放更多的商品，而且通常放在超市的某个固定位置，比如靠近收银台。你可以在逛超市的过程中，把一些需要的商品先放在这里，等到你逛完超市，确认需要购买的物品后，再从大型购物车里取出来结账。大型购物车的好处是容量大，可以存放更多的商品，而且位置固定，方便你随时查看和取用。</p>
+<p>So，一级缓存和多级缓存的共同作用就是帮助我们更高效地获取和管理需要的商品（数据），一级缓存提供了快速的、局部的访问，而多级缓存提供了更持久的、全局的存储。两者结合使用，可以确保我们在购物（数据处理）的过程中既快速又不遗漏，同时还能节省空间（资源），何乐而不为。</p>
+]]></content>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图床</title>
+    <url>/2024/09/18/%E5%9B%BE%E5%BA%8A/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="图床那些事"><a href="#图床那些事" class="headerlink" title="图床那些事"></a>图床那些事</h1><p><strong>1.图床到底是用来干什么的呢？？</strong></p>
+<p>图床是其实一种在线存储图片的服务，它允许用户上传图片并获取图片的链接，也就是说当你把一张照片上传到图床上，那么通过生成的这个链接，你就能在任何联网的电脑或者手机设备上访问（查看）到该图片。这些链接可以用于网页、博客、论坛等地方，使得图片能够在不同的平台上展示。</p>
+<p><strong>SMMS</strong></p>
+<p>下面这个就是我在SMMS这地上传的图片，上传之后它会给你生成链接，该链接就能直接访问该图片</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180045352.png" alt="image-20240918004525307"></p>
+<p><strong>Github</strong></p>
+<p>再下面这个呢就是我在GitHub上面创建的一个public（公开）的仓库，当我把图片上传到仓库里，其他人就能通过我仓库的地址来查看到我的图片，pictures就是我存放图片的文件夹，你们现在看到的该图就是我在写笔记的时候引入了我图片的链接，然后你们就能看得到my photos</p>
+<p><img src="https://cdn.jsdelivr.net/gh/shamrock2330/photos/pictures/202409180048173.png" alt="image-20240918004818033"></p>
+<p>其实除了上述俩可以搭建图床外，也还有很多其他的，比如：</p>
+<p>腾讯云COS、</p>
+<p>阿里云OSS、</p>
+<p>七牛云、</p>
+<p>imgur…….</p>
+<p>但是很多都是要收费的，而且上传的图片会有大小的限制等等，所以我选择使用Github白嫖哈哈。。</p>
+<p><strong>2.为什么要把图片上传到图床，我微信发给别人那不也是能看得到吗？？</strong></p>
+<p>你把本地的图片（也就是手机或者电脑上保存的图片）发给你的微信&#x2F;QQ好友，这时候你的friend确实是能看得到图片，也能下载，但是你可不要误会了，这可不是因为你把图片上传到网上了（这里的网指的是所有联网设备都能查看的地方），这是因为你把图片上传到一个小仓库里面（也就是缓存），当你有网络可以加载的时候它就能从仓库里面把图片拿出来给你看，因为都说是小仓库了，如果它把你发的图片都给永久的存储起来，那当你给你的   girlfriend&#x2F;boyfriend 发的图片越来越多的时候，你的小仓库是不是要爆炸了，就跟你告急的体重一样哈哈哈。</p>
+<p>如果想大概知道缓存是什么可以去看看<a href="https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/">https://shamrock2330.github.io/2024/07/14/%E7%BC%93%E5%AD%98/</a></p>
+<p>你估计也曾遇到过当你想回去微信&#x2F;QQ找一些久远的图片但是发现它说被清理了，这就是你的小仓库它存储东西是有一个期限的，到时间它就给你清掉了，不然你的小仓库就没地方放东西啦！！</p>
+<p>So你觉得重要的文件或图片就能保存下来，防止丢失</p>
+<p><strong>3.使用Picgo+Github搭建图床（可以配合Typora&#x2F;obsidian使用—写笔记）</strong></p>
+<p>网上教程很多，不会的可以去找来玩玩，这边也直接V个链接：</p>
+<p><a href="https://blog.csdn.net/xianrenzhou/article/details/137369119?ops_request_misc=&request_id=&biz_id=102&spm=1018.2226.3001.4450">2024新版-使用GitHub搭建个人图床_用github建图床-CSDN博客</a></p>
+<p>因为GitHub是国外的一个代码托管平台，所以有时候访问起来会很慢，but如果你luck的话也是能访问的，如果不行就可以去下载Watt Toolkit（也叫steam++），操作起来很简单。</p>
+<p>不想用加速器也可以使用SwitchHosts，这可能就需要稍微进行一点点的配置，感兴趣可以去了解一下DNS，就知道为什么SwitchHosts也能给你加速了。</p>
+]]></content>
+      <tags>
+        <tag>科普</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>聊多级缓存的一致性</title>
+    <url>/2024/08/28/%E8%81%8A%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E5%92%8C%E5%A4%9A%E7%BA%A7%E7%BC%93%E5%AD%98%E7%9A%84%E4%B8%80%E8%87%B4%E6%80%A7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>缓存（Cache）是一种临时存储系统，主要用于存储最近或频繁访问的数据。其主要目的是为了提高数据访问速度，减少对原始数据源（如磁盘、网络服务器等）的访问次数，从而提升系统的性能和响应速度。</p>
+<p>为了降低高并发下数据库的压力，我们多以 redis 作为缓存去存储频繁访问的数据，避免更多的请求直接打到数据库给其造成巨大压力。</p>
+<p>但是与此同时，我们单一级的 redis 缓存也可能会遇到以下一些问题：</p>
+<p>这里先补充一点关于<strong>数据的一致性</strong>问题：</p>
+<p>数据一致性问题是指当数据在多个地方（如缓存和数据库）存储时，这些地方的数据可能会出现不一致的情况。这种不一致可能是由于缓存更新滞后、系统故障或其他原因引起的。</p>
+<ol>
+<li><strong>并发访问问题</strong>：<ul>
+<li>Redis是一个共享内存数据库，当 n 多个客户端同时访问缓存时，可能会出现并发访问问题，尤其是在高并发场景下。Redis虽然提供了多种锁机制（如SETNX命令等）来解决并发问题，但在高并发场景下，仍然可能导致数据不一致或性能瓶颈。</li>
+</ul>
+</li>
+<li><strong>缓存穿透</strong>：<ul>
+<li>当请求的数据在缓存和数据库中都不存在时，如果缓存直接返回空或错误信息，可能会导致大量无效请求直接冲击数据库，影响性能和数据库负载。<br> <em>解决方案</em><br> -可以采用布隆过滤器（Bloom Filter）来预判数据是否不存在于缓存中，从而避免直接查询数据库；还有一个最简单的就是缓存空值，并设置合理的过期时间。</li>
+</ul>
+</li>
+<li><strong>缓存雪崩</strong>：<ul>
+<li>当缓存中大量数据同时过期，高并发场景下请求直接访问数据库，导致数据库压力剧增，可能导致数据库崩溃，进而导致数据不一致。<br> <em>解决方案</em></li>
+<li>可以通过将缓存数据的过期时间设置为随机，这样就可以防止太多缓存同时过期导致出现雪崩；把筛出来的热点数据设置为静态，可以减少数据库的访问，减轻压力。</li>
+</ul>
+</li>
+<li><strong>缓存击穿</strong>：<ul>
+<li>当缓存中某个热点数据在高并发情况下失效（例如缓存过期或故障被删除），并且此时数据库查询结果也未及时更新到缓存中，可能会导致大量请求直接冲击数据库，造成性能瓶颈。<br> <em>解决方案</em></li>
+<li>可以通过设置缓存的互斥锁（如 Redis 的 SETNX 命令）来确保在缓存失效时只有一条请求能进入数据库查询，其余请求等待缓存更新，性能会稍有影响，毕竟这么多的请求都在阻塞等待，好处是能防止同一时间大量请求涌入数据库造成巨大压力；另外还有一种办法，可以将热点数据的缓存设置为永不过期，但是这样的话有要求系统准确判断热 key 的能力较好。</li>
+</ul>
+</li>
+<li><strong>内存使用问题</strong>：<ul>
+<li>Redis缓存会占用服务器的内存资源。如果缓存数据量过大，可能会导致服务器内存不足，影响其他应用或服务的运行，性能下降。</li>
+</ul>
+</li>
+</ol>
+<h2 id="传统缓存的不足之处"><a href="#传统缓存的不足之处" class="headerlink" title="传统缓存的不足之处"></a>传统缓存的不足之处</h2><p>传统的缓存策略一般是请求到达 Tomcat 后，先查询 Redis，如果未命中则查询数据库，这种如此直接的缓存策略会存在下面的问题: </p>
+<ul>
+<li>请求需要经过 Tomcat 处理，那么 Tomcat 的性能成为整个系统的瓶颈</li>
+<li>当Redis 缓存失效时，会对数据库产生冲击，导致性能下降</li>
+</ul>
+<p>随着用户体量的增大，像传统的缓存策略，即使 redis 单机并发已经很高了，但仍会达到上限，对于像某宝某东这种并发量甚至能达到亿级以上的网站，redis 就开始有点力不从心了，所以我们引入多级缓存去应对这种如此高并发的需求。</p>
+<h2 id="引入多级缓存"><a href="#引入多级缓存" class="headerlink" title="引入多级缓存"></a>引入多级缓存</h2><p>多级缓存（Multi-Level Caching）是计算机系统中用于提高数据访问速度的一种技术，相对于普通的单一层缓存能应对更高的并发场景。它通过在处理器和主存储器（如RAM）之间引入多个缓存层次，来减少处理器访问数据时所需的时间。</p>
+<p><strong>方案</strong><br>对于某些业务场景，我们可以分为四级缓存：</p>
+<ol>
+<li><strong>浏览器客户端缓存</strong>：<ul>
+<li>浏览器把服务器返回的静态资源缓存在本地，这样在下一次访问这些静态资源的时候，服务器只需要检查一下数据是否变化了（一般情况下静态资源是很少发生变化的），若没有则不需要返回数据，直接用本地缓存的数据渲染即可，减少了很多数据的传输，提高响应速度。</li>
+</ul>
+</li>
+<li><strong>本地缓存</strong>：<ul>
+<li>nginx 本地缓存，作为第二级缓存，处理访问非静态资源的请求。</li>
+</ul>
+</li>
+<li><strong>redis 缓存</strong></li>
+<li><strong>Tomcat进程缓存</strong>：<ul>
+<li>利用 Caffeine 这个高性能本地缓存库来完成（Spring 内部的缓存使用的就是该库）</li>
+<li>因为是本地内存存储，它的存储容量是很有限的，所以 Caffeine 提供了三种缓存驱逐策略：<br> — 1. <em>基于容量</em>：设置缓存的数量上限<br> — 2.<em>基于时间</em>：设置缓存的有效时间<br> — 3.<em>基于引用</em>：设置缓存为软引用或弱引用，利用 GC 来回收缓存数据。（官方：性能较差，不建议使用）<br> — <em>注意</em>：在默认情况下，当一个缓存元素过期的时候，Caffeine 不会自动立即将其清理和驱逐。而是在一次读或写操作后，或者在空闲时间完成对失效数据的驱逐。</li>
+</ul>
+</li>
+</ol>
+<p>使用多级缓存之后，我们的程序已经足以应对上述高并发的场景，但是此时使用缓存要解决的数据一致性问题就更加凸显出来了，我们又应该怎样解决多级缓存的一致性（数据同步）问题呢？</p>
+<h2 id="谈多级缓存的一致性"><a href="#谈多级缓存的一致性" class="headerlink" title="谈多级缓存的一致性"></a>谈多级缓存的一致性</h2><p>缓存一致性（Cache Coherence）是指在分布式系统中，多个缓存副本之间保持数据一致性的能力。当数据在多个位置（如多个处理器或多个计算机节点）被缓存时，缓存一致性确保了对数据的读取和写入操作能够正确地反映数据的最新状态。换句话说，缓存一致性确保了在系统中不同位置的缓存副本之间不会出现数据不一致的情况。</p>
+<p>以下将介绍一些解决多级缓存一致性的方法和概念：</p>
+<ol>
+<li><strong>实时强一致性</strong>：<ul>
+<li>实时强一致性保证了任何时刻，所有的客户端看到的数据都是一样的，读取操作总是返回最新的数据。在分布式系统中实现强一致性意味着，一个操作一旦完成，所有的客户端立即都能看到这个操作的结果。<br> <em>方案</em>：</li>
+<li>这里最容易想到的操作就是加锁，但是既然是加锁的话，这对我们的性能肯定是有影响的，但是我们使用缓存就是为了去提高性能，所以如果为了保证数据的强一致性而去加锁的话在多数场景下显然是不符合需求的。</li>
+<li>double-check：既然是加锁，那么就不得不提到这种 double-check 模式（即简单理解为检查-加锁-检查），第一次是检查缓存是否存在，第二次是检查拿到锁的时候，是否有其他线程已经完成缓存重建。</li>
+<li>使用一些分布式事务协议或者强一致性算法也可以保证数据的一致性。</li>
+</ul>
+</li>
+<li><strong>最终一致性</strong>：<ul>
+<li>最终一致性是指，数据可能在不同的缓存级别之间有延迟，但最终会一致。在这种模型下，数据的副本之间可能会暂时存在不一致。<br> <em>方案</em></li>
+<li>消息队列：在数据发生更新时首先更新数据库，然后可以考虑将更新请求都发送到消息队列上，通过异步将更新同步到其他副本。但是要注意的是，同一个业务的消息必须是有序的，不然最终数据会出错。话又说回来了，既然要先更新数据库，我们大可以引入 Canal 去监听 binlog，数据库更新时再异步去更新缓存或者删除缓存（根据实际场景选择）这样对于代码的侵入性更低，时效性也更强。</li>
+<li>版本控制：每个缓存都有一个对应的版本号，每次更新时版本号会增加。读取时，如果版本号不是最新的，则从主存储中获取最新数据并写入缓存。也可以时间戳来代替版本号</li>
+</ul>
+</li>
+<li><strong>缓存失效策略</strong>：<ul>
+<li>内存淘汰：利用redis的内存淘汰机制，当内存不足时自动淘汰掉一些不重要的数据(可以自己设置策略方式)，下次查询时更新缓存。</li>
+<li>主动更新：当数据库数据变化时，主动更新缓存中的数据。</li>
+<li>超时剔除：为缓存数据设置一个过期时间。定期从数据库中重新加载数据，以保持数据的新鲜度。高并发情况下可能会出现缓存击穿&#x2F;雪崩问题，也无法解决数据在两次加载之间变化导致的一致性问题。</li>
+<li>惰性加载：只有在请求特定数据且发现缓存失效或缓存中没有该数据时，才去数据库加载该数据。高并发场景下可能会导致缓存击穿。</li>
+</ul>
+</li>
+<li><strong>分布式缓存一致性协议</strong>：<ul>
+<li>Paxos</li>
+<li>Raft</li>
+</ul>
+</li>
+<li><strong>缓存一致性协议</strong>：<ul>
+<li>MESI</li>
+<li>MOESI（MESI 的扩展）</li>
+</ul>
+</li>
+</ol>
+<p>对于多级缓存的一致性，还有没办法忽略的问题是该如何选择先更新哪一级缓存或者是一次更新所有缓存？（以下均为先更新数据库再更新缓存）</p>
+<ol>
+<li><strong>全更新</strong>（写通Write-Through）：<ul>
+<li>确保所有缓存中数据的一致性，减少数据不一致带来的问题。但是全更新会导致维护成本增加，全更新所用时间更长，也可能会因为加锁让性能降低。除非有数据强一致性的业务需求，否则不太建议，毕竟对性能的影响无法忽视。</li>
+</ul>
+</li>
+<li><strong>局部更新</strong>（写回Write-Back）：<ul>
+<li>先更新存储非静态数据的第一级缓存，保证用户拿到的数据是最新的，其他缓存则可以使用消息队列等进行异步复制，这种办法会出现短暂的数据不一致性，但是无再更新操作一段时间后数据能达到一致。</li>
+</ul>
+</li>
+<li><strong>按需更新</strong>（标记Tagging）：<ul>
+<li>结合以上的全更新和局部更新策略，我们可以根据业务需求进行按需更新，对于实时性要求高的系统，可能需要选择全更新策略以保证数据一致性。</li>
+<li>对于性能要求高的系统，可能需要选择局部更新策略以减少性能开销。</li>
+<li>但是这种方法实现起来更加复杂，需要精确的预测机制以筛选出不同需求的数据。</li>
+</ul>
+</li>
+</ol>
+<p>结合以上讲述，我们能够知道，不存在绝对好的方案，只有最适合当前系统特性和业务需求的方案。实际开发中我们也需要根据业务对数据不一致的容忍度，综合各方面的因素选择当下的最优解方案，correct !</p>
+]]></content>
+      <tags>
+        <tag>notes</tag>
       </tags>
   </entry>
 </search>
